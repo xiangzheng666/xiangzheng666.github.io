@@ -1,0 +1,49 @@
+.head{
+
+    font-size:22px;
+    text-align:center;
+    padding-top:1%;
+    padding-bottom:1%;
+    width:100%;
+}
+.a_box{
+    padding-left:2%;
+    padding-right:2%;
+    float:center;
+
+}
+.cent{
+    font-weight:lighter;
+    border: 1px solid;
+    text-align:center;
+    margin-left:14%;
+    margin-right:14%;
+}
+
+.cent_boy{
+    font-weight:lighter;
+    border: 1px solid;
+    text-align:center;
+    margin-left:14%;
+    margin-right:14%;
+    margin-top:2%;
+    margin-bottom:2%;
+    width:70%;
+}
+.zhuti{
+    font-size:22px;
+    font-weight:lighter;
+}
+.cent_boy_boy{
+    font-weight:lighter;
+    font-size:12px;
+    border:
+}
+.d{
+    float:left;
+    width:30%;
+    height:10%;
+    text-align:left;
+    line-height:60%;
+    border: 1px solid;
+}

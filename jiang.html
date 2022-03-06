@@ -1,0 +1,13 @@
+---
+layout: page
+---
+
+{% for item in site.categories.jiang %}
+
+        <tr>
+            <td><a href="{{item.url}}">{{item.date}}</a></td>
+            <td><a href="{{item.url}}">{{item.categories}}</a></td>
+            <td><a href="{{item.url}}">{{item.title}}</a></td>
+        </tr>
+
+{% endfor %}
