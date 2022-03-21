@@ -9,8 +9,6 @@
 .a_box{
     padding-left:2%;
     padding-right:2%;
-    float:center;
-
 }
 .cent{
     font-weight:lighter;
@@ -37,7 +35,6 @@
 .cent_boy_boy{
     font-weight:lighter;
     font-size:12px;
-    border:
 }
 .d{
     float:left;
@@ -47,4 +44,28 @@
     line-height:60%;
     border: 1px solid;
     color: red;
+}
+
+.tt{
+    width: 50%;
+
+}
+
+.t{
+
+    border:0px;
+    rules:none;
+    text-align: center;
+    background-color: transparent;
+}
+.el-table,
+.el-table__expanded-cell {
+    background-color: transparent !important;
+}
+/* 表格内背景颜色 */
+/*
+.el-table th,
+.el-table tr,
+.el-table td {
+    background-color: transparent !important;
 }

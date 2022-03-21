@@ -24,7 +24,7 @@ section, summary, time, mark, audio, video {
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;}
-
+table
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;}
@@ -46,10 +46,6 @@ blockquote, q {
 		content: none;
 	}
 
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-}
 
 body {
 	-webkit-text-size-adjust: none;
@@ -100,10 +96,6 @@ input, select, textarea {
 
 	body {
 		background-color: #935d8c;
-		background-image: url("images/overlay.png"), -moz-linear-gradient(45deg, #e37682 15%, #5f4d93 85%);
-		background-image: url("images/overlay.png"), -webkit-linear-gradient(45deg, #e37682 15%, #5f4d93 85%);
-		background-image: url("images/overlay.png"), -ms-linear-gradient(45deg, #e37682 15%, #5f4d93 85%);
-		background-image: url("images/overlay.png"), linear-gradient(45deg, #e37682 15%, #5f4d93 85%);
 	}
 
 		body.is-preload *, body.is-preload *:before, body.is-preload *:after {
@@ -2768,29 +2760,7 @@ input, select, textarea {
 				border-top: 0;
 			}
 
-	table tbody tr {
-		border-color: rgba(255, 255, 255, 0.35);
-	}
 
-		table tbody tr:nth-child(2n + 1) {
-			background-color: rgba(255, 255, 255, 0.075);
-		}
-
-	table th {
-		color: #ffffff;
-	}
-
-	table thead {
-		border-bottom-color: rgba(255, 255, 255, 0.35);
-	}
-
-	table tfoot {
-		border-top-color: rgba(255, 255, 255, 0.35);
-	}
-
-	table.alt tbody tr td {
-		border-color: rgba(255, 255, 255, 0.35);
-	}
 
 /* Features */
 
