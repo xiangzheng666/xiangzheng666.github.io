@@ -1,0 +1,252 @@
+---
+layout: post
+author: liuxiangzheng
+categories: ziyuan
+---
+
+## 一、数据结构相关
+
+- 链表
+  - [1. 相交链表](https://leetcode-cn.com/problems/intersection-of-two-linked-lists/)
+  - [2. 反转链表](https://leetcode-cn.com/problems/reverse-linked-list/)
+  - [3. 合并两个有序链表](https://leetcode-cn.com/problems/merge-two-sorted-lists/)
+  - [4. 删除排序链表中的重复元素](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list/)
+  - [5. 删除链表的倒数第 n 个节点](https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list/)
+  - [6. 两两交换链表中的节点](https://leetcode-cn.com/problems/swap-nodes-in-pairs/)
+  - [7. 两数相加 II](https://leetcode-cn.com/problems/add-two-numbers-ii/)
+  - [8. 回文链表](https://leetcode-cn.com/problems/palindrome-linked-list/)
+  - [9. 分隔链表](https://leetcode-cn.com/problems/split-linked-list-in-parts/)
+  - [10.奇偶链表](https://leetcode-cn.com/problems/odd-even-linked-list/)
+- 数组与矩阵
+  - [1. 移动零](https://leetcode-cn.com/problems/move-zeroes/)
+  - [2. 重塑矩阵](https://leetcode-cn.com/problems/reshape-the-matrix/)
+  - [3. 最大连续1的个数](https://leetcode-cn.com/problems/max-consecutive-ones/)
+  - [4. 搜索二维矩阵 II](https://leetcode-cn.com/problems/search-a-2d-matrix-ii/)
+  - [5. 有序矩阵中第 K 小的元素](https://leetcode-cn.com/problems/kth-smallest-element-in-a-sorted-matrix/)
+  - [6. 错误的集合](https://leetcode-cn.com/problems/set-mismatch/)
+  - [7. 寻找重复数](https://leetcode-cn.com/problems/find-the-duplicate-number/)
+  - [8. 优美的排列 II](https://leetcode-cn.com/problems/beautiful-arrangement-ii/)
+  - [9. 数组的度](https://leetcode-cn.com/problems/degree-of-an-array/)
+  - [10. 托普利茨矩阵](https://leetcode-cn.com/problems/toeplitz-matrix/)
+  - [11. 数组嵌套](https://leetcode-cn.com/problems/array-nesting/)
+  - [12. 最多能完成排序的块](https://leetcode-cn.com/problems/max-chunks-to-make-sorted/)
+- 栈和队列
+  - [1. 用栈实现队列](https://www.cnblogs.com/victorxiao/p/12703983.html)
+  - [2. 用队列实现栈](https://www.cnblogs.com/victorxiao/p/12703983.html)
+  - [3. 最小值栈](https://www.cnblogs.com/victorxiao/p/12703983.html)
+  - [4. 用栈实现括号匹配](https://www.cnblogs.com/victorxiao/p/12703983.html)
+  - [5. 数组中元素与下一个比它大的元素之间的距离](https://www.cnblogs.com/victorxiao/p/12703983.html)
+  - [6. 循环数组中比当前元素大的下一个元素](https://www.cnblogs.com/victorxiao/p/12703983.html)
+- 字符串
+  - [1. 字符串循环移位包含](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 字符串.md#1-字符串循环移位包含)
+  - [2. 字符串循环移位](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 字符串.md#2-字符串循环移位)
+  - [3. 字符串中单词的翻转](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 字符串.md#3-字符串中单词的翻转)
+  - [4. 两个字符串包含的字符是否完全相同](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 字符串.md#4-两个字符串包含的字符是否完全相同)
+  - [5. 计算一组字符集合可以组成的回文字符串的最大长度](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 字符串.md#5-计算一组字符集合可以组成的回文字符串的最大长度)
+  - [6. 字符串同构](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 字符串.md#6-字符串同构)
+  - [7. 回文子字符串个数](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 字符串.md#7-回文子字符串个数)
+  - [8. 判断一个整数是否是回文数](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 字符串.md#8-判断一个整数是否是回文数)
+  - [9. 统计二进制字符串中连续 1 和连续 0 数量相同的子字符串个数](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 字符串.md#9-统计二进制字符串中连续-1-和连续-0-数量相同的子字符串个数)
+- 树
+  - 递归
+    - [1. 树的高度](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 树.md#1-树的高度)
+    - [2. 平衡树](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 树.md#2-平衡树)
+    - [3. 两节点的最长路径](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 树.md#3-两节点的最长路径)
+    - [4. 翻转树](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 树.md#4-翻转树)
+    - [5. 归并两棵树](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 树.md#5-归并两棵树)
+    - [6. 判断路径和是否等于一个数](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 树.md#6-判断路径和是否等于一个数)
+    - [7. 统计路径和等于一个数的路径数量](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 树.md#7-统计路径和等于一个数的路径数量)
+    - [8. 子树](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 树.md#8-子树)
+    - [9. 树的对称](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 树.md#9-树的对称)
+    - [10. 最小路径](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 树.md#10-最小路径)
+    - [11. 统计左叶子节点的和](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 树.md#11-统计左叶子节点的和)
+    - [12. 相同节点值的最大路径长度](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 树.md#12-相同节点值的最大路径长度)
+    - [13. 间隔遍历](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 树.md#13-间隔遍历)
+    - [14. 找出二叉树中第二小的节点](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 树.md#14-找出二叉树中第二小的节点)
+  - 层次遍历
+    - [1. 一棵树每层节点的平均数](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 树.md#1-一棵树每层节点的平均数)
+    - [2. 得到左下角的节点](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 树.md#2-得到左下角的节点)
+  - 前中后序遍历
+    - [1. 非递归实现二叉树的前序遍历](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 树.md#1-非递归实现二叉树的前序遍历)
+    - [2. 非递归实现二叉树的后序遍历](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 树.md#2-非递归实现二叉树的后序遍历)
+    - [3. 非递归实现二叉树的中序遍历](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 树.md#3-非递归实现二叉树的中序遍历)
+  - BST
+    - [1. 修剪二叉查找树](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 树.md#1-修剪二叉查找树)
+    - [2. 寻找二叉查找树的第 k 个元素](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 树.md#2-寻找二叉查找树的第-k-个元素)
+    - [3. 把二叉查找树每个节点的值都加上比它大的节点的值](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 树.md#3-把二叉查找树每个节点的值都加上比它大的节点的值)
+    - [4. 二叉查找树的最近公共祖先](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 树.md#4-二叉查找树的最近公共祖先)
+    - [5. 二叉树的最近公共祖先](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 树.md#5-二叉树的最近公共祖先)
+    - [6. 从有序数组中构造二叉查找树](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 树.md#6-从有序数组中构造二叉查找树)
+    - [7. 根据有序链表构造平衡的二叉查找树](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 树.md#7-根据有序链表构造平衡的二叉查找树)
+    - [8. 在二叉查找树中寻找两个节点，使它们的和为一个给定值](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 树.md#8-在二叉查找树中寻找两个节点，使它们的和为一个给定值)
+    - [9. 在二叉查找树中查找两个节点之差的最小绝对值](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 树.md#9-在二叉查找树中查找两个节点之差的最小绝对值)
+    - [10. 寻找二叉查找树中出现次数最多的值](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 树.md#10-寻找二叉查找树中出现次数最多的值)
+  - Trie
+    - [1. 实现一个 Trie](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 树.md#1-实现一个-trie)
+    - [2. 实现一个 Trie，用来求前缀和](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 树.md#2-实现一个-trie，用来求前缀和)
+- 图
+  - 二分图
+    - [1. 判断是否为二分图](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 图.md#1-判断是否为二分图)
+  - 拓扑排序
+    - [1. 课程安排的合法性](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 图.md#1-课程安排的合法性)
+    - [2. 课程安排的顺序](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 图.md#2-课程安排的顺序)
+  - 并查集
+    - [1. 冗余连接](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 图.md#1-冗余连接)
+- 哈希表
+  - [1. 数组中两个数的和为给定值](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 哈希表.md#1-数组中两个数的和为给定值)
+  - [2. 判断数组是否含有重复元素](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 哈希表.md#2-判断数组是否含有重复元素)
+  - [3. 最长和谐序列](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 哈希表.md#3-最长和谐序列)
+  - [4. 最长连续序列](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 哈希表.md#4-最长连续序列)
+- 位运算
+  - [0. 原理](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 位运算.md#0-原理)
+  - [1. 统计两个数的二进制表示有多少位不同](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 位运算.md#1-统计两个数的二进制表示有多少位不同)
+  - [2. 数组中唯一一个不重复的元素](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 位运算.md#2-数组中唯一一个不重复的元素)
+  - [3. 找出数组中缺失的那个数](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 位运算.md#3-找出数组中缺失的那个数)
+  - [4. 数组中不重复的两个元素](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 位运算.md#4-数组中不重复的两个元素)
+  - [5. 翻转一个数的比特位](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 位运算.md#5-翻转一个数的比特位)
+  - [6. 不用额外变量交换两个整数](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 位运算.md#6-不用额外变量交换两个整数)
+  - [7. 判断一个数是不是 2 的 n 次方](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 位运算.md#7-判断一个数是不是-2-的-n-次方)
+  - [8. 判断一个数是不是 4 的 n 次方](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 位运算.md#8--判断一个数是不是-4-的-n-次方)
+  - [9. 判断一个数的位级表示是否不会出现连续的 0 和 1](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 位运算.md#9-判断一个数的位级表示是否不会出现连续的-0-和-1)
+  - [10. 求一个数的补码](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 位运算.md#10-求一个数的补码)
+  - [11. 实现整数的加法](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 位运算.md#11-实现整数的加法)
+  - [12. 字符串数组最大乘积](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 位运算.md#12-字符串数组最大乘积)
+  - [13. 统计从 0 ~ n 每个数的二进制表示中 1 的个数](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 位运算.md#13-统计从-0-~-n-每个数的二进制表示中-1-的个数)
+
+## 二、算法思想
+
+- [双指针](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 双指针.md)
+  - [1. 有序数组的 Two Sum](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 双指针.md#1-有序数组的-two-sum)
+  - [2. 两数平方和](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 双指针.md#2-两数平方和)
+  - [3. 反转字符串中的元音字符](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 双指针.md#3-反转字符串中的元音字符)
+  - [4. 回文字符串](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 双指针.md#4-回文字符串)
+  - [5. 归并两个有序数组](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 双指针.md#5-归并两个有序数组)
+  - [6. 判断链表是否存在环](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 双指针.md#6-判断链表是否存在环)
+  - [7. 最长子序列](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 双指针.md#7-最长子序列)
+- [排序](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 排序.md)
+  - [快速选择](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 排序.md#快速选择)
+  - 堆
+    - [1. Kth Element](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 排序.md#1-kth-element)
+  - 桶排序
+    - [1. 出现频率最多的 k 个元素](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 排序.md#1-出现频率最多的-k-个元素)
+    - [2. 按照字符出现次数对字符串排序](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 排序.md#2-按照字符出现次数对字符串排序)
+  - 荷兰国旗问题
+    - [1. 按颜色进行排序](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 排序.md#1-按颜色进行排序)
+- [贪心思想](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 贪心思想.md)
+  - [1. 分配饼干](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 贪心思想.md#1-分配饼干)
+  - [2. 不重叠的区间个数](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 贪心思想.md#2-不重叠的区间个数)
+  - [3. 投飞镖刺破气球](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 贪心思想.md#3-投飞镖刺破气球)
+  - [4. 根据身高和序号重组队列](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 贪心思想.md#4-根据身高和序号重组队列)
+  - [5. 买卖股票最大的收益](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 贪心思想.md#5-买卖股票最大的收益)
+  - [6. 买卖股票的最大收益 II](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 贪心思想.md#6-买卖股票的最大收益-ii)
+  - [7. 种植花朵](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 贪心思想.md#7-种植花朵)
+  - [8. 判断是否为子序列](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 贪心思想.md#8-判断是否为子序列)
+  - [9. 修改一个数成为非递减数组](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 贪心思想.md#9-修改一个数成为非递减数组)
+  - [10. 子数组最大的和](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 贪心思想.md#10-子数组最大的和)
+  - [11. 分隔字符串使同种字符出现在一起](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 贪心思想.md#11-分隔字符串使同种字符出现在一起)
+- [二分查找](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 二分查找.md)
+  - [1. 求开方](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 二分查找.md#1-求开方)
+  - [2. 大于给定元素的最小元素](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 二分查找.md#2-大于给定元素的最小元素)
+  - [3. 有序数组的 Single Element](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 二分查找.md#3-有序数组的-single-element)
+  - [4. 第一个错误的版本](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 二分查找.md#4-第一个错误的版本)
+  - [5. 旋转数组的最小数字](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 二分查找.md#5-旋转数组的最小数字)
+  - [6. 查找区间](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 二分查找.md#6-查找区间)
+- [分治](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 分治.md)
+  - [1. 给表达式加括号](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 分治.md#1-给表达式加括号)
+  - [2. 不同的二叉搜索树](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 分治.md#2-不同的二叉搜索树)
+- [搜索](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 搜索.md)
+  - BFS
+    - [1. 计算在网格中从原点到特定点的最短路径长度](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 搜索.md#1-计算在网格中从原点到特定点的最短路径长度)
+    - [2. 组成整数的最小平方数数量](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 搜索.md#2-组成整数的最小平方数数量)
+    - [3. 最短单词路径](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 搜索.md#3-最短单词路径)
+  - DFS
+    - [1. 查找最大的连通面积](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 搜索.md#1-查找最大的连通面积)
+    - [2. 矩阵中的连通分量数目](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 搜索.md#2-矩阵中的连通分量数目)
+    - [3. 好友关系的连通分量数目](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 搜索.md#3-好友关系的连通分量数目)
+    - [4. 填充封闭区域](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 搜索.md#4-填充封闭区域)
+    - [5. 能到达的太平洋和大西洋的区域](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 搜索.md#5-能到达的太平洋和大西洋的区域)
+  - Backtracking
+    - [1. 数字键盘组合](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 搜索.md#1-数字键盘组合)
+    - [2. IP 地址划分](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 搜索.md#2-ip-地址划分)
+    - [3. 在矩阵中寻找字符串](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 搜索.md#3-在矩阵中寻找字符串)
+    - [4. 输出二叉树中所有从根到叶子的路径](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 搜索.md#4-输出二叉树中所有从根到叶子的路径)
+    - [5. 排列](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 搜索.md#5-排列)
+    - [6. 含有相同元素求排列](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 搜索.md#6-含有相同元素求排列)
+    - [7. 组合](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 搜索.md#7-组合)
+    - [8. 组合求和](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 搜索.md#8-组合求和)
+    - [9. 含有相同元素的组合求和](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 搜索.md#9-含有相同元素的组合求和)
+    - [10. 1-9 数字的组合求和](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 搜索.md#10-1-9-数字的组合求和)
+    - [11. 子集](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 搜索.md#11-子集)
+    - [12. 含有相同元素求子集](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 搜索.md#12-含有相同元素求子集)
+    - [13. 分割字符串使得每个部分都是回文数](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 搜索.md#13-分割字符串使得每个部分都是回文数)
+    - [14. 数独](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 搜索.md#14-数独)
+    - [15. N 皇后](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 搜索.md#15-n-皇后)
+- [动态规划](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 动态规划.md)
+  - 斐波那契数列
+    - [1. 爬楼梯](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 动态规划.md#1-爬楼梯)
+    - [2. 强盗抢劫](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 动态规划.md#2-强盗抢劫)
+    - [3. 强盗在环形街区抢劫](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 动态规划.md#3-强盗在环形街区抢劫)
+    - [4. 信件错排](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 动态规划.md#4-信件错排)
+    - [5. 母牛生产](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 动态规划.md#5-母牛生产)
+  - 矩阵路径
+    - [1. 矩阵的最小路径和](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 动态规划.md#1-矩阵的最小路径和)
+    - [2. 矩阵的总路径数](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 动态规划.md#2-矩阵的总路径数)
+  - 数组区间
+    - [1. 数组区间和](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 动态规划.md#1-数组区间和)
+    - [2. 数组中等差递增子区间的个数](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 动态规划.md#2-数组中等差递增子区间的个数)
+  - 分割整数
+    - [1. 分割整数的最大乘积](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 动态规划.md#1-分割整数的最大乘积)
+    - [2. 按平方数来分割整数](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 动态规划.md#2-按平方数来分割整数)
+    - [3. 分割整数构成字母字符串](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 动态规划.md#3-分割整数构成字母字符串)
+  - 最长递增子序列
+    - [1. 最长递增子序列](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 动态规划.md#1-最长递增子序列)
+    - [2. 一组整数对能够构成的最长链](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 动态规划.md#2-一组整数对能够构成的最长链)
+    - [3. 最长摆动子序列](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 动态规划.md#3-最长摆动子序列)
+  - 最长公共子序列
+    - [1. 最长公共子序列](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 动态规划.md#1-最长公共子序列)
+  - 0-1 背包
+    - [1. 划分数组为和相等的两部分](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 动态规划.md#1-划分数组为和相等的两部分)
+    - [2. 改变一组数的正负号使得它们的和为一给定数](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 动态规划.md#2-改变一组数的正负号使得它们的和为一给定数)
+    - [3. 01 字符构成最多的字符串](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 动态规划.md#3-01-字符构成最多的字符串)
+    - [4. 找零钱的最少硬币数](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 动态规划.md#4-找零钱的最少硬币数)
+    - [5. 找零钱的硬币数组合](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 动态规划.md#5-找零钱的硬币数组合)
+    - [6. 字符串按单词列表分割](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 动态规划.md#6-字符串按单词列表分割)
+    - [7. 组合总和](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 动态规划.md#7-组合总和)
+  - 股票交易
+    - [1. 需要冷却期的股票交易](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 动态规划.md#1-需要冷却期的股票交易)
+    - [2. 需要交易费用的股票交易](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 动态规划.md#2-需要交易费用的股票交易)
+    - [3. 只能进行两次的股票交易](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 动态规划.md#3-只能进行两次的股票交易)
+    - [4. 只能进行 k 次的股票交易](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 动态规划.md#4-只能进行-k-次的股票交易)
+  - 字符串编辑
+    - [1. 删除两个字符串的字符使它们相等](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 动态规划.md#1-删除两个字符串的字符使它们相等)
+    - [2. 编辑距离](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 动态规划.md#2-编辑距离)
+    - [3. 复制粘贴字符](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 动态规划.md#3-复制粘贴字符)
+- [数学](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 数学.md)
+  - [素数分解](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 数学.md#素数分解)
+  - [整除](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 数学.md#整除)
+  - 最大公约数最小公倍数
+    - [1. 生成素数序列](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 数学.md#1-生成素数序列)
+    - [2. 最大公约数](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 数学.md#2-最大公约数)
+    - [3. 使用位操作和减法求解最大公约数](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 数学.md#3-使用位操作和减法求解最大公约数)
+  - 进制转换
+    - [1. 7 进制](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 数学.md#1-7-进制)
+    - [2. 16 进制](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 数学.md#2-16-进制)
+    - [3. 26 进制](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 数学.md#3-26-进制)
+  - 阶乘
+    - [1. 统计阶乘尾部有多少个 0](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 数学.md#1-统计阶乘尾部有多少个-0)
+  - 字符串加法减法
+    - [1. 二进制加法](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 数学.md#1-二进制加法)
+    - [2. 字符串加法](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 数学.md#2-字符串加法)
+  - 相遇问题
+    - [1. 改变数组元素使所有的数组元素都相等](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 数学.md#1-改变数组元素使所有的数组元素都相等)
+  - 多数投票问题
+    - [1. 数组中出现次数多于 n / 2 的元素](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 数学.md#1-数组中出现次数多于-n--2-的元素)
+  - 其它
+    - [1. 平方数](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 数学.md#1-平方数)
+    - [2. 3 的 n 次方](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 数学.md#2-3-的-n-次方)
+    - [3. 乘积数组](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 数学.md#3-乘积数组)
+    - [4. 找出数组中的乘积最大的三个数](https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode 题解 - 数学.md#4-找出数组中的乘积最大的三个数)
+
+
+
+
