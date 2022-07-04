@@ -1,0 +1,98 @@
+{
+  "main": {
+    "id": "7c187bf1a24b6e51",
+    "type": "split",
+    "children": [
+      {
+        "id": "fca25c8f980feb1d",
+        "type": "leaf",
+        "state": {
+          "type": "graph",
+          "state": {}
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "a166e2869fc50586",
+    "type": "split",
+    "children": [
+      {
+        "id": "3c011eb1f7af5d1c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "1cd53187eb592904",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "53034f80b6c050aa",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "ce90d3f9e3285823",
+    "type": "split",
+    "children": [
+      {
+        "id": "7fc4f826fb99a66e",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "3871fa950aa478aa",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "fca25c8f980feb1d",
+  "lastOpenFiles": [
+    "2022-3-1-nlp_note1.md",
+    "2022-01-14-后端优化.md",
+    "2022-01-13-视觉里程计2.md",
+    "公式.md",
+    "2022-01-13-视觉里程计.md",
+    "2022-01-12-windows_ros_文件结构.md",
+    "2022-01-12-windows_ros_模块导入.md",
+    "2022-01-11-sevice_srv实验 .md",
+    "2018-3-1-计算机网络面试题.md",
+    "2018-3-3-leetcode题.md"
+  ]
+}
