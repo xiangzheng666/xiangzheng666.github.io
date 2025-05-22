@@ -4,7 +4,7 @@
   <id>https://xiangzheng666.github.io/</id>
   <title>XiangZheng</title>
   <subtitle>The more you learn, the stronger you become.</subtitle>
-  <updated>2025-05-22T21:16:51+08:00</updated>
+  <updated>2025-05-22T21:41:10+08:00</updated>
   <author>
     <name>xiangzheng666</name>
     <uri>https://xiangzheng666.github.io/</uri>
@@ -20,119 +20,121 @@
 
   
   <entry>
-    <title>Redis设计与实战 数据结构</title>
-    <link href="https://xiangzheng666.github.io/posts/redis%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E6%88%98-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="alternate" type="text/html" title="Redis设计与实战 数据结构" />
-    <published>2023-08-28T00:00:00+08:00</published>
+    <title>爬虫 浏览器</title>
+    <link href="https://xiangzheng666.github.io/posts/%E7%88%AC%E8%99%AB-%E6%B5%8F%E8%A7%88%E5%99%A8/" rel="alternate" type="text/html" title="爬虫 浏览器" />
+    <published>2024-05-12T00:00:00+08:00</published>
   
-    <updated>2023-08-28T00:00:00+08:00</updated>
+    <updated>2024-05-12T00:00:00+08:00</updated>
   
-    <id>https://xiangzheng666.github.io/posts/redis%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E6%88%98-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</id>
-    <content type="text/html" src="https://xiangzheng666.github.io/posts/redis%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E6%88%98-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" />
+    <id>https://xiangzheng666.github.io/posts/%E7%88%AC%E8%99%AB-%E6%B5%8F%E8%A7%88%E5%99%A8/</id>
+    <content type="text/html" src="https://xiangzheng666.github.io/posts/%E7%88%AC%E8%99%AB-%E6%B5%8F%E8%A7%88%E5%99%A8/" />
     <author>
       <name>xiangzheng666</name>
     </author>
 
   
     
+    <category term="爬虫" />
+    
   
 
-  <summary></summary>
+  <summary>浏览器控制 1.Selenium pip install selenium  #浏览器版本： chrome://version/  #chromedrive下载 https://registry.npmmirror.com/binary.html?path=chromedriver/ https://googlechromelabs.github.io/chrome-for-testing/known-good-versions-with-downloads.json  {       &amp;quot;version&amp;quot;: &amp;quot;131.0.6778.87&amp;quot;,       &amp;quot;revision&amp;quot;: &amp;quot;1368529&amp;quot;,       &amp;quot;downloads&amp;quot;: {         &amp;quot;chromedriver&amp;quot;: [           {             &amp;quot;platform&amp;quot;: &amp;quot;linux64&amp;quot;, ...</summary>
 
   </entry>
 
   
   <entry>
-    <title>Windows_ros_ Xacrof文件</title>
-    <link href="https://xiangzheng666.github.io/posts/windows_ros_-xacrof%E6%96%87%E4%BB%B6/" rel="alternate" type="text/html" title="Windows_ros_ Xacrof文件" />
-    <published>2023-08-13T00:00:00+08:00</published>
+    <title>爬虫 M3u8</title>
+    <link href="https://xiangzheng666.github.io/posts/%E7%88%AC%E8%99%AB-m3u8/" rel="alternate" type="text/html" title="爬虫 M3u8" />
+    <published>2024-05-11T00:00:00+08:00</published>
   
-    <updated>2023-08-13T00:00:00+08:00</updated>
+    <updated>2024-05-11T00:00:00+08:00</updated>
   
-    <id>https://xiangzheng666.github.io/posts/windows_ros_-xacrof%E6%96%87%E4%BB%B6/</id>
-    <content type="text/html" src="https://xiangzheng666.github.io/posts/windows_ros_-xacrof%E6%96%87%E4%BB%B6/" />
+    <id>https://xiangzheng666.github.io/posts/%E7%88%AC%E8%99%AB-m3u8/</id>
+    <content type="text/html" src="https://xiangzheng666.github.io/posts/%E7%88%AC%E8%99%AB-m3u8/" />
     <author>
       <name>xiangzheng666</name>
     </author>
 
   
     
-    <category term="windows_ros" />
+    <category term="爬虫" />
     
   
 
-  <summary>xacro文件          使用      &amp;amp;lt;!-- 根标签，必须声明 xmlns:xacro --&amp;amp;gt; &amp;amp;lt;robot name=&amp;quot;my_base&amp;quot; xmlns:xacro=&amp;quot;http://www.ros.org/wiki/xacro&amp;quot;&amp;amp;gt;           先要转化成urdf：rosun xacro xacro xxx.xacro &amp;amp;gt; xxx.urdf 在讲urdf文件读入param中      或者直接      &amp;amp;lt;param name command=&amp;quot;$(find xacro) xacro $find(pkg)/....xacro&amp;quot;&amp;amp;gt;进行xacro文件加载                语法    单位：米制                      1.属性 	&amp;amp;lt;xacro:property name=&amp;quot;name&amp;quot; val...</summary>
+  <summary>HLS HLS技术的特点是将流媒体切分为若干【TS片段】（比如几秒一段），然后通过一个【M3U8列表文件】将这些TS片段批量下载供客户端播放器实现实时流式播放.  M3U文件 #EXTM3U:每个M3U文件第一行必须是这个tag标识。(简单了解) #EXT-X-VERSION:版本，此属性可用可不用。(简单了解) #EXT-X-TARGETDURATION:目标持续时间，是用来定义每个TS的【最大】duration（持续时间）。(简单了解) #EXT-X-ALLOW-CACHE是否允许允许高速缓存。(简单了解) #EXT-X-MEDIA-SEQUENCE定义当前M3U8文件中第一个文件的序列号，每个ts文件在M3U8文件中都有固定唯一的序列号。(简单了解) #EXT-X-DISCONTINUITY:播放器重新初始化(简单了解) #EXT-X-KEY定义加密方式，用来加密的密钥文件ke...</summary>
 
   </entry>
 
   
   <entry>
-    <title>Windows_ros_ Urdf文件</title>
-    <link href="https://xiangzheng666.github.io/posts/windows_ros_-urdf%E6%96%87%E4%BB%B6/" rel="alternate" type="text/html" title="Windows_ros_ Urdf文件" />
-    <published>2023-07-13T00:00:00+08:00</published>
+    <title>逆向 抓包</title>
+    <link href="https://xiangzheng666.github.io/posts/%E9%80%86%E5%90%91-%E6%8A%93%E5%8C%85/" rel="alternate" type="text/html" title="逆向 抓包" />
+    <published>2024-05-08T00:00:00+08:00</published>
   
-    <updated>2023-07-13T00:00:00+08:00</updated>
+    <updated>2024-05-08T00:00:00+08:00</updated>
   
-    <id>https://xiangzheng666.github.io/posts/windows_ros_-urdf%E6%96%87%E4%BB%B6/</id>
-    <content type="text/html" src="https://xiangzheng666.github.io/posts/windows_ros_-urdf%E6%96%87%E4%BB%B6/" />
+    <id>https://xiangzheng666.github.io/posts/%E9%80%86%E5%90%91-%E6%8A%93%E5%8C%85/</id>
+    <content type="text/html" src="https://xiangzheng666.github.io/posts/%E9%80%86%E5%90%91-%E6%8A%93%E5%8C%85/" />
     <author>
       <name>xiangzheng666</name>
     </author>
 
   
     
-    <category term="windows_ros" />
+    <category term="逆向" />
     
   
 
-  <summary>urdf文件     使用      在ns中设置一个参数            在rviz或者gazebo中加载                   语法    单位：米制                      &amp;amp;lt;robot name=&amp;quot;robot_name&amp;quot;&amp;amp;gt;                       ```xml 1.&amp;amp;lt;link “刚体部分”/&amp;amp;gt;                       ....     &amp;amp;lt;/link&amp;amp;gt;           &amp;amp;lt;visual “外观”/&amp;amp;gt;                                	....              &amp;amp;lt;/link&amp;amp;gt;           2.&amp;amp;lt;geometry “形状”/&amp;amp;gt;          	     	         	   ...</summary>
+  <summary>Flutter对抗    Dart语言标准库的网络请求不走Wi-Fi代{过}{滤}理：Flutter使用的是Dart语言，其标准库中的网络请求不会通过代{过}{滤}理发送，这与许多其他应用不同。常规的抓包工具通常依赖于代{过}{滤}理来捕获网络流量，因此无法捕获Flutter应用的网络请求。   Dart SDK中的证书信任：Dart SDK在Android平台上强制只信任系统目录下的证书。这意味着Flutter应用不会信任用户安装的证书，除非这些证书位于Android系统的&amp;amp;lt;font style=&amp;quot;color:rgb(68, 68, 68);&amp;quot;&amp;amp;gt;/system/etc/security/cacerts&amp;amp;lt;/font&amp;amp;gt;目录中。这是通过Dart源码中的&amp;amp;lt;font style=&amp;quot;color:rgb(68, 68, 68);&amp;quot;&amp;amp;gt;runtime/bin/se...</summary>
 
   </entry>
 
   
   <entry>
-    <title>Windows_ros_ Roslaunch</title>
-    <link href="https://xiangzheng666.github.io/posts/windows_ros_-roslaunch/" rel="alternate" type="text/html" title="Windows_ros_ Roslaunch" />
-    <published>2023-06-13T00:00:00+08:00</published>
+    <title>逆向 签名校验</title>
+    <link href="https://xiangzheng666.github.io/posts/%E9%80%86%E5%90%91-%E7%AD%BE%E5%90%8D%E6%A0%A1%E9%AA%8C/" rel="alternate" type="text/html" title="逆向 签名校验" />
+    <published>2024-04-28T00:00:00+08:00</published>
   
-    <updated>2023-06-13T00:00:00+08:00</updated>
+    <updated>2024-04-28T00:00:00+08:00</updated>
   
-    <id>https://xiangzheng666.github.io/posts/windows_ros_-roslaunch/</id>
-    <content type="text/html" src="https://xiangzheng666.github.io/posts/windows_ros_-roslaunch/" />
+    <id>https://xiangzheng666.github.io/posts/%E9%80%86%E5%90%91-%E7%AD%BE%E5%90%8D%E6%A0%A1%E9%AA%8C/</id>
+    <content type="text/html" src="https://xiangzheng666.github.io/posts/%E9%80%86%E5%90%91-%E7%AD%BE%E5%90%8D%E6%A0%A1%E9%AA%8C/" />
     <author>
       <name>xiangzheng666</name>
     </author>
 
   
     
-    <category term="windows_ros" />
+    <category term="逆向" />
     
   
 
-  <summary>launch文件使用     调用     roslaunch 包名 xxx.launch            注意:roslaunch 命令执行launch文件时，首先会判断是否启动了 roscore,如果启动了，则不再启动，否则，会自动调用 roscore                文件标签                      &amp;amp;lt;launch&amp;amp;gt; &amp;amp;lt;launch deprecated=&amp;quot;弃用说明&amp;quot; &amp;amp;gt;                                &amp;amp;lt;node&amp;amp;gt; &amp;amp;lt;node pkg=&amp;quot;belong to pkg&amp;quot; &amp;amp;gt; &amp;amp;lt;node pkg=&amp;quot;pkg&amp;quot; type=&amp;quot;name of node&amp;quot;&amp;amp;gt; &amp;amp;lt;node pkg type args=&amp;quot;args&amp;quot;&amp;amp;gt; &amp;amp;lt;node pkg type ar...</summary>
+  <summary>签名 没有被签名的 Apk，则会被拒绝安装  Android 目前支持以下四种应用签名方案：    v1 方案：基于 JAR 签名。    v2 方案：APK 签名方案 v2（在 Android 7.0 中引入）    v3 方案：APK 签名方案 v3（在 Android 9 中引入）    v4 方案：APK 签名方案 v4（在 Android 11 中引入）  V1 签名的机制三个文件，MANIFEST.MF，ANDROID.SF，ANDROID.RSA.    （1）MANIFEST.MF：这是摘要文件。程序遍历Apk包中的所有文件(entry)，对非文件夹非签名文件的文件，逐个用SHA1(安全哈希算法)生成摘要信息，再用Base64进行编码。如果你改变了apk包中的文件，那么在apk安装校验时，改变后的文件摘要信息与MANIFEST.MF的检验信息不同，于是程序就不能成功安...</summary>
 
   </entry>
 
   
   <entry>
-    <title>Windows_ros_运行管理</title>
-    <link href="https://xiangzheng666.github.io/posts/windows_ros_%E8%BF%90%E8%A1%8C%E7%AE%A1%E7%90%86/" rel="alternate" type="text/html" title="Windows_ros_运行管理" />
-    <published>2023-05-22T00:00:00+08:00</published>
+    <title>逆向 Frida持久化</title>
+    <link href="https://xiangzheng666.github.io/posts/%E9%80%86%E5%90%91-frida%E6%8C%81%E4%B9%85%E5%8C%96/" rel="alternate" type="text/html" title="逆向 Frida持久化" />
+    <published>2024-04-22T00:00:00+08:00</published>
   
-    <updated>2023-05-22T00:00:00+08:00</updated>
+    <updated>2024-04-22T00:00:00+08:00</updated>
   
-    <id>https://xiangzheng666.github.io/posts/windows_ros_%E8%BF%90%E8%A1%8C%E7%AE%A1%E7%90%86/</id>
-    <content type="text/html" src="https://xiangzheng666.github.io/posts/windows_ros_%E8%BF%90%E8%A1%8C%E7%AE%A1%E7%90%86/" />
+    <id>https://xiangzheng666.github.io/posts/%E9%80%86%E5%90%91-frida%E6%8C%81%E4%B9%85%E5%8C%96/</id>
+    <content type="text/html" src="https://xiangzheng666.github.io/posts/%E9%80%86%E5%90%91-frida%E6%8C%81%E4%B9%85%E5%8C%96/" />
     <author>
       <name>xiangzheng666</name>
     </author>
 
   
     
-    <category term="windows_ros" />
+    <category term="逆向" />
     
   
 
-  <summary>ROS元功能包           star*3     场景:完成ROS中一个系统性的功能，可能涉及到多个功能包，比如实现了机器人导航模块，该模块下有地图、定位、路径规划…等不同的子级功能包。那么调用者安装该模块时，需要逐一的安装每一个功能包吗？   显而易见的，逐一安装功能包的效率低下，在ROS中，提供了一种方式可以将不同的功能包打包成一个功能包，当安装某个功能模块时，直接调用打包后的功能包即可，该包又称之为元功能包(metapackage)。    概念  MetaPackage是Linux的一个文件管理系统的概念。是ROS中的一个虚包，里面没有实质性的内容，但是它依赖了其他的软件包，通过这种方法可以把其他包组合起来，我们可以认为它是一本书的目录索引，告诉我们这个包集合中有哪些子包，并且该去哪里下载。  例如：     sudo apt install ros-noetic-d...</summary>
+  <summary>1.免root方案 Frida的Gadget是一个共享库，用于免root注入hook脚本。    官方文档   思路:将APK解包后，通过修改smali代码或patch so文件的方式植入frida-gadget，然后重新打包安装。   优点:免ROOT、能过掉一部分检测机制   缺点:重打包可能会遇到解决不了的签名校验、hook时机需要把握          基于obejction的patchapk功能        &amp;amp;lt;/font&amp;amp;gt;官方文档   命令：  objection patchapk -V 14.2.18 -c config.txt -s demo.apk(注意路径不要有中文) -V 指定gadget版本 -c 加载脚本配置信息 -s 要注入的apk   注意的问题:    &amp;amp;lt;font style=&amp;quot;color:rgb(68, 68, 68);&amp;quot;&amp;amp;gt;o...</summary>
 
   </entry>
 

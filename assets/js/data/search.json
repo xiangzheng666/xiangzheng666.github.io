@@ -1,5 +1,101 @@
 [
   {
+    "title": "爬虫 浏览器",
+    "url": "/posts/%E7%88%AC%E8%99%AB-%E6%B5%8F%E8%A7%88%E5%99%A8/",
+    "categories": "爬虫",
+    "tags": "浏览器",
+    "date": "2024-05-12 00:00:00 +0800",
+    "content": "浏览器控制 1.Selenium pip install selenium  #浏览器版本： chrome://version/  #chromedrive下载 https://registry.npmmirror.com/binary.html?path=chromedriver/ https://googlechromelabs.github.io/chrome-for-testing/..."
+  },
+  {
+    "title": "爬虫 M3u8",
+    "url": "/posts/%E7%88%AC%E8%99%AB-m3u8/",
+    "categories": "爬虫",
+    "tags": "爬虫",
+    "date": "2024-05-11 00:00:00 +0800",
+    "content": "HLS HLS技术的特点是将流媒体切分为若干【TS片段】（比如几秒一段），然后通过一个【M3U8列表文件】将这些TS片段批量下载供客户端播放器实现实时流式播放.  M3U文件 #EXTM3U:每个M3U文件第一行必须是这个tag标识。(简单了解) #EXT-X-VERSION:版本，此属性可用可不用。(简单了解) #EXT-X-TARGETDURATION:目标持续时间，是用来定义每个TS的..."
+  },
+  {
+    "title": "逆向 抓包",
+    "url": "/posts/%E9%80%86%E5%90%91-%E6%8A%93%E5%8C%85/",
+    "categories": "逆向",
+    "tags": "抓包",
+    "date": "2024-05-08 00:00:00 +0800",
+    "content": "Flutter对抗    Dart语言标准库的网络请求不走Wi-Fi代{过}{滤}理：Flutter使用的是Dart语言，其标准库中的网络请求不会通过代{过}{滤}理发送，这与许多其他应用不同。常规的抓包工具通常依赖于代{过}{滤}理来捕获网络流量，因此无法捕获Flutter应用的网络请求。   Dart SDK中的证书信任：Dart SDK在Android平台上强制只信任系统目录下的证书。..."
+  },
+  {
+    "title": "逆向 签名校验",
+    "url": "/posts/%E9%80%86%E5%90%91-%E7%AD%BE%E5%90%8D%E6%A0%A1%E9%AA%8C/",
+    "categories": "逆向",
+    "tags": "签名",
+    "date": "2024-04-28 00:00:00 +0800",
+    "content": "签名 没有被签名的 Apk，则会被拒绝安装  Android 目前支持以下四种应用签名方案：    v1 方案：基于 JAR 签名。    v2 方案：APK 签名方案 v2（在 Android 7.0 中引入）    v3 方案：APK 签名方案 v3（在 Android 9 中引入）    v4 方案：APK 签名方案 v4（在 Android 11 中引入）  V1 签名的机制三个文件..."
+  },
+  {
+    "title": "逆向 Frida持久化",
+    "url": "/posts/%E9%80%86%E5%90%91-frida%E6%8C%81%E4%B9%85%E5%8C%96/",
+    "categories": "逆向",
+    "tags": "frida",
+    "date": "2024-04-22 00:00:00 +0800",
+    "content": "1.免root方案 Frida的Gadget是一个共享库，用于免root注入hook脚本。    官方文档   思路:将APK解包后，通过修改smali代码或patch so文件的方式植入frida-gadget，然后重新打包安装。   优点:免ROOT、能过掉一部分检测机制   缺点:重打包可能会遇到解决不了的签名校验、hook时机需要把握          基于obejction的pat..."
+  },
+  {
+    "title": "逆向 Frida检测",
+    "url": "/posts/%E9%80%86%E5%90%91-frida%E6%A3%80%E6%B5%8B/",
+    "categories": "逆向",
+    "tags": "frida",
+    "date": "2024-04-19 00:00:00 +0800",
+    "content": "1.检测文件名、端口名、双进程保护、失效的检测点 1.检测/data/local/tmp路径下的是否有frida特征文件，server端改名，例如:fr    2.指定端口转发  复制代码 隐藏代码 ./fs1 -l 0.0.0.0:6666 adb forward tcp:6666 tcp:6666 frida -H 127.0.0.1:6666 wuaipojie -l hook.js ..."
+  },
+  {
+    "title": "逆向 Root,xposed检测",
+    "url": "/posts/%E9%80%86%E5%90%91-root,xposed%E6%A3%80%E6%B5%8B/",
+    "categories": "逆向",
+    "tags": "Xposed",
+    "date": "2024-04-18 00:00:00 +0800",
+    "content": "检查文件系统中的根目录路径：    /system/app/SuperSU/   /system/xbin/su   /sbin/su   /system/bin/su   检查 su 命令 su 命令是 Android 上 root 权限的标志，检测设备是否有 su 命令可以执行。  常见的 Xposed 文件路径：    /data/data/de.robv.android.xposed..."
+  },
+  {
+    "title": "逆向 Frida everything",
+    "url": "/posts/%E9%80%86%E5%90%91-frida-everything/",
+    "categories": "逆向",
+    "tags": "frida",
+    "date": "2024-04-18 00:00:00 +0800",
+    "content": "使用 1.上传指定frida server  2.运行frida命令hook  1.基础指令 1.frida-ps -U  查看当前手机运行的进程    2.frida-ps --help 查看help指令  Spawn模式  复制代码 隐藏代码 frida -U -f 进程名 -l hook.js   attach模式 ：  复制代码 隐藏代码 frida -U 进程名 -l hook.j..."
+  },
+  {
+    "title": "逆向 Xposed",
+    "url": "/posts/%E9%80%86%E5%90%91-Xposed/",
+    "categories": "逆向",
+    "tags": "Xposed",
+    "date": "2024-04-08 00:00:00 +0800",
+    "content": "Xposed常用AP 1.Hook普通方法 修改返回值  复制代码 隐藏代码 XposedHelpers.findAndHookMethod(&quot;com.zj.wuaipojie.Demo&quot;, loadPackageParam.classLoader, &quot;a&quot;, String.class, new XC_MethodHook() {     @Override     protected vo..."
+  },
+  {
+    "title": "逆向 代码分析",
+    "url": "/posts/%E9%80%86%E5%90%91-%E4%BB%A3%E7%A0%81%E5%88%86%E6%9E%90/",
+    "categories": "逆向",
+    "tags": "静态分析",
+    "date": "2024-03-28 00:00:00 +0800",
+    "content": "静态分析jadx 一个静态反编译工具  搜索     查找用例，赋值片段   反混淆   动态调试jeb 1.修改debug权限         1.android:debuggable=&quot;true&quot;           2.XappDebug模块hook对应的app           3刷入MagiskHide Props Config模块                       2..."
+  },
+  {
+    "title": "逆向 搜索目标",
+    "url": "/posts/%E9%80%86%E5%90%91-%E6%90%9C%E7%B4%A2%E7%9B%AE%E6%A0%87/",
+    "categories": "逆向",
+    "tags": "搜索",
+    "date": "2024-03-18 00:00:00 +0800",
+    "content": "查找目标字符串位置   1.组件上的直接赋值的   直接在xml中就可以搜索到    2.组件上用id替代的   xml搜索不到                去资源索引中找      3.代码赋值的在dex中查找     在找不到，去ida里面找  查找图片地址   与上述字符串的查找思路类似  获取id-》查id-》看是否用id代理-》代理就在资源索引中查找"
+  },
+  {
+    "title": "逆向 安卓开发思维",
+    "url": "/posts/%E9%80%86%E5%90%91-%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91%E6%80%9D%E7%BB%B4/",
+    "categories": "逆向",
+    "tags": "安卓",
+    "date": "2024-03-08 00:00:00 +0800",
+    "content": "安卓项目搭建 1.andoridstudio安装，接外网  2.新建项目    **1. ****manifests**    作用：存放应用的AndroidManifest.xml文件。            该文件是Android应用的配置文件，包含应用的基本信息，如包名、权限、Activity、Service等组件的声明。       Android系统会根据这个文件来识别和加载应用。..."
+  },
+  {
     "title": "Redis设计与实战 数据结构",
     "url": "/posts/redis%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E6%88%98-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/",
     "categories": "",
