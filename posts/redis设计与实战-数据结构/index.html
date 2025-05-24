@@ -32,8 +32,8 @@
 <meta name="generator" content="Jekyll v4.4.1" />
 <meta property="og:title" content="Redis设计与实战 数据结构" />
 <meta property="og:locale" content="zh_CN" />
-<meta name="description" content="The more you learn, the stronger you become." />
-<meta property="og:description" content="The more you learn, the stronger you become." />
+<meta name="description" content="简单动态字符串SDS" />
+<meta property="og:description" content="简单动态字符串SDS" />
 <link rel="canonical" href="https://xiangzheng666.github.io/posts/redis%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E6%88%98-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" />
 <meta property="og:url" content="https://xiangzheng666.github.io/posts/redis%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E6%88%98-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" />
 <meta property="og:site_name" content="XiangZheng" />
@@ -43,7 +43,7 @@
 <meta property="twitter:title" content="Redis设计与实战 数据结构" />
 <meta name="twitter:site" content="@xiangzheng666" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-08-28T00:00:00+08:00","datePublished":"2023-08-28T00:00:00+08:00","description":"The more you learn, the stronger you become.","headline":"Redis设计与实战 数据结构","mainEntityOfPage":{"@type":"WebPage","@id":"https://xiangzheng666.github.io/posts/redis%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E6%88%98-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"},"url":"https://xiangzheng666.github.io/posts/redis%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E6%88%98-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-08-28T00:00:00+08:00","datePublished":"2023-08-28T00:00:00+08:00","description":"简单动态字符串SDS","headline":"Redis设计与实战 数据结构","mainEntityOfPage":{"@type":"WebPage","@id":"https://xiangzheng666.github.io/posts/redis%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E6%88%98-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"},"url":"https://xiangzheng666.github.io/posts/redis%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E6%88%98-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -213,9 +213,16 @@
 
   
 
+  
+    
+
+    
+
+  
 
 
-  <script defer src="https://cdn.jsdelivr.net/combine/npm/simple-jekyll-search@1.10.0/dest/simple-jekyll-search.min.js,npm/loading-attribute-polyfill@2.1.1/dist/loading-attribute-polyfill.umd.min.js,npm/glightbox@3.3.0/dist/js/glightbox.min.js,npm/clipboard@2.0.11/dist/clipboard.min.js,npm/dayjs@1.11.13/dayjs.min.js,npm/dayjs@1.11.13/locale/zh.js,npm/dayjs@1.11.13/plugin/relativeTime.js,npm/dayjs@1.11.13/plugin/localizedFormat.js"></script>
+
+  <script defer src="https://cdn.jsdelivr.net/combine/npm/simple-jekyll-search@1.10.0/dest/simple-jekyll-search.min.js,npm/loading-attribute-polyfill@2.1.1/dist/loading-attribute-polyfill.umd.min.js,npm/glightbox@3.3.0/dist/js/glightbox.min.js,npm/clipboard@2.0.11/dist/clipboard.min.js,npm/dayjs@1.11.13/dayjs.min.js,npm/dayjs@1.11.13/locale/zh.js,npm/dayjs@1.11.13/plugin/relativeTime.js,npm/dayjs@1.11.13/plugin/localizedFormat.js,npm/tocbot@4.32.2/dist/tocbot.min.js"></script>
 
 
 
@@ -501,6 +508,646 @@
 
 
 
+  
+  
+
+  
+    
+      
+      
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+      
+
+      
+    
+
+    <!-- take out classes -->
+    
+
+    
+    
+
+    
+
+    
+      
+    
+
+    <!-- lazy-load images -->
+    
+
+    
+      <!-- make sure the `<img>` is wrapped by `<a>` -->
+      
+
+      
+        <!-- create the image wrapper -->
+        
+
+        
+        
+      
+    
+
+    <!-- combine -->
+    
+  
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+      
+
+      
+    
+
+    <!-- take out classes -->
+    
+
+    
+    
+
+    
+
+    
+      
+    
+
+    <!-- lazy-load images -->
+    
+
+    
+      <!-- make sure the `<img>` is wrapped by `<a>` -->
+      
+
+      
+        <!-- create the image wrapper -->
+        
+
+        
+        
+      
+    
+
+    <!-- combine -->
+    
+  
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+      
+
+      
+    
+
+    <!-- take out classes -->
+    
+
+    
+    
+
+    
+
+    
+      
+    
+
+    <!-- lazy-load images -->
+    
+
+    
+      <!-- make sure the `<img>` is wrapped by `<a>` -->
+      
+
+      
+        <!-- create the image wrapper -->
+        
+
+        
+        
+      
+    
+
+    <!-- combine -->
+    
+  
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+      
+
+      
+    
+
+    <!-- take out classes -->
+    
+
+    
+    
+
+    
+
+    
+      
+    
+
+    <!-- lazy-load images -->
+    
+
+    
+      <!-- make sure the `<img>` is wrapped by `<a>` -->
+      
+
+      
+        <!-- create the image wrapper -->
+        
+
+        
+        
+      
+    
+
+    <!-- combine -->
+    
+  
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+      
+
+      
+    
+
+    <!-- take out classes -->
+    
+
+    
+    
+
+    
+
+    
+      
+    
+
+    <!-- lazy-load images -->
+    
+
+    
+      <!-- make sure the `<img>` is wrapped by `<a>` -->
+      
+
+      
+        <!-- create the image wrapper -->
+        
+
+        
+        
+      
+    
+
+    <!-- combine -->
+    
+  
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+      
+
+      
+    
+
+    <!-- take out classes -->
+    
+
+    
+    
+
+    
+
+    
+      
+    
+
+    <!-- lazy-load images -->
+    
+
+    
+      <!-- make sure the `<img>` is wrapped by `<a>` -->
+      
+
+      
+        <!-- create the image wrapper -->
+        
+
+        
+        
+      
+    
+
+    <!-- combine -->
+    
+  
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+      
+
+      
+    
+
+    <!-- take out classes -->
+    
+
+    
+    
+
+    
+
+    
+      
+    
+
+    <!-- lazy-load images -->
+    
+
+    
+      <!-- make sure the `<img>` is wrapped by `<a>` -->
+      
+
+      
+        <!-- create the image wrapper -->
+        
+
+        
+        
+      
+    
+
+    <!-- combine -->
+    
+  
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+      
+
+      
+    
+
+    <!-- take out classes -->
+    
+
+    
+    
+
+    
+
+    
+      
+    
+
+    <!-- lazy-load images -->
+    
+
+    
+      <!-- make sure the `<img>` is wrapped by `<a>` -->
+      
+
+      
+        <!-- create the image wrapper -->
+        
+
+        
+        
+      
+    
+
+    <!-- combine -->
+    
+  
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+      
+
+      
+    
+
+    <!-- take out classes -->
+    
+
+    
+    
+
+    
+
+    
+      
+    
+
+    <!-- lazy-load images -->
+    
+
+    
+      <!-- make sure the `<img>` is wrapped by `<a>` -->
+      
+
+      
+        <!-- create the image wrapper -->
+        
+
+        
+        
+      
+    
+
+    <!-- combine -->
+    
+  
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+      
+
+      
+    
+
+    <!-- take out classes -->
+    
+
+    
+    
+
+    
+
+    
+      
+    
+
+    <!-- lazy-load images -->
+    
+
+    
+      <!-- make sure the `<img>` is wrapped by `<a>` -->
+      
+
+      
+        <!-- create the image wrapper -->
+        
+
+        
+        
+      
+    
+
+    <!-- combine -->
+    
+  
+
+  
+
 
 <!-- Add header for code snippets -->
 
@@ -515,6 +1162,71 @@
   
   
 
+  
+    
+    
+
+    
+      
+        
+        
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+
+    
   
 
   
@@ -546,7 +1258,7 @@
 
 
 
-<article class="px-1" data-toc="false">
+<article class="px-1" data-toc="true">
   <header>
     <h1 data-toc-skip>Redis设计与实战 数据结构</h1>
     
@@ -620,9 +1332,9 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="0 字"
+  title="2615 字"
 >
-  <em>1 分钟</em>阅读</span>
+  <em>14 分钟</em>阅读</span>
 
         </div>
       </div>
@@ -630,9 +1342,502 @@
   </header>
 
   
+    <div id="toc-bar" class="d-flex align-items-center justify-content-between invisible">
+      <span class="label text-truncate">Redis设计与实战 数据结构</span>
+      <button type="button" class="toc-trigger btn me-1">
+        <i class="fa-solid fa-list-ul fa-fw"></i>
+      </button>
+    </div>
+
+    <button id="toc-solo-trigger" type="button" class="toc-trigger btn btn-outline-secondary btn-sm">
+      <span class="label ps-2 pe-1">文章内容</span>
+      <i class="fa-solid fa-angle-right fa-fw"></i>
+    </button>
+
+    <dialog id="toc-popup" class="p-0">
+      <div class="header d-flex flex-row align-items-center justify-content-between">
+        <div class="label text-truncate py-2 ms-4">Redis设计与实战 数据结构</div>
+        <button id="toc-popup-close" type="button" class="btn mx-1 my-1 opacity-75">
+          <i class="fas fa-close"></i>
+        </button>
+      </div>
+      <div id="toc-popup-content" class="px-4 py-3 pb-4"></div>
+    </dialog>
+  
 
   <div class="content">
-    
+    <h1 id="简单动态字符串sds">简单动态字符串SDS</h1>
+
+<p>Redis 没有直接使用 C 语言传统的字符串表示（以空字符结尾的字符数组，以下简称 C 字符串）， 而是自己构建了一种名为简单动态字符串（simple dynamic string，SDS）的抽象类型， 并将 SDS 用作 Redis 的默认字符串表示。</p>
+
+<div class="language-cpp highlighter-rouge"><div class="code-header">
+        <span data-label-text="Cpp"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre><span class="k">struct</span> <span class="nc">sdshdr</span> <span class="p">{</span>    <span class="c1">// 记录 buf 数组中已使用字节的数量</span>
+    <span class="c1">// 等于 SDS 所保存字符串的长度</span>
+    <span class="kt">int</span> <span class="n">len</span><span class="p">;</span>    <span class="c1">// 记录 buf 数组中未使用字节的数量</span>
+    <span class="n">intfree</span><span class="p">;</span>    <span class="c1">// 字节数组，用于保存字符串</span>
+    <span class="kt">char</span> <span class="n">buf</span><span class="p">[];};</span>
+</pre></td></tr></tbody></table></code></div></div>
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>C 字符串</th>
+      <th>SDS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>获取字符串长度的复杂度为<a href="https://atts.w3cschool.cn/attachments/image/cimg/2015-09-13_55f50e14dc650.png" class="popup img-link  shimmer"><img src="https://atts.w3cschool.cn/attachments/image/cimg/2015-09-13_55f50e14dc650.png" alt="O(N)" loading="lazy"></a>。</td>
+      <td>获取字符串长度的复杂度为<a href="https://atts.w3cschool.cn/attachments/image/cimg/2015-09-13_55f50e22eca8b.png" class="popup img-link  shimmer"><img src="https://atts.w3cschool.cn/attachments/image/cimg/2015-09-13_55f50e22eca8b.png" alt="O(1)" loading="lazy"></a>。</td>
+    </tr>
+    <tr>
+      <td>API 是不安全的，可能会造成缓冲区溢出。</td>
+      <td>API 是安全的，不会造成缓冲区溢出：<br />先检查给定 SDS 的空间是否足够， 如果不够的话，<br />就会先扩展 SDS 的空间， 然后才执行操作</td>
+    </tr>
+    <tr>
+      <td>修改字符串长度 <code class="language-plaintext highlighter-rouge">N</code>次必然需要执行 <code class="language-plaintext highlighter-rouge">N</code>次内存重分配。</td>
+      <td>修改字符串长度 <code class="language-plaintext highlighter-rouge">N</code>次最多需要执行 <code class="language-plaintext highlighter-rouge">N</code>次内存重分配。</td>
+    </tr>
+    <tr>
+      <td>只能保存文本数据。</td>
+      <td>可以保存文本或者二进制数据。’\0’</td>
+    </tr>
+    <tr>
+      <td>可以使用所有 <code class="language-plaintext highlighter-rouge">&lt;string.h&gt;</code>库中的函数。</td>
+      <td>可以使用一部分 <code class="language-plaintext highlighter-rouge">&lt;string.h&gt;</code>库中的函数。</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<h1 id="链表">链表</h1>
+
+<div class="language-c highlighter-rouge"><div class="code-header">
+        <span data-label-text="C"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+</pre></td><td class="rouge-code"><pre><span class="k">typedef</span> <span class="k">struct</span> <span class="n">list</span> <span class="p">{</span>
+    <span class="c1">// 表头节点</span>
+    <span class="n">listNode</span> <span class="o">*</span><span class="n">head</span><span class="p">;</span>
+    <span class="c1">// 表尾节点</span>
+    <span class="n">listNode</span> <span class="o">*</span><span class="n">tail</span><span class="p">;</span>
+    <span class="c1">// 链表所包含的节点数量</span>
+    <span class="kt">unsigned</span> <span class="kt">long</span> <span class="n">len</span><span class="p">;</span>
+    <span class="c1">// 节点值复制函数</span>
+    <span class="kt">void</span> <span class="o">*</span><span class="p">(</span><span class="o">*</span><span class="n">dup</span><span class="p">)(</span><span class="kt">void</span> <span class="o">*</span><span class="n">ptr</span><span class="p">);</span>
+    <span class="c1">// 节点值释放函数</span>
+    <span class="kt">void</span> <span class="p">(</span><span class="o">*</span><span class="n">free</span><span class="p">)(</span><span class="kt">void</span> <span class="o">*</span><span class="n">ptr</span><span class="p">);</span>
+    <span class="c1">// 节点值对比函数</span>
+    <span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">match</span><span class="p">)(</span><span class="kt">void</span> <span class="o">*</span><span class="n">ptr</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="n">key</span><span class="p">);</span>
+<span class="p">}</span> <span class="n">list</span><span class="p">;</span>
+
+<span class="n">typedefstruct</span> <span class="n">listNode</span> <span class="p">{</span>    <span class="c1">// 前置节点</span>
+    <span class="k">struct</span> <span class="n">listNode</span> <span class="o">*</span><span class="n">prev</span><span class="p">;</span>    <span class="c1">// 后置节点</span>
+    <span class="k">struct</span> <span class="n">listNode</span> <span class="o">*</span><span class="n">next</span><span class="p">;</span>    <span class="c1">// 节点的值</span>
+    <span class="kt">void</span> <span class="o">*</span><span class="n">value</span><span class="p">;}</span> <span class="n">listNode</span><span class="p">;</span>
+</pre></td></tr></tbody></table></code></div></div>
+
+<p>Redis 的链表实现的特性：</p>
+
+<ul>
+  <li>双端： 链表节点带有 <code class="language-plaintext highlighter-rouge">prev</code> 和 <code class="language-plaintext highlighter-rouge">next</code> 指针， 获取某个节点的前置节点和后置节点的复杂度都是 <a href="https://atts.w3cschool.cn/attachments/image/cimg/2015-09-13_55f50fb59693b.png" class="popup img-link  shimmer"><img src="https://atts.w3cschool.cn/attachments/image/cimg/2015-09-13_55f50fb59693b.png" alt="O(1)" loading="lazy"></a> 。</li>
+  <li>无环： 表头节点的 <code class="language-plaintext highlighter-rouge">prev</code> 指针和表尾节点的 <code class="language-plaintext highlighter-rouge">next</code> 指针都指向 <code class="language-plaintext highlighter-rouge">NULL</code> ， 对链表的访问以 <code class="language-plaintext highlighter-rouge">NULL</code> 为终点。</li>
+  <li>带表头指针和表尾指针： 通过 <code class="language-plaintext highlighter-rouge">list</code> 结构的 <code class="language-plaintext highlighter-rouge">head</code> 指针和 <code class="language-plaintext highlighter-rouge">tail</code> 指针， 程序获取链表的表头节点和表尾节点的复杂度为 <a href="https://atts.w3cschool.cn/attachments/image/cimg/2015-09-13_55f50fb59693b.png" class="popup img-link  shimmer"><img src="https://atts.w3cschool.cn/attachments/image/cimg/2015-09-13_55f50fb59693b.png" alt="O(1)" loading="lazy"></a> 。</li>
+  <li>带链表长度计数器： 程序使用 <code class="language-plaintext highlighter-rouge">list</code> 结构的 <code class="language-plaintext highlighter-rouge">len</code> 属性来对 <code class="language-plaintext highlighter-rouge">list</code> 持有的链表节点进行计数， 程序获取链表中节点数量的复杂度为 <a href="https://atts.w3cschool.cn/attachments/image/cimg/2015-09-13_55f50fb59693b.png" class="popup img-link  shimmer"><img src="https://atts.w3cschool.cn/attachments/image/cimg/2015-09-13_55f50fb59693b.png" alt="O(1)" loading="lazy"></a>。</li>
+  <li>多态： 链表节点使用 <code class="language-plaintext highlighter-rouge">void*</code> 指针来保存节点值， 并且可以通过 <code class="language-plaintext highlighter-rouge">list</code> 结构的 <code class="language-plaintext highlighter-rouge">dup</code> 、 <code class="language-plaintext highlighter-rouge">free</code> 、 <code class="language-plaintext highlighter-rouge">match</code> 三个属性为节点值设置类型特定函数， 所以链表可以用于保存各种不同类型的值。</li>
+</ul>
+
+<h1 id="字典">字典</h1>
+
+<div class="language-c highlighter-rouge"><div class="code-header">
+        <span data-label-text="C"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+</pre></td><td class="rouge-code"><pre><span class="k">typedef</span> <span class="k">struct</span> <span class="n">dictht</span> <span class="p">{</span>    <span class="c1">// 哈希表数组</span>
+    <span class="n">dictEntry</span> <span class="o">**</span><span class="n">table</span><span class="p">;</span>    <span class="c1">// 哈希表大小</span>
+    <span class="n">unsignedlong</span> <span class="n">size</span><span class="p">;</span>    <span class="c1">// 哈希表大小掩码，用于计算索引值</span>
+    <span class="c1">// 总是等于 size - 1</span>
+    <span class="n">unsignedlong</span> <span class="n">sizemask</span><span class="p">;</span>    <span class="c1">// 该哈希表已有节点的数量</span>
+    <span class="n">unsignedlong</span> <span class="n">used</span><span class="p">;</span>
+<span class="p">}</span> <span class="n">dictht</span><span class="p">;</span>
+
+<span class="k">typedef</span> <span class="k">struct</span> <span class="n">dictEntry</span> <span class="p">{</span>
+    <span class="c1">// 键</span>
+    <span class="kt">void</span> <span class="o">*</span><span class="n">key</span><span class="p">;</span>
+    <span class="c1">// 值</span>
+    <span class="k">union</span> <span class="p">{</span>
+        <span class="kt">void</span> <span class="o">*</span><span class="n">val</span><span class="p">;</span>
+        <span class="kt">uint64_t</span> <span class="n">u64</span><span class="p">;</span>
+        <span class="kt">int64_t</span> <span class="n">s64</span><span class="p">;</span>
+    <span class="p">}</span> <span class="n">v</span><span class="p">;</span>
+    <span class="c1">// 指向下个哈希表节点，形成链表</span>
+    <span class="k">struct</span> <span class="n">dictEntry</span> <span class="o">*</span><span class="n">next</span><span class="p">;</span>
+<span class="p">}</span> <span class="n">dictEntry</span><span class="p">;</span>
+
+<span class="k">typedef</span> <span class="k">struct</span> <span class="n">dict</span> <span class="p">{</span>
+    <span class="c1">// 类型特定函数</span>
+    <span class="n">dictType</span> <span class="o">*</span><span class="n">type</span><span class="p">;</span>
+    <span class="c1">// 私有数据</span>
+    <span class="kt">void</span> <span class="o">*</span><span class="n">privdata</span><span class="p">;</span>
+    <span class="c1">// 哈希表</span>
+    <span class="n">dictht</span> <span class="n">ht</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+    <span class="c1">// rehash 索引</span>
+    <span class="c1">// 当 rehash 不在进行时，值为 -1</span>
+    <span class="kt">int</span> <span class="n">rehashidx</span><span class="p">;</span> <span class="cm">/* rehashing not in progress if rehashidx == -1 */</span>
+<span class="p">}</span> <span class="n">dict</span><span class="p">;</span>
+
+<span class="n">index</span> <span class="o">=</span> <span class="n">hash</span> <span class="o">&amp;</span> <span class="n">dict</span><span class="o">-&gt;</span><span class="n">ht</span><span class="p">[</span><span class="n">x</span><span class="p">].</span><span class="n">sizemask</span><span class="p">;</span>
+</pre></td></tr></tbody></table></code></div></div>
+
+<p><a href="https://atts.w3cschool.cn/attachments/image/cimg/2015-09-13_55f5120772706.png" class="popup img-link  shimmer"><img src="https://atts.w3cschool.cn/attachments/image/cimg/2015-09-13_55f5120772706.png" alt="img" loading="lazy"></a></p>
+
+<ul>
+  <li>hash冲突：将新节点添加到链表的表头位置</li>
+  <li>rehash：
+    <ul>
+      <li>如果执行的是扩展操作， 那么 <code class="language-plaintext highlighter-rouge">ht[1]</code> 的大小为第一个大于等于 <code class="language-plaintext highlighter-rouge">ht[0].used * 2</code> 的 <a href="https://atts.w3cschool.cn/attachments/image/cimg/2015-09-13_55f512f991fc2.png" class="popup img-link  shimmer"><img src="https://atts.w3cschool.cn/attachments/image/cimg/2015-09-13_55f512f991fc2.png" alt="2^n" loading="lazy"></a> （<code class="language-plaintext highlighter-rouge">2</code> 的 <code class="language-plaintext highlighter-rouge">n</code> 次方幂）；</li>
+      <li>如果执行的是收缩操作， 那么 <code class="language-plaintext highlighter-rouge">ht[1]</code> 的大小为第一个大于等于 <code class="language-plaintext highlighter-rouge">ht[0].used</code> 的 <a href="https://atts.w3cschool.cn/attachments/image/cimg/2015-09-13_55f512f991fc2.png" class="popup img-link  shimmer"><img src="https://atts.w3cschool.cn/attachments/image/cimg/2015-09-13_55f512f991fc2.png" alt="2^n" loading="lazy"></a> 。</li>
+    </ul>
+  </li>
+  <li>
+    <p>渐进式 rehash</p>
+
+    <ul>
+      <li>在 rehash 进行期间， 每次对字典执行添加、删除、查找或者更新操作时， 程序除了执行指定的操作以外， 还会顺带将 <code class="language-plaintext highlighter-rouge">ht[0]</code> 哈希表在 <code class="language-plaintext highlighter-rouge">rehashidx</code> 索引上的所有键值对 rehash 到 <code class="language-plaintext highlighter-rouge">ht[1]</code> ， 当 rehash 工作完成之后， 程序将 <code class="language-plaintext highlighter-rouge">rehashidx</code> 属性的值增一。</li>
+      <li>在进行渐进式 rehash 的过程中，在字典里面查找一个键的话， 程序会先在 <code class="language-plaintext highlighter-rouge">ht[0]</code> 里面进行查找， 如果没找到的话， 就会继续到 <code class="language-plaintext highlighter-rouge">ht[1]</code> 里面进行查找</li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="跳跃表">跳跃表</h1>
+
+<p><a href="https://atts.w3cschool.cn/attachments/image/cimg/2015-09-13_55f51478611a6.png" class="popup img-link  shimmer"><img src="https://atts.w3cschool.cn/attachments/image/cimg/2015-09-13_55f51478611a6.png" alt="img" loading="lazy"></a></p>
+
+<p><a href="https://www.jianshu.com/p/9d8296562806">跳表介绍</a></p>
+
+<h1 id="整数集合">整数集合</h1>
+
+<p>当一个集合只包含整数值元素， 并且这个集合的元素数量不多时， Redis 就会使用整数集合作为集合键的底层实现。</p>
+
+<div class="language-c highlighter-rouge"><div class="code-header">
+        <span data-label-text="C"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="rouge-code"><pre><span class="k">typedef</span> <span class="k">struct</span> <span class="n">intset</span> <span class="p">{</span>
+    <span class="c1">// 编码方式</span>
+    <span class="kt">uint32_t</span> <span class="n">encoding</span><span class="p">;</span>
+    <span class="c1">// 集合包含的元素数量</span>
+    <span class="kt">uint32_t</span> <span class="n">length</span><span class="p">;</span>
+    <span class="c1">// 保存元素的数组</span>
+    <span class="kt">int8_t</span> <span class="n">contents</span><span class="p">[];</span>
+
+<span class="p">}</span> <span class="n">intset</span><span class="p">;</span>
+</pre></td></tr></tbody></table></code></div></div>
+
+<p>Redis 用于保存整数值的集合抽象数据结构， 它可以保存类型为 <code class="language-plaintext highlighter-rouge">int16_t</code> 、 <code class="language-plaintext highlighter-rouge">int32_t</code> 或者 <code class="language-plaintext highlighter-rouge">int64_t</code> 的整数值， 并且保证集合中不会出现重复元素。</p>
+
+<ul>
+  <li>升级：每当我们要将一个新元素添加到整数集合里面， 并且新元素的类型比整数集合现有所有元素的类型都要长时， 整数集合需要先进行升级
+    <ol>
+      <li>根据新元素的类型， 扩展整数集合底层数组的空间大小， 并为新元素分配空间。</li>
+      <li>将底层数组现有的所有元素都转换成与新元素相同的类型， 并将类型转换后的元素放置到正确的位上， 而且在放置元素的过程中， 需要继续维持底层数组的有序性质不变。</li>
+      <li>将新元素添加到底层数组里面。</li>
+    </ol>
+  </li>
+  <li>不支持降级</li>
+</ul>
+
+<h1 id="压缩列表">压缩列表</h1>
+
+<p>当一个列表键只包含少量列表项， 并且每个列表项要么就是小整数值， 要么就是长度比较短的字符串， 那么 Redis 就会使用压缩列表来做列表键的底层实现。</p>
+
+<p><a href="https://atts.w3cschool.cn/attachments/image/cimg/2015-09-13_55f51bfccbd83.png" class="popup img-link  shimmer"><img src="https://atts.w3cschool.cn/attachments/image/cimg/2015-09-13_55f51bfccbd83.png" alt="img" loading="lazy"></a></p>
+
+<p>每个压缩列表节点都由 <code class="language-plaintext highlighter-rouge">previous_entry_length</code> 、 <code class="language-plaintext highlighter-rouge">encoding</code> 、 <code class="language-plaintext highlighter-rouge">content</code> 三个部分组成</p>
+
+<ul>
+  <li>
+    <p>previous_entry_length：压缩列表中前一个节点的长度</p>
+
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">previous_entry_length</code> 属性的长度可以是 <code class="language-plaintext highlighter-rouge">1</code> 字节或者 <code class="language-plaintext highlighter-rouge">5</code> 字节：
+        <ul>
+          <li>如果前一节点的长度小于 <code class="language-plaintext highlighter-rouge">254</code> 字节， 那么 <code class="language-plaintext highlighter-rouge">previous_entry_length</code> 属性的长度为 <code class="language-plaintext highlighter-rouge">1</code> 字节： 前一节点的长度就保存在这一个字节里面。</li>
+          <li>如果前一节点的长度大于等于 <code class="language-plaintext highlighter-rouge">254</code> 字节， 那么 <code class="language-plaintext highlighter-rouge">previous_entry_length</code> 属性的长度为 <code class="language-plaintext highlighter-rouge">5</code> 字节： 其中属性的第一字节会被设置为 <code class="language-plaintext highlighter-rouge">0xFE</code>（十进制值 <code class="language-plaintext highlighter-rouge">254</code>）， 而之后的四个字节则用于保存前一节	点的长度。</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>删除，增加引发的连锁更新：</p>
+
+    <ul>
+      <li>当增加或者删除时，<code class="language-plaintext highlighter-rouge">previous_entry_length</code>的长度会有可能发生连锁更新</li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="对象">对象</h1>
+
+<div class="language-c highlighter-rouge"><div class="code-header">
+        <span data-label-text="C"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="rouge-code"><pre><span class="k">typedef</span> <span class="k">struct</span> <span class="n">redisObject</span> <span class="p">{</span>
+    <span class="c1">// 类型</span>
+    <span class="kt">unsigned</span> <span class="n">type</span><span class="o">:</span><span class="mi">4</span><span class="p">;</span>
+    <span class="c1">// 编码</span>
+    <span class="kt">unsigned</span> <span class="n">encoding</span><span class="o">:</span><span class="mi">4</span><span class="p">;</span>
+    <span class="c1">// 指向底层实现数据结构的指针</span>
+    <span class="kt">void</span> <span class="o">*</span><span class="n">ptr</span><span class="p">;</span>
+    <span class="c1">// ...</span>
+
+<span class="p">}</span> <span class="n">robj</span><span class="p">;</span>
+</pre></td></tr></tbody></table></code></div></div>
+
+<ul>
+  <li>type</li>
+</ul>
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>类型常量</th>
+      <th>对象的名称</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">REDIS_STRING</code></td>
+      <td>字符串对象</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">REDIS_LIST</code></td>
+      <td>列表对象</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">REDIS_HASH</code></td>
+      <td>哈希对象</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">REDIS_SET</code></td>
+      <td>集合对象</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">REDIS_ZSET</code></td>
+      <td>有序集合对象</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<ul>
+  <li>encoding</li>
+</ul>
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>编码常量</th>
+      <th>编码所对应的底层数据结构</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">REDIS_ENCODING_INT</code></td>
+      <td><code class="language-plaintext highlighter-rouge">long</code>类型的整数</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">REDIS_ENCODING_EMBSTR</code></td>
+      <td><code class="language-plaintext highlighter-rouge">embstr</code>编码的简单动态字符串：通过调用一次内存分配函数来分配一块连续的空间， 空间中依次包含 <code class="language-plaintext highlighter-rouge">redisObject</code> 和 <code class="language-plaintext highlighter-rouge">sdshdr</code> 两个结构</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">REDIS_ENCODING_RAW</code></td>
+      <td>简单动态字符串：两次内存分配函数来分别创建 <code class="language-plaintext highlighter-rouge">redisObject</code> 结构和 <code class="language-plaintext highlighter-rouge">sdshdr</code> 结构</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">REDIS_ENCODING_HT</code></td>
+      <td>字典</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">REDIS_ENCODING_LINKEDLIST</code></td>
+      <td>双端链表</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">REDIS_ENCODING_ZIPLIST</code></td>
+      <td>压缩列表</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">REDIS_ENCODING_INTSET</code></td>
+      <td>整数集合</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">REDIS_ENCODING_SKIPLIST</code></td>
+      <td>跳跃表和字典</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<h1 id="字符串对象">字符串对象</h1>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">long</code></li>
+  <li><code class="language-plaintext highlighter-rouge">raw</code></li>
+  <li><code class="language-plaintext highlighter-rouge">embstr</code></li>
+</ul>
+
+<h2 id="编码转换"><span class="me-2">编码转换</span><a href="#编码转换" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+
+<p><code class="language-plaintext highlighter-rouge">int</code> 编码的字符串对象和 <code class="language-plaintext highlighter-rouge">embstr</code> 编码的字符串对象在条件满足的情况下， 会被转换为 <code class="language-plaintext highlighter-rouge">raw</code> 编码的字符串对象。</p>
+
+<ul>
+  <li>对于 <code class="language-plaintext highlighter-rouge">int</code> 编码的字符串对象来说， 如果我们向对象执行了一些命令， 使得这个对象保存的不再是整数值， 而是一个字符串值， 那么字符串对象的编码将从 <code class="language-plaintext highlighter-rouge">int</code> 变为 <code class="language-plaintext highlighter-rouge">raw</code> 。</li>
+  <li>Redis 没有为 <code class="language-plaintext highlighter-rouge">embstr</code> 编码的字符串对象编写任何相应的修改程序，当我们对 <code class="language-plaintext highlighter-rouge">embstr</code> 编码的字符串对象执行任何修改命令时， 程序会先将对象的编码从 <code class="language-plaintext highlighter-rouge">embstr</code> 转换成 <code class="language-plaintext highlighter-rouge">raw</code> ， 然后再执行修改命令；</li>
+</ul>
+
+<h1 id="列表对象">列表对象</h1>
+
+<ul>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">ziplist</code></p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">linkedlist</code></p>
+  </li>
+</ul>
+
+<h2 id="编码转换-1"><span class="me-2">编码转换</span><a href="#编码转换-1" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+
+<p>当列表对象可以同时满足以下两个条件时， 列表对象使用 <code class="language-plaintext highlighter-rouge">ziplist</code> 编码：</p>
+
+<ol>
+  <li>列表对象保存的所有字符串元素的长度都小于 <code class="language-plaintext highlighter-rouge">64</code> 字节；</li>
+  <li>列表对象保存的元素数量小于 <code class="language-plaintext highlighter-rouge">512</code> 个；</li>
+</ol>
+
+<p>不能满足这两个条件的列表对象需要使用 <code class="language-plaintext highlighter-rouge">linkedlist</code> 编码。</p>
+
+<h1 id="哈希对象">哈希对象</h1>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">ziplist</code></li>
+  <li><code class="language-plaintext highlighter-rouge">hashtable （字典）</code></li>
+</ul>
+
+<h2 id="编码转换-2"><span class="me-2">编码转换</span><a href="#编码转换-2" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+
+<p>当哈希对象可以同时满足以下两个条件时， 哈希对象使用 <code class="language-plaintext highlighter-rouge">ziplist</code> 编码：</p>
+
+<ol>
+  <li>哈希对象保存的所有键值对的键和值的字符串长度都小于 <code class="language-plaintext highlighter-rouge">64</code> 字节；</li>
+  <li>哈希对象保存的键值对数量小于 <code class="language-plaintext highlighter-rouge">512</code> 个；</li>
+</ol>
+
+<p>不能满足这两个条件的哈希对象需要使用 <code class="language-plaintext highlighter-rouge">hashtable</code> 编码。</p>
+
+<h1 id="集合对象">集合对象</h1>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">intset整数集合</code></li>
+  <li><code class="language-plaintext highlighter-rouge">hashtable字典</code></li>
+</ul>
+
+<h2 id="编码的转换"><span class="me-2">编码的转换</span><a href="#编码的转换" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+
+<p>当集合对象可以同时满足以下两个条件时， 对象使用 <code class="language-plaintext highlighter-rouge">intset</code> 编码：</p>
+
+<ol>
+  <li>集合对象保存的所有元素都是整数值；</li>
+  <li>集合对象保存的元素数量不超过 <code class="language-plaintext highlighter-rouge">512</code> 个；</li>
+</ol>
+
+<p>不能满足这两个条件的集合对象需要使用 <code class="language-plaintext highlighter-rouge">hashtable</code> 编码。</p>
+
+<h1 id="有序集合对象">有序集合对象</h1>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">ziplist</code></li>
+  <li><code class="language-plaintext highlighter-rouge">skiplist</code></li>
+</ul>
+
+<h2 id="编码的转换-1"><span class="me-2">编码的转换</span><a href="#编码的转换-1" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+
+<p>当有序集合对象可以同时满足以下两个条件时， 对象使用 <code class="language-plaintext highlighter-rouge">ziplist</code> 编码：</p>
+
+<ol>
+  <li>有序集合保存的元素数量小于 <code class="language-plaintext highlighter-rouge">128</code> 个；</li>
+  <li>有序集合保存的所有元素成员的长度都小于 <code class="language-plaintext highlighter-rouge">64</code> 字节；</li>
+</ol>
+
+<p>不能满足以上两个条件的有序集合对象将使用 <code class="language-plaintext highlighter-rouge">skiplist</code> 编码。</p>
 
   </div>
 
@@ -860,60 +2065,6 @@
     
     
     
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
   
     
     
@@ -923,147 +2074,6 @@
         
         
 
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
   
     
     
@@ -1188,245 +2198,7 @@
     
     
     
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
       
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
     
   
     
@@ -1466,172 +2238,6 @@
     
     
     
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
     
   
     
@@ -1867,6 +2473,645 @@
     
     
     
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
       
     
   
@@ -2219,6 +3464,11 @@
     
     
     
+  
+    
+    
+    
+    
       
     
   
@@ -2518,6 +3768,11 @@
         
         
 
+  
+    
+    
+    
+    
   
     
     
@@ -3040,6 +4295,12 @@
 
 
 
+  <div class="toc-border-cover z-3"></div>
+  <section id="toc-wrapper" class="invisible position-sticky ps-0 pe-4 pb-4">
+    <h2 class="panel-heading ps-3 pb-2 mb-0">文章内容</h2>
+    <nav id="toc"></nav>
+  </section>
+
 
             
           </aside>
@@ -3095,11 +4356,11 @@
 
   
     <a
-      href="/posts/windows_ros_-xacrof%E6%96%87%E4%BB%B6/"
+      href="/posts/redis%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E6%88%98-%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%8C%E4%B8%BA/"
       class="btn btn-outline-primary"
       aria-label="上一篇"
     >
-      <p>Windows_ros_ Xacrof文件</p>
+      <p>Redis设计与实战 数据库行为</p>
     </a>
   
 
@@ -3241,60 +4502,6 @@
     
     
     
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
   
     
     
@@ -3304,147 +4511,6 @@
         
         
 
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
   
     
     
@@ -3569,245 +4635,7 @@
     
     
     
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
       
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
     
   
     
@@ -3847,172 +4675,6 @@
     
     
     
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
     
   
     
@@ -4248,6 +4910,645 @@
     
     
     
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
       
     
   
@@ -4600,6 +5901,11 @@
     
     
     
+  
+    
+    
+    
+    
       
     
   
@@ -4899,6 +6205,11 @@
         
         
 
+  
+    
+    
+    
+    
   
     
     

@@ -88,6 +88,14 @@
     "content": "查找目标字符串位置   1.组件上的直接赋值的   直接在xml中就可以搜索到    2.组件上用id替代的   xml搜索不到                去资源索引中找      3.代码赋值的在dex中查找     在找不到，去ida里面找  查找图片地址   与上述字符串的查找思路类似  获取id-》查id-》看是否用id代理-》代理就在资源索引中查找"
   },
   {
+    "title": "逆向 Adb",
+    "url": "/posts/%E9%80%86%E5%90%91-ADB/",
+    "categories": "逆向",
+    "tags": "adb",
+    "date": "2024-03-10 00:00:00 +0800",
+    "content": "安装 https://dl.google.com/android/repository/platform-tools-latest-windows.zip https://developer.android.google.cn/studio/releases/platform-tools      查看手机设备：adb devices   查看设备型号：adb shell getprop r..."
+  },
+  {
     "title": "逆向 安卓开发思维",
     "url": "/posts/%E9%80%86%E5%90%91-%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91%E6%80%9D%E7%BB%B4/",
     "categories": "逆向",
@@ -101,7 +109,15 @@
     "categories": "",
     "tags": "",
     "date": "2023-08-28 00:00:00 +0800",
-    "content": ""
+    "content": "简单动态字符串SDS  Redis 没有直接使用 C 语言传统的字符串表示（以空字符结尾的字符数组，以下简称 C 字符串）， 而是自己构建了一种名为简单动态字符串（simple dynamic string，SDS）的抽象类型， 并将 SDS 用作 Redis 的默认字符串表示。  struct sdshdr {    // 记录 buf 数组中已使用字节的数量     // 等于 SDS ..."
+  },
+  {
+    "title": "Redis设计与实战 数据库行为",
+    "url": "/posts/redis%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E6%88%98-%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%8C%E4%B8%BA/",
+    "categories": "",
+    "tags": "",
+    "date": "2023-08-28 00:00:00 +0800",
+    "content": "行为1：事务  Redis通过MULTI、EXEC、WATCH等命令来实现事务（transaction）功能。事务将 一种将多个命令请求打包，然后一次性、按顺序地执行多个命令的机制，并且在事务执行期间，服务器不会中断事务而改去执行其他客户端的命令请求。  事务的实现  （1）事务开始  通过MULTI命令可以将执行该命令的客户端 从非事务状态切换至事务状态 ，这一切换是通过在客户端状态的fl..."
   },
   {
     "title": "Windows_ros_ Xacrof文件",
