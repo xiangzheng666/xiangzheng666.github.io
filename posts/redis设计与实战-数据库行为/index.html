@@ -32,18 +32,18 @@
 <meta name="generator" content="Jekyll v4.4.1" />
 <meta property="og:title" content="Redis设计与实战 数据库行为" />
 <meta property="og:locale" content="zh_CN" />
-<meta name="description" content="The more you learn, the stronger you become." />
-<meta property="og:description" content="The more you learn, the stronger you become." />
+<meta name="description" content="设计行为1：事务" />
+<meta property="og:description" content="设计行为1：事务" />
 <link rel="canonical" href="https://xiangzheng666.github.io/posts/redis%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E6%88%98-%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%8C%E4%B8%BA/" />
 <meta property="og:url" content="https://xiangzheng666.github.io/posts/redis%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E6%88%98-%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%8C%E4%B8%BA/" />
 <meta property="og:site_name" content="XiangZheng" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2023-09-08T00:00:00+08:00" />
+<meta property="article:published_time" content="2023-08-28T00:00:00+08:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Redis设计与实战 数据库行为" />
 <meta name="twitter:site" content="@xiangzheng666" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-09-08T00:00:00+08:00","datePublished":"2023-09-08T00:00:00+08:00","description":"The more you learn, the stronger you become.","headline":"Redis设计与实战 数据库行为","mainEntityOfPage":{"@type":"WebPage","@id":"https://xiangzheng666.github.io/posts/redis%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E6%88%98-%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%8C%E4%B8%BA/"},"url":"https://xiangzheng666.github.io/posts/redis%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E6%88%98-%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%8C%E4%B8%BA/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-08-28T00:00:00+08:00","datePublished":"2023-08-28T00:00:00+08:00","description":"设计行为1：事务","headline":"Redis设计与实战 数据库行为","mainEntityOfPage":{"@type":"WebPage","@id":"https://xiangzheng666.github.io/posts/redis%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E6%88%98-%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%8C%E4%B8%BA/"},"url":"https://xiangzheng666.github.io/posts/redis%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E6%88%98-%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%8C%E4%B8%BA/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -213,9 +213,16 @@
 
   
 
+  
+    
+
+    
+
+  
 
 
-  <script defer src="https://cdn.jsdelivr.net/combine/npm/simple-jekyll-search@1.10.0/dest/simple-jekyll-search.min.js,npm/loading-attribute-polyfill@2.1.1/dist/loading-attribute-polyfill.umd.min.js,npm/glightbox@3.3.0/dist/js/glightbox.min.js,npm/clipboard@2.0.11/dist/clipboard.min.js,npm/dayjs@1.11.13/dayjs.min.js,npm/dayjs@1.11.13/locale/zh.js,npm/dayjs@1.11.13/plugin/relativeTime.js,npm/dayjs@1.11.13/plugin/localizedFormat.js"></script>
+
+  <script defer src="https://cdn.jsdelivr.net/combine/npm/simple-jekyll-search@1.10.0/dest/simple-jekyll-search.min.js,npm/loading-attribute-polyfill@2.1.1/dist/loading-attribute-polyfill.umd.min.js,npm/glightbox@3.3.0/dist/js/glightbox.min.js,npm/clipboard@2.0.11/dist/clipboard.min.js,npm/dayjs@1.11.13/dayjs.min.js,npm/dayjs@1.11.13/locale/zh.js,npm/dayjs@1.11.13/plugin/relativeTime.js,npm/dayjs@1.11.13/plugin/localizedFormat.js,npm/tocbot@4.32.2/dist/tocbot.min.js"></script>
 
 
 
@@ -501,6 +508,898 @@
 
 
 
+  
+  
+
+  
+    
+      
+      
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+      
+
+      
+    
+
+    <!-- take out classes -->
+    
+
+    
+    
+
+    
+
+    
+      
+    
+
+    <!-- lazy-load images -->
+    
+
+    
+      <!-- make sure the `<img>` is wrapped by `<a>` -->
+      
+
+      
+        <!-- create the image wrapper -->
+        
+
+        
+        
+      
+    
+
+    <!-- combine -->
+    
+  
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+      
+
+      
+    
+
+    <!-- take out classes -->
+    
+
+    
+    
+
+    
+
+    
+      
+    
+
+    <!-- lazy-load images -->
+    
+
+    
+      <!-- make sure the `<img>` is wrapped by `<a>` -->
+      
+
+      
+        <!-- create the image wrapper -->
+        
+
+        
+        
+      
+    
+
+    <!-- combine -->
+    
+  
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+      
+
+      
+    
+
+    <!-- take out classes -->
+    
+
+    
+    
+
+    
+
+    
+      
+    
+
+    <!-- lazy-load images -->
+    
+
+    
+      <!-- make sure the `<img>` is wrapped by `<a>` -->
+      
+
+      
+        <!-- create the image wrapper -->
+        
+
+        
+        
+      
+    
+
+    <!-- combine -->
+    
+  
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+      
+
+      
+    
+
+    <!-- take out classes -->
+    
+
+    
+    
+
+    
+
+    
+      
+    
+
+    <!-- lazy-load images -->
+    
+
+    
+      <!-- make sure the `<img>` is wrapped by `<a>` -->
+      
+
+      
+        <!-- create the image wrapper -->
+        
+
+        
+        
+      
+    
+
+    <!-- combine -->
+    
+  
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+      
+
+      
+    
+
+    <!-- take out classes -->
+    
+
+    
+    
+
+    
+
+    
+      
+    
+
+    <!-- lazy-load images -->
+    
+
+    
+      <!-- make sure the `<img>` is wrapped by `<a>` -->
+      
+
+      
+        <!-- create the image wrapper -->
+        
+
+        
+        
+      
+    
+
+    <!-- combine -->
+    
+  
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+      
+
+      
+    
+
+    <!-- take out classes -->
+    
+
+    
+    
+
+    
+
+    
+      
+    
+
+    <!-- lazy-load images -->
+    
+
+    
+      <!-- make sure the `<img>` is wrapped by `<a>` -->
+      
+
+      
+        <!-- create the image wrapper -->
+        
+
+        
+        
+      
+    
+
+    <!-- combine -->
+    
+  
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+      
+
+      
+    
+
+    <!-- take out classes -->
+    
+
+    
+    
+
+    
+
+    
+      
+    
+
+    <!-- lazy-load images -->
+    
+
+    
+      <!-- make sure the `<img>` is wrapped by `<a>` -->
+      
+
+      
+        <!-- create the image wrapper -->
+        
+
+        
+        
+      
+    
+
+    <!-- combine -->
+    
+  
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+      
+
+      
+    
+
+    <!-- take out classes -->
+    
+
+    
+    
+
+    
+
+    
+      
+    
+
+    <!-- lazy-load images -->
+    
+
+    
+      <!-- make sure the `<img>` is wrapped by `<a>` -->
+      
+
+      
+        <!-- create the image wrapper -->
+        
+
+        
+        
+      
+    
+
+    <!-- combine -->
+    
+  
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+      
+
+      
+    
+
+    <!-- take out classes -->
+    
+
+    
+    
+
+    
+
+    
+      
+    
+
+    <!-- lazy-load images -->
+    
+
+    
+      <!-- make sure the `<img>` is wrapped by `<a>` -->
+      
+
+      
+        <!-- create the image wrapper -->
+        
+
+        
+        
+      
+    
+
+    <!-- combine -->
+    
+  
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+      
+
+      
+    
+
+    <!-- take out classes -->
+    
+
+    
+    
+
+    
+
+    
+      
+    
+
+    <!-- lazy-load images -->
+    
+
+    
+      <!-- make sure the `<img>` is wrapped by `<a>` -->
+      
+
+      
+        <!-- create the image wrapper -->
+        
+
+        
+        
+      
+    
+
+    <!-- combine -->
+    
+  
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+      
+
+      
+    
+
+    <!-- take out classes -->
+    
+
+    
+    
+
+    
+
+    
+      
+    
+
+    <!-- lazy-load images -->
+    
+
+    
+      <!-- make sure the `<img>` is wrapped by `<a>` -->
+      
+
+      
+        <!-- create the image wrapper -->
+        
+
+        
+        
+      
+    
+
+    <!-- combine -->
+    
+  
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+      
+
+      
+    
+
+    <!-- take out classes -->
+    
+
+    
+    
+
+    
+
+    
+      
+    
+
+    <!-- lazy-load images -->
+    
+
+    
+      <!-- make sure the `<img>` is wrapped by `<a>` -->
+      
+
+      
+        <!-- create the image wrapper -->
+        
+
+        
+        
+      
+    
+
+    <!-- combine -->
+    
+  
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+      
+
+      
+    
+
+    <!-- take out classes -->
+    
+
+    
+    
+
+    
+
+    
+      
+    
+
+    <!-- lazy-load images -->
+    
+
+    
+      <!-- make sure the `<img>` is wrapped by `<a>` -->
+      
+
+      
+        <!-- create the image wrapper -->
+        
+
+        
+        
+      
+    
+
+    <!-- combine -->
+    
+  
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+      
+
+      
+    
+
+    <!-- take out classes -->
+    
+
+    
+    
+
+    
+
+    
+      
+    
+
+    <!-- lazy-load images -->
+    
+
+    
+      <!-- make sure the `<img>` is wrapped by `<a>` -->
+      
+
+      
+        <!-- create the image wrapper -->
+        
+
+        
+        
+      
+    
+
+    <!-- combine -->
+    
+  
+
+  
+
 
 <!-- Add header for code snippets -->
 
@@ -516,10 +1415,162 @@
   
 
   
+    
+    
+
+    
+      
+        
+        
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+
+    
+  
 
   
   
 
+  
+    
+    
+
+    
+      
+        
+        
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+
+    
   
 
   
@@ -546,7 +1597,7 @@
 
 
 
-<article class="px-1" data-toc="false">
+<article class="px-1" data-toc="true">
   <header>
     <h1 data-toc-skip>Redis设计与实战 数据库行为</h1>
     
@@ -565,13 +1616,13 @@
 
 <time
   
-  data-ts="1694102400"
+  data-ts="1693152000"
   data-df="YYYY/MM/DD"
   
     data-bs-toggle="tooltip" data-bs-placement="bottom"
   
 >
-  2023/09/08
+  2023/08/28
 </time>
 
       </span>
@@ -620,9 +1671,9 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="0 字"
+  title="4966 字"
 >
-  <em>1 分钟</em>阅读</span>
+  <em>27 分钟</em>阅读</span>
 
         </div>
       </div>
@@ -630,9 +1681,477 @@
   </header>
 
   
+    <div id="toc-bar" class="d-flex align-items-center justify-content-between invisible">
+      <span class="label text-truncate">Redis设计与实战 数据库行为</span>
+      <button type="button" class="toc-trigger btn me-1">
+        <i class="fa-solid fa-list-ul fa-fw"></i>
+      </button>
+    </div>
+
+    <button id="toc-solo-trigger" type="button" class="toc-trigger btn btn-outline-secondary btn-sm">
+      <span class="label ps-2 pe-1">文章内容</span>
+      <i class="fa-solid fa-angle-right fa-fw"></i>
+    </button>
+
+    <dialog id="toc-popup" class="p-0">
+      <div class="header d-flex flex-row align-items-center justify-content-between">
+        <div class="label text-truncate py-2 ms-4">Redis设计与实战 数据库行为</div>
+        <button id="toc-popup-close" type="button" class="btn mx-1 my-1 opacity-75">
+          <i class="fas fa-close"></i>
+        </button>
+      </div>
+      <div id="toc-popup-content" class="px-4 py-3 pb-4"></div>
+    </dialog>
+  
 
   <div class="content">
-    
+    <h1 id="设计行为1事务">设计行为1：事务</h1>
+
+<p>Redis通过MULTI、EXEC、WATCH等命令来实现事务（transaction）功能。事务将 一种将多个命令请求打包，然后一次性、按顺序地执行多个命令的机制，并且在事务执行期间，<em>服务器不会中断事务</em>而改去执行其他客户端的命令请求。</p>
+
+<h2 id="事务的实现"><span class="me-2">事务的实现</span><a href="#事务的实现" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+
+<p>（1）事务开始</p>
+
+<p>通过MULTI命令可以将执行该命令的客户端 从非事务状态切换至事务状态 ，这一切换是通过在客户端状态的flags属性中打开REDIS_MULTI标识来完成的。</p>
+
+<p>当一个客户端已经处于非事务状态时，这个客户端发送的 命令会被服务器执行 。然而当切换到事务状态后，服务器会根据这个客户端发来的不同命令执行不同的操作：</p>
+
+<ul>
+  <li>如果客户端发送EXEC，DISCARD，WATCH，MULTI这四个命令，则立即执行。</li>
+  <li>如果发送的是其他命令，则放到事务队列里面，向客户端返回QUEUED回复。</li>
+</ul>
+
+<p><a href="https://bucket-1259555870.cos.ap-chengdu.myqcloud.com/20200107143029.png" class="popup img-link  shimmer"><img src="https://bucket-1259555870.cos.ap-chengdu.myqcloud.com/20200107143029.png" alt="" loading="lazy"></a></p>
+
+<p>（2）命令入队</p>
+
+<p>事务的关键实现在于 命令入队 ，每个Redis客户端都有自己的 事务状态 ，这个事务状态保存在客户端状态的mstate属性里面：</p>
+
+<div class="language-c highlighter-rouge"><div class="code-header">
+        <span data-label-text="C"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre><span class="k">typedef</span> <span class="k">struct</span> <span class="n">redisClient</span>
+<span class="p">{</span>
+    <span class="c1">//...</span>
+    <span class="n">multiState</span> <span class="n">mstate</span><span class="p">;</span>
+    <span class="c1">//...</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></div></div>
+
+<p>而事务状态结构体又包含了一个 事务队列 ，以及一个 已入队命令的计数器 。</p>
+
+<div class="language-c highlighter-rouge"><div class="code-header">
+        <span data-label-text="C"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre><span class="k">typedef</span> <span class="k">struct</span> <span class="n">multiState</span> 
+<span class="p">{</span> 
+    <span class="c1">// 事务队列，FIFO顺序 </span>
+    <span class="n">multiCmd</span> <span class="o">*</span><span class="n">commands</span><span class="p">;</span> 
+    <span class="c1">// 已入队命令计数 </span>
+    <span class="kt">int</span> <span class="n">count</span><span class="p">;</span>
+<span class="p">}</span> <span class="n">multiState</span><span class="p">;</span>
+</pre></td></tr></tbody></table></code></div></div>
+
+<p>事务队列是一个结构体，实现了队列数据结构，执行FIFO先进先出的策略。真实结构是一个数组。</p>
+
+<div class="language-c highlighter-rouge"><div class="code-header">
+        <span data-label-text="C"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="rouge-code"><pre><span class="k">typedef</span> <span class="k">struct</span> <span class="n">multiCmd</span> 
+<span class="p">{</span> 
+    <span class="c1">// 参数 </span>
+    <span class="n">robj</span> <span class="o">**</span><span class="n">argv</span><span class="p">;</span> 
+    <span class="c1">// 参数数量</span>
+    <span class="kt">int</span> <span class="n">argc</span><span class="p">;</span> 
+    <span class="c1">// 命令指针 </span>
+    <span class="k">struct</span> <span class="n">redisCommand</span> <span class="o">*</span><span class="n">cmd</span><span class="p">;</span>
+<span class="p">}</span> <span class="n">multiCmd</span><span class="p">;</span>
+</pre></td></tr></tbody></table></code></div></div>
+
+<p>事务结构具体的包含逻辑是：客户端-&gt;事务状态multiState-&gt;事务队列multiCmd-&gt;具体命令cmd</p>
+
+<p><a href="https://bucket-1259555870.cos.ap-chengdu.myqcloud.com/20200107145421.png" class="popup img-link  shimmer"><img src="https://bucket-1259555870.cos.ap-chengdu.myqcloud.com/20200107145421.png" alt="" loading="lazy"></a></p>
+
+<p>（3）执行事务</p>
+
+<p>当一个处于事务状态的客户端向服务器发送EXEC命令时，这个EXEC命令将立即被服务器执行。服务器会遍历这个客户端的事务队列，执行队列中保存的所有命令，最后将执行命令所得的结果全部返回给客户端。</p>
+
+<ol>
+  <li>创建空白回复队列</li>
+  <li>抽取一条命令，读取参数、参数个数以及要执行的函数</li>
+  <li>执行命令，取得返回值</li>
+  <li>将返回值追加到1中的队列末尾，重复步骤2</li>
+</ol>
+
+<p>完成所有命令后，将 清除REDIS_MULTI标志 ，让客户端变为非事务状态，同时清零入队命令计数器，并释放事务队列。</p>
+
+<h2 id="watch命令"><span class="me-2"><strong>WATCH命令</strong></span><a href="#watch命令" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+
+<p><strong>它可以</strong> <strong>在EXEC命令执行之前</strong> <strong>，</strong> <strong>监视任意数量的数据库键</strong> <strong>，并在EXEC命令执行时，</strong> <strong>检查被监视的键是否至少有一个已经被修改过了</strong> <strong>，</strong> <strong>如果是的话，服务器将拒绝执行事务</strong> <strong>，并向客户端返回代表事务执行失败的空回复。</strong></p>
+
+<div class="language-shell highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td><td class="rouge-code"><pre>redis-&gt; WATCH <span class="s2">"name"</span>
+OK
+
+redis-&gt; MULTI
+OK
+
+redis-&gt; SET <span class="s2">"name"</span> <span class="s2">"peter"</span>
+QUEUED
+
+redis-&gt; EXEC
+<span class="o">(</span>nil<span class="o">)</span>
+</pre></td></tr></tbody></table></code></div></div>
+
+<p><strong>下图说明：c1和c2客户端正在监视键”name”，c3客户端正在监视”age”….</strong></p>
+
+<p><a href="https://bucket-1259555870.cos.ap-chengdu.myqcloud.com/20200107152901.png" class="popup img-link  shimmer"><img src="https://bucket-1259555870.cos.ap-chengdu.myqcloud.com/20200107152901.png" alt="" loading="lazy"></a></p>
+
+<p>监视触发:<strong>对数据库执行修改命令</strong>时 <code class="language-plaintext highlighter-rouge">watched_keys</code>字典进行检查。<strong>查看当前命令修改的键是否在</strong> <code class="language-plaintext highlighter-rouge">watched_keys</code> <strong>字典中</strong>，如果有，则客户端的 <code class="language-plaintext highlighter-rouge">REDIS_DIRTY_CAS</code>标识打开 <strong>，表示该客户端的事务安全性已经被破坏</strong></p>
+
+<p><strong>当服务器接收到一个客户端发来的EXEC命令时，服务器会根据这个客户端是否打开了</strong> <code class="language-plaintext highlighter-rouge">REDIS_DIRTY_CAS</code>标识来决定是否执行事务。</p>
+
+<ul>
+  <li><strong>如果标志被打开，则说明哨兵监视的键中被修改过了，所以当前提交的事务不再安全，拒绝执行客户端提交的事务。</strong></li>
+  <li><strong>反之，是安全的，继续执行。</strong></li>
+</ul>
+
+<p><strong>（1）原子性</strong></p>
+
+<p><strong>所谓原子性就是某个操作不可再分，比如汇编语言里面的</strong> <code class="language-plaintext highlighter-rouge">MOV DST,SRC</code>。事务的定义就是：将多个命令打包成一个实现， <strong>要么全部执行，要么都不执行</strong> <strong>。</strong> <strong>在命令入队的时候，用WATCH进行检查</strong> <strong>，不符合要求就直接返回。</strong></p>
+
+<p><strong>Redis的事务和传统的关系型数据库事务的最大区别在于，</strong> <strong>Redis不支持事务回滚机制（rollback）</strong> <strong>。作者认为Redis追求简单高效，回滚机制太复杂。</strong></p>
+
+<p><strong>回滚(rollback)是指当事务中某一条命令执行出错时，意味着前面的命令可能也不安全，这时候就会释放掉前面的操作，恢复到执行事务之前的状态。MySQL数据库支持回滚操作。</strong></p>
+
+<p><strong>（2）一致性</strong></p>
+
+<p><strong>“</strong> <strong>一致”指的是数据符合数据库本身的定义和要求，没有包含非法或者无效的错误数据。</strong> <strong>如果数据库在执行事务之前是一致的，那么在事务执行之后，无论事务是否执行成功，数据库也应该仍然是一致的。Redis保证一致性的方法如下：</strong></p>
+
+<ul>
+  <li><strong>入队错误</strong> <strong>：事务入队时命令格式不正确，则Redis拒绝执行</strong></li>
+  <li><strong>执行错误</strong> <strong>：执行时操作不正确，会被服务器识别，并做错误处理，所以这些出错命令不会对数据库做任何修改</strong></li>
+  <li><strong>服务器停机</strong> **：停机分三种情况， **</li>
+  <li><strong>无持久化：重启后清空，数据总是一致的</strong></li>
+  <li><strong>RDB模式：根据RDB恢复数据，还原为一致状态</strong></li>
+  <li><strong>AOF模式：根据AOF恢复数据，还原为一致状态</strong></li>
+</ul>
+
+<p><strong>（3）隔离性</strong></p>
+
+<p><strong>隔离性也可被理解为</strong> <strong>不存在竞争</strong> <strong>。即使数据库中有多个事务并发地执行，各个事务之间也不会互相影响。</strong></p>
+
+<p><strong>因为Redis使用单线程</strong>的方式来执行事务（以及事务队列中的命令），并且服务器保证，在执行事务期间 <strong>不会对事务进行中断</strong> <strong>。这种</strong>串行的方式保证了事务也总是具有隔离性的。</p>
+
+<p><strong>（4）耐久性</strong></p>
+
+<p><strong>事务的耐久性指的是，当一个事务执行完毕时，执行这个事务所得的结果已经</strong> <strong>被保存到永久性存储介质</strong> <strong>（比如硬盘）里面了，即使服务器在事务执行完毕之后停机，执行事务所得的结果也不会丢失。</strong></p>
+
+<p><strong>Redis事务只是简答包裹了一组Redis命令，耐久性由持久化实现。前面提到持久化分不同的情况</strong></p>
+
+<ul>
+  <li><strong>RDB模式下，只有特定条件被满足时才会执行BGSAVE，具有耐久性。</strong></li>
+  <li>AOF模式根据appendfsync选项来决定</li>
+  <li><strong>always，每次执行命令后都会调用同步函数，具有耐久性。</strong></li>
+  <li><strong>everysec，每一秒才会同步到硬盘，不具有耐久性。</strong></li>
+  <li><strong>no，程序会交由操作系统来决定何时将命令数据同步到硬盘。不具有耐久性。</strong></li>
+</ul>
+
+<hr />
+
+<p><strong>总的来说，Redis事务</strong>一定<strong>具有原子性，一致性和隔离性，但</strong>只有在特定条件下才具有耐久性。</p>
+
+<h1 id="设计行为2发布与订阅">设计行为2：发布与订阅</h1>
+
+<div class="language-shell highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>SUBSCRIBE <span class="s2">"news.it"</span>
+</pre></td></tr></tbody></table></code></div></div>
+
+<h2 id="频道的订阅与退订"><span class="me-2">频道的订阅与退订</span><a href="#频道的订阅与退订" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+
+<p><strong>Redis将所有频道的订阅关系都保存在服务器状态的</strong> <code class="language-plaintext highlighter-rouge">pubsub_channels</code><strong>字典</strong>里面，这个字典的 <strong>键是某个被订阅的频道</strong> <strong>，而键的</strong> <strong>值则是一个链表</strong> <strong>，链表里面记录了所有订阅这个频道的客户端。</strong></p>
+
+<p><strong>看下图，不同客户端订阅了不同频道：</strong></p>
+
+<p><a href="https://bucket-1259555870.cos.ap-chengdu.myqcloud.com/20200107130819.png" class="popup img-link  shimmer"><img src="https://bucket-1259555870.cos.ap-chengdu.myqcloud.com/20200107130819.png" alt="" loading="lazy"></a></p>
+
+<hr />
+
+<p>订阅的原理是：<strong>服务器将客户端与被订阅频道在 <code class="language-plaintext highlighter-rouge">pubsub_channels</code>字典中进行关联。</strong></p>
+
+<p><strong>假如客户端10086执行命令：</strong></p>
+
+<div class="language-c highlighter-rouge"><div class="code-header">
+        <span data-label-text="C"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="n">SUBSCRIBE</span> <span class="s">"news.sport"</span> <span class="s">"news.movie"</span>
+</pre></td></tr></tbody></table></code></div></div>
+
+<p><strong>服务器完成两件事：</strong></p>
+
+<ul>
+  <li><strong>将10086添加到sport链表后面</strong></li>
+  <li><strong>新增一个键”news.movie”</strong></li>
+</ul>
+
+<p><a href="https://bucket-1259555870.cos.ap-chengdu.myqcloud.com/20200107131546.png" class="popup img-link  shimmer"><img src="https://bucket-1259555870.cos.ap-chengdu.myqcloud.com/20200107131546.png" alt="" loading="lazy"></a></p>
+
+<hr />
+
+<p><strong>退订就是在链表中删除客户端信息，如果退订后某个键没有任何客户端，则</strong><strong>程序将从pubsub_channels字典中删除频道对应的键。</strong></p>
+
+<h2 id="模式的订阅与退订"><span class="me-2">模式的订阅与退订</span><a href="#模式的订阅与退订" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+
+<p><strong>类似地，服务器也将所有模式的订阅关系都保存在服务器状态的</strong> <code class="language-plaintext highlighter-rouge">&lt;span class="ne-text"&gt;pubsub_patterns&lt;/span&gt;</code>属性。</p>
+
+<p><strong>与频道不同的是，这是一个</strong> <strong>链表</strong> <strong>，链表中的每个节点都包含着一个</strong> <code class="language-plaintext highlighter-rouge">&lt;span class="ne-text"&gt;pubsubPattern&lt;/span&gt;</code>结构，这个结构的 <code class="language-plaintext highlighter-rouge">&lt;span class="ne-text"&gt;pattern&lt;/span&gt;</code>属性记录了被订阅的模式，而 <code class="language-plaintext highlighter-rouge">&lt;span class="ne-text"&gt;client&lt;/span&gt;</code>属性则记录了订阅模式的客户端：</p>
+
+<div class="language-c highlighter-rouge"><div class="code-header">
+        <span data-label-text="C"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre><span class="k">typedef</span> <span class="k">struct</span> <span class="n">pubsub_Pattern</span> 
+<span class="p">{</span> 
+    <span class="c1">// 订阅模式的客户端 </span>
+    <span class="n">redisClient</span> <span class="o">*</span><span class="n">client</span><span class="p">;</span>
+    <span class="c1">// 被订阅的模式 </span>
+    <span class="n">robj</span> <span class="o">*</span><span class="n">pattern</span><span class="p">;</span>
+<span class="p">}</span> <span class="n">pubsubPattern</span><span class="p">;</span>
+</pre></td></tr></tbody></table></code></div></div>
+
+<p><strong>下面举一个例子：</strong></p>
+
+<ul>
+  <li><strong>客户端7正在订阅模式”music.*“</strong></li>
+  <li><strong>客户端8正在订阅模式”book.*“</strong></li>
+  <li><strong>客户端9正在订阅模式”news.*“</strong></li>
+</ul>
+
+<p><a href="https://bucket-1259555870.cos.ap-chengdu.myqcloud.com/20200107132321.png" class="popup img-link  shimmer"><img src="https://bucket-1259555870.cos.ap-chengdu.myqcloud.com/20200107132321.png" alt="" loading="lazy"></a></p>
+
+<hr />
+
+<p><strong>订阅模式时，服务器会对每个被订阅的模式执行以下两个操作：</strong></p>
+
+<ol>
+  <li><strong>新建一个</strong> <code class="language-plaintext highlighter-rouge">pubsubPattern</code>结构，将结构的 <code class="language-plaintext highlighter-rouge">pattern</code>属性设置为被订阅的模式，<code class="language-plaintext highlighter-rouge">client</code>属性设置为订阅模式的客户端。</li>
+  <li><strong>将</strong> <code class="language-plaintext highlighter-rouge">pubsubPattern</code>结构添加到 <code class="language-plaintext highlighter-rouge">pubsub_patterns</code>链表的表尾。</li>
+</ol>
+
+<p><a href="https://bucket-1259555870.cos.ap-chengdu.myqcloud.com/20200107132636.png" class="popup img-link  shimmer"><img src="https://bucket-1259555870.cos.ap-chengdu.myqcloud.com/20200107132636.png" alt="" loading="lazy"></a></p>
+
+<p><strong>退订时，在</strong> <code class="language-plaintext highlighter-rouge">pubsub_patterns</code>链表中查找并删除。</p>
+
+<h2 id="发布消息"><span class="me-2">发布消息</span><a href="#发布消息" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+
+<p><strong>发布消息有两个动作：</strong></p>
+
+<ol>
+  <li><strong>将消息发送给所有channel的订阅者。</strong></li>
+  <li><strong>如果有一个或多个模式与频道channel匹配，则同时将消息发送给模式的订阅者。</strong></li>
+</ol>
+
+<p><strong>对于频道订阅者</strong> <strong>，首先服务器要在</strong> <code class="language-plaintext highlighter-rouge">pubsub_channels</code>中找到相对应的channel(一个链表)，然后顺着这个链表，将消息发送给所有客户端。</p>
+
+<p><strong>对于模式订阅者</strong> <strong>，服务器会在</strong> <code class="language-plaintext highlighter-rouge">pubsub_patterns</code>链表中找到 <strong>与channel频道相匹配的模式</strong> <strong>，然后将消息发送给订阅了这些模式的所有客户端。</strong></p>
+
+<h2 id="查看订阅消息"><span class="me-2">查看订阅消息</span><a href="#查看订阅消息" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+
+<p><strong>PUBSUB</strong>命令是Redis 2.8新增加的命令之一， <strong>客户端可以通过这个命令来查看频道或者模式的相关信息</strong> <strong>，比如某个频道目前有多少订阅者，又或者某个模式目前有多少订阅者。本节介绍这个命令的实现方法。</strong></p>
+
+<h1 id="设计行为3数据库键">设计行为3：数据库键</h1>
+
+<p><a href="https://bucket-1259555870.cos.ap-chengdu.myqcloud.com/20200104103307.png" class="popup img-link  shimmer"><img src="https://bucket-1259555870.cos.ap-chengdu.myqcloud.com/20200104103307.png" alt="img" loading="lazy"></a></p>
+
+<p><a href="https://bucket-1259555870.cos.ap-chengdu.myqcloud.com/20200104105103.png" class="popup img-link  shimmer"><img src="https://bucket-1259555870.cos.ap-chengdu.myqcloud.com/20200104105103.png" alt="" loading="lazy"></a></p>
+
+<h3 id="过期键设计"><span class="me-2"><strong>过期键设计</strong></span><a href="#过期键设计" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+
+<p><strong>通过</strong>EXPIRE命令<strong>或者 **PEXPIRE命令</strong> 客户端可以以秒或者毫秒<strong>精度某个键设置 **生存时间（Time To Live，TTL）</strong> <strong>，在经过指定的秒数或者毫秒数之后，服务器就会</strong> <strong>自动删除生存时间为0的键</strong> <strong>：</strong></p>
+
+<p><a href="https://bucket-1259555870.cos.ap-chengdu.myqcloud.com/20200104130057.png" class="popup img-link  shimmer"><img src="https://bucket-1259555870.cos.ap-chengdu.myqcloud.com/20200104130057.png" alt="" loading="lazy"></a></p>
+
+<h2 id="过期键的删除策略"><span class="me-2">过期键的删除策略</span><a href="#过期键的删除策略" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+
+<ul>
+  <li><strong>定时删除：在设置键的过期时间的同时，创建一个定时器（timer），定时结束后删除。</strong></li>
+  <li><strong>惰性删除：放着不管，每次从键空间获取时检查是否过期，过期就删除。</strong></li>
+  <li><strong>定期删除：每隔一段时间，程序检查一次数据库，删除过期键。</strong></li>
+</ul>
+
+<p><strong>（1）定时删除</strong></p>
+
+<p><strong>定时删除</strong> <strong>有利于内存管理</strong> <strong>，但</strong> <strong>对CPU不友好</strong> <strong>。如果过期键太多，删除会占用相当一部分CPU。</strong></p>
+
+<p><strong>所以策略应该是：当有大量命令请求服务器处理时，并且服务器内存充足，就应该优先将CPU资源安排在处理客户端请求上，而不是删除过期键。</strong></p>
+
+<p><strong>创建一个定时器需要用到Redis服务器中的</strong> <strong>时间事件</strong> <strong>，而当前时间事件的实现方式——无序链表，查找一个事件的时间复杂度为</strong><a href="https://www.yuque.com/api/services/graph/generate_redirect/latex?O(N)" class="popup img-link  shimmer"><img src="https://www.yuque.com/api/services/graph/generate_redirect/latex?O(N)" alt="" loading="lazy"></a>，并 <strong>不能高效地处理大量时间事件</strong> <strong>。</strong></p>
+
+<p><strong>（2）惰性删除</strong></p>
+
+<p><strong>对CPU最友好</strong> <strong>，</strong> <strong>但浪费内存</strong> <strong>。如果数据库中有很多过期键，而这些过期键永远也不会被访问的话，他们就会永远占据空间，可视为</strong> <strong>内存泄漏</strong> <strong>。</strong></p>
+
+<p><strong>一些和时间有关的数据，比如日志，在某个时间点后，他们的访问就会很少。如果这类过期数据大量积压，会造成严重的内存浪费。</strong></p>
+
+<p><strong>（3）定期删除</strong></p>
+
+<p><strong>定期删除是一种折中，通过选择较为空闲的时间点来处理过期键，减少CPU压力。同时也能及时释放内存，避免内存泄漏。</strong></p>
+
+<hr />
+
+<p><strong>在Redis中，</strong> <strong>实际使用的是惰性删除和定期删除这两种</strong> <strong>。</strong></p>
+
+<p><strong>（1）Redis中的惰性删除</strong></p>
+
+<p><strong>存在于</strong> <code class="language-plaintext highlighter-rouge">&lt;span class="ne-text"&gt;db.c/expireIfNeeded&lt;/span&gt;</code>函数。<strong>所有读写数据库的Redis命令在执行之前都会调用</strong> <code class="language-plaintext highlighter-rouge">&lt;strong&gt;&lt;span class="ne-text"&gt;expireIfNeeded&lt;/span&gt;&lt;/strong&gt;</code> <strong>函数对输入键进行检查</strong> <strong>：</strong></p>
+
+<ul>
+  <li><strong>过期，函数将输入键删除</strong></li>
+  <li><strong>不过期，函数不动作</strong></li>
+</ul>
+
+<p><strong>（2）Redis中的定期删除</strong></p>
+
+<p><strong>过期键的定期删除策略由</strong> <code class="language-plaintext highlighter-rouge">&lt;span class="ne-text"&gt;redis.c/activeExpireCycle&lt;/span&gt;</code>函数实现，<strong>每当Redis的服务器周期性操作</strong> <code class="language-plaintext highlighter-rouge">&lt;strong&gt;&lt;span class="ne-text"&gt;redis.c/serverCron&lt;/span&gt;&lt;/strong&gt;</code> <strong>函数执行时</strong> <strong>，</strong><code class="language-plaintext highlighter-rouge">&lt;span class="ne-text"&gt;activeExpireCycle&lt;/span&gt;</code>函数就会被调用，它在规定的时间内， <strong>分多次遍历服务器中的各个数据库</strong> <strong>，从数据库的expires字典中</strong> <strong>随机检查一部分键的过期时间</strong> <strong>，并删除其中的过期键。</strong></p>
+
+<p><strong>全局变量</strong> <code class="language-plaintext highlighter-rouge">&lt;span class="ne-text"&gt;current_db&lt;/span&gt;</code>会<strong>记录当前</strong> <code class="language-plaintext highlighter-rouge">&lt;strong&gt;&lt;span class="ne-text"&gt;activeExpireCycle&lt;/span&gt;&lt;/strong&gt;</code> <strong>函数检查的进度</strong> <strong>，并在</strong> <strong>下一次检查时接着上一次的进度进行处理</strong> <strong>。比如说，如果当前</strong> <code class="language-plaintext highlighter-rouge">&lt;span class="ne-text"&gt;activeExpireCycle&lt;/span&gt;</code>函数在遍历10号数据库时返回了，那么下次就会从11号数据库开始工作。</p>
+
+<p><strong>如果所有数据库都被检查了一遍，则</strong> <code class="language-plaintext highlighter-rouge">&lt;span class="ne-text"&gt;current_db&lt;/span&gt;</code>将会被置0，然后开始新一轮检查。</p>
+
+<h1 id="设计行为4持久化">设计行为4：持久化</h1>
+
+<h2 id="rbd持久化"><span class="me-2"><strong>RBD持久化</strong></span><a href="#rbd持久化" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+
+<ul>
+  <li><strong>RDB持久化产生的RDB文件(Redis Database)是一个</strong> <strong>经过压缩的二进制文件，该文件可以被还原为数据库状态</strong> <strong>，所以即使服务器停机，服务器的数据还是被安全保存在硬盘中。</strong></li>
+  <li>
+    <p>有两个Redis命令可以用于生成RDB文件，一个是SAVE，另一个是BGSAVE (BackGround SAVE)。</p>
+
+    <ul>
+      <li>SAVE命令会阻塞Redis服务器进程，直到RDB文件创建完毕为止，在服务器进程阻塞期间，服务器不能处理任何命令请求；</li>
+      <li><strong>BGSAVE命令会</strong> <strong>增加一个子进程</strong> <strong>，负责创建RDB文件。</strong></li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>完整的RDB文件如下，</strong></p>
+
+<p><a href="https://bucket-1259555870.cos.ap-chengdu.myqcloud.com/20200104162540.png" class="popup img-link  shimmer"><img src="https://bucket-1259555870.cos.ap-chengdu.myqcloud.com/20200104162540.png" alt="" loading="lazy"></a></p>
+
+<p><strong>RDB是一个二进制文件而不是文本文件。</strong></p>
+
+<p><strong>广义来说，所有文件都是二进制文件。狭义来说，文本文件是基于字符编码的文件，常见的编码有ASCII编码，UNICODE编码</strong>等等；二进制文件是基于值编码的文件，也可以理解为<strong>自定义编码。</strong></p>
+
+<ul>
+  <li><em>开头的REDIS占5个字节，这5个字符</em>用于检查是不是RDB文件。</li>
+  <li><strong>db_version长度为4字节，值被解析为</strong> <strong>RDB版本</strong> <strong>，比如”0006”就代表第6版。</strong></li>
+  <li><strong>database部分包含着</strong> <strong>多个数据库的键值对数据</strong> <strong>，根据大小不同，长度有所不同。</strong></li>
+  <li><strong>EOF占1个字节，结束位标志。</strong></li>
+  <li><strong>check_sum是占8字节，保存</strong> <strong>校验和</strong> <strong>。服务器在载入时会根据读入的实际数据计算出一个数来和校验值比较，以此来检查是否有损坏。</strong></li>
+</ul>
+
+<h2 id="aof持久化"><span class="me-2"><strong>AOF持久化</strong></span><a href="#aof持久化" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+
+<p><strong>AOF如其名所示，Append Only File，AOF持久化功能的实现可以分为</strong>命令追加（append）、文件写入与同步sync</p>
+
+<p><strong>（1）命令追加</strong></p>
+
+<p><strong>如果AOF被打开，则服务器执行完一个命令后，会以协议格式将命令</strong> <strong>追加到服务器状态aof_buf缓冲区的结尾</strong> <strong>：</strong></p>
+
+<p><strong>比如执行了</strong> <code class="language-plaintext highlighter-rouge">SET KEY VALUE</code>后，会将加载到aof_buf缓冲区</p>
+
+<p><strong>（2）AOF文件的写入与同步</strong></p>
+
+<p><strong>Redis的服务器进程就是一个</strong> <strong>事件循环（loop）</strong> <strong>，这个循环中的</strong> <strong>文件事件负责接收客户端的命令请求</strong> <strong>，</strong> <strong>以及向客户端发送命令回复</strong> <strong>，而</strong>时间事件则负责执行像 <code class="language-plaintext highlighter-rouge">serverCron</code> <strong>函数这样需要定时运行的函数</strong> <strong>。</strong></p>
+
+<p><strong>服务器每次结束一个事件循环之前，它都会调用</strong> <code class="language-plaintext highlighter-rouge">flushAppendOnlyFile</code>函数，<strong>考虑是否需要将</strong> <code class="language-plaintext highlighter-rouge">aof_buf</code> <strong>缓冲区中的内容写入和保存到AOF文件里面</strong> <strong>。</strong></p>
+
+<p><a href="https://bucket-1259555870.cos.ap-chengdu.myqcloud.com/20200105120013.png" class="popup img-link  shimmer"><img src="https://bucket-1259555870.cos.ap-chengdu.myqcloud.com/20200105120013.png" alt="img" loading="lazy"></a></p>
+
+<p>这个函数的行为有服务器配置的 <code class="language-plaintext highlighter-rouge">appendfsync</code>选项来设置，默认为 <code class="language-plaintext highlighter-rouge">everysec</code></p>
+
+<p><a href="https://bucket-1259555870.cos.ap-chengdu.myqcloud.com/20200105120224.png" class="popup img-link  shimmer"><img src="https://bucket-1259555870.cos.ap-chengdu.myqcloud.com/20200105120224.png" alt="" loading="lazy"></a></p>
+
+<p><strong>默认情况下，距离上次同步过了一秒钟，则服务器会将aof_buf内容写入AOF文件中。</strong></p>
+
+<h3 id="aof还原"><span class="me-2"><strong>AOF还原</strong></span><a href="#aof还原" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+
+<p><strong>步骤如下：</strong></p>
+
+<ol>
+  <li><strong>创建一个不带网络连接的</strong> <strong>伪客户端（fake client）</strong> <strong>：因为Redis的命令只能在客户端上下文中执行。</strong></li>
+  <li><strong>从AOF中读出一条命令。</strong></li>
+  <li><strong>使用伪客户端执行被读出的写命令。</strong></li>
+  <li><strong>重复23步</strong></li>
+</ol>
+
+<h3 id="aof重写"><span class="me-2">AOF重写</span><a href="#aof重写" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+
+<p>随着时间的增长，AOF文件的大小将会越来越大。为了解决这个问题，Redis提供了AOF重写功能。</p>
+
+<p>重写后，Redis服务器可以创建一个新的AOF文件来替代现有的AOF文件，新旧两个AOF文件保存的数据库状态完全相同。</p>
+
+<p>如果要保存一个键值对，我们其实只关心它当前的状态。所以重写策略是：首先从数据库中读取键现在的值，然后用一条命令去记录键值对，用到了aof_rewrite函数。</p>
+
+<p>比如，对list进行RPUSH操作填入”A”、”B”、”C”，然后再LPOP一次，我们操作了4次，但其实用RPUSH list A B这一条指令就可以代替。</p>
+
+<p>aof_rewrite函数包含了大量写入操作，调用时会导致线程被长时间阻塞，所以Redis将AOF重写放入子进程里。</p>
+
+<p>还有一个问题：子进程AOF重写时，主进程也在写命令，导致两者状态不一致。因此，Redis服务器设置了一个AOF重写缓冲区，这个缓冲区在服务器创建子进程之后开始使用，当Redis服务器执行完一个写命令之后，它会同时将这个写命令发送给AOF缓冲区和AOF重写缓冲区。</p>
+
+<p>换句话说，子进程执行AOF期间，服务器进程需要：</p>
+
+<ul>
+  <li>执行客户端指令</li>
+  <li>将执行后的命令追加到AOF缓冲区</li>
+  <li>将执行后的命令追加到AOF重写缓冲区</li>
+</ul>
+
+<p>子进程执行完AOF后，向父进程发送一个信号。父进程接收后：</p>
+
+<p>1将AOF重写缓冲区的内容写入AOF文件中，保证一致性。
+2对新AOF文件改名，原子的(atomic)覆盖现有AOF文件。</p>
+
+<p>在整个AOF后台重写过程中，只有信号处理函数执行时会对服务器进程（父进程）造成阻塞，在其他时候，AOF后台重写都不会阻塞父进程，这将AOF重写对服务器性能造成的影响降到了最低。</p>
 
   </div>
 
@@ -881,91 +2400,6 @@
     
     
     
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
       
         
         
@@ -1041,193 +2475,6 @@
     
     
       
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
     
   
     
@@ -1383,88 +2630,6 @@
     
     
     
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
       
         
         
@@ -1529,114 +2694,7 @@
     
     
     
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
       
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
     
   
     
@@ -1722,72 +2780,12 @@
     
     
     
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
       
+    
+  
+    
+    
+    
     
   
     
@@ -1851,7 +2849,34 @@
     
     
     
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
       
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
     
   
     
@@ -2109,54 +3134,29 @@
     
     
     
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
   
     
     
     
     
       
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
     
   
     
@@ -2269,6 +3269,328 @@
     
     
       
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
     
   
     
@@ -2471,119 +3793,12 @@
     
     
     
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
   
     
     
     
     
       
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
     
   
     
@@ -2687,17 +3902,62 @@
     
     
     
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
       
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
     
   
     
@@ -2765,16 +4025,19 @@
     <div class="d-flex flex-wrap mt-3 mb-1 me-3">
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/redis/">redis</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/hadoop/">hadoop</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/hadoop/">hadoop</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/redis/">redis</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/frida/">frida</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/hive/">Hive</a>
+      
+        
+        <a class="post-tag btn btn-outline-primary" href="/tags/mysql/">mysql</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/mq/">MQ</a>
@@ -2791,9 +4054,6 @@
         
         <a class="post-tag btn btn-outline-primary" href="/tags/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">基础知识</a>
       
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/">数据处理</a>
-      
     </div>
   </section>
 
@@ -2808,6 +4068,12 @@
 
 
 
+
+  <div class="toc-border-cover z-3"></div>
+  <section id="toc-wrapper" class="invisible position-sticky ps-0 pe-4 pb-4">
+    <h2 class="panel-heading ps-3 pb-2 mb-0">文章内容</h2>
+    <nav id="toc"></nav>
+  </section>
 
 
             
@@ -2858,31 +4124,19 @@
   
 
   
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
     
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
   
 
   
@@ -2910,7 +4164,7 @@
     <nav class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 mb-4">
       
         <article class="col">
-          <a href="/posts/mysql45%E8%AE%B2-%E9%87%8D%E6%96%B0%E8%AE%A4%E8%AF%86%E9%94%81/" class="post-preview card h-100">
+          <a href="/posts/redis%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E6%88%98-%E5%A4%9A%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%8C%E4%B8%BA/" class="post-preview card h-100">
             <div class="card-body">
               <!--
   Date format snippet
@@ -2922,23 +4176,23 @@
 
 <time
   
-  data-ts="1698422400"
+  data-ts="1693238400"
   data-df="YYYY/MM/DD"
   
 >
-  2023/10/28
+  2023/08/29
 </time>
 
-              <h4 class="pt-0 my-2">Mysql45讲 重新认识锁</h4>
+              <h4 class="pt-0 my-2">Redis设计与实战 多数据库行为</h4>
               <div class="text-muted">
-                <p></p>
+                <p>设计行为1：复制  旧版复制的实现  Redis的复制功能分为 同步（sync） 和 命令传播（commandpropagate） 两个操作：     同步操作用于将从服务器的数据库状态更新至主服务器当前所处的数据库状态。   命令传播操作则用于在 主服务器的数据库状态被修改 ，导致主从服务器的数据库状态出现不一致时，让主从服务器的数据库重新回到一致状态。   （1）同步  从服务器对主服务...</p>
               </div>
             </div>
           </a>
         </article>
       
         <article class="col">
-          <a href="/posts/mysql45%E8%AE%B2-%E9%87%8D%E6%96%B0%E8%AE%A4%E8%AF%86%E7%B4%A2%E5%BC%95/" class="post-preview card h-100">
+          <a href="/posts/redis%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E6%88%98-redis%E5%AE%9E%E6%88%98%E5%8A%9F%E8%83%BD/" class="post-preview card h-100">
             <div class="card-body">
               <!--
   Date format snippet
@@ -2950,23 +4204,23 @@
 
 <time
   
-  data-ts="1697558400"
+  data-ts="1693152000"
   data-df="YYYY/MM/DD"
   
 >
-  2023/10/18
+  2023/08/28
 </time>
 
-              <h4 class="pt-0 my-2">Mysql45讲 重新认识索引</h4>
+              <h4 class="pt-0 my-2">Redis设计与实战 Redis实战功能</h4>
               <div class="text-muted">
-                <p></p>
+                <p>慢查询日志  Redis 的慢查询日志功能用于记录执行时间超过给定时长的命令请求， 用户可以通过这个功能产生的日志来监视和优化查询速度。  服务器配置有两个和慢查询日志相关的选项：     slowlog-log-slower-than 选项指定执行时间超过多少微秒（1 秒等于 1,000,000 微秒）的命令请求会被记录到日志上。 举个例子， 如果这个选项的值为 100 ， 那么执行时间超...</p>
               </div>
             </div>
           </a>
         </article>
       
         <article class="col">
-          <a href="/posts/mysql45%E8%AE%B2-%E9%87%8D%E6%96%B0%E8%AE%A4%E8%AF%86sql/" class="post-preview card h-100">
+          <a href="/posts/redis%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E6%88%98-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="post-preview card h-100">
             <div class="card-body">
               <!--
   Date format snippet
@@ -2978,16 +4232,16 @@
 
 <time
   
-  data-ts="1696694400"
+  data-ts="1692460800"
   data-df="YYYY/MM/DD"
   
 >
-  2023/10/08
+  2023/08/20
 </time>
 
-              <h4 class="pt-0 my-2">Mysql45讲 重新认识sql</h4>
+              <h4 class="pt-0 my-2">Redis设计与实战 数据结构</h4>
               <div class="text-muted">
-                <p></p>
+                <p>简单动态字符串SDS  Redis 没有直接使用 C 语言传统的字符串表示（以空字符结尾的字符数组，以下简称 C 字符串）， 而是自己构建了一种名为简单动态字符串（simple dynamic string，SDS）的抽象类型， 并将 SDS 用作 Redis 的默认字符串表示。  struct sdshdr {    // 记录 buf 数组中已使用字节的数量     // 等于 SDS ...</p>
               </div>
             </div>
           </a>
@@ -3008,21 +4262,21 @@
 
   
     <a
-      href="/posts/redis%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E6%88%98-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"
+      href="/posts/redis%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E6%88%98-redis%E5%AE%9E%E6%88%98%E5%8A%9F%E8%83%BD/"
       class="btn btn-outline-primary"
       aria-label="上一篇"
     >
-      <p>Redis设计与实战 数据结构</p>
+      <p>Redis设计与实战 Redis实战功能</p>
     </a>
   
 
   
     <a
-      href="/posts/mysql45%E8%AE%B2-%E9%87%8D%E6%96%B0%E8%AE%A4%E8%AF%86sql/"
+      href="/posts/redis%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E6%88%98-%E5%A4%9A%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%8C%E4%B8%BA/"
       class="btn btn-outline-primary"
       aria-label="下一篇"
     >
-      <p>Mysql45讲 重新认识sql</p>
+      <p>Redis设计与实战 多数据库行为</p>
     </a>
   
 </nav>
@@ -3159,91 +4413,6 @@
     
     
     
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
       
         
         
@@ -3319,193 +4488,6 @@
     
     
       
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
     
   
     
@@ -3661,88 +4643,6 @@
     
     
     
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
       
         
         
@@ -3807,114 +4707,7 @@
     
     
     
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
       
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
     
   
     
@@ -4000,72 +4793,12 @@
     
     
     
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
       
+    
+  
+    
+    
+    
     
   
     
@@ -4129,7 +4862,34 @@
     
     
     
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
       
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
     
   
     
@@ -4387,54 +5147,29 @@
     
     
     
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
   
     
     
     
     
       
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
     
   
     
@@ -4547,6 +5282,328 @@
     
     
       
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
     
   
     
@@ -4749,119 +5806,12 @@
     
     
     
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
   
     
     
     
     
       
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
     
   
     
@@ -4965,17 +5915,62 @@
     
     
     
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
       
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
     
   
     
@@ -5043,16 +6038,19 @@
     <div class="d-flex flex-wrap mt-3 mb-1 me-3">
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/redis/">redis</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/hadoop/">hadoop</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/hadoop/">hadoop</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/redis/">redis</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/frida/">frida</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/hive/">Hive</a>
+      
+        
+        <a class="post-tag btn btn-outline-primary" href="/tags/mysql/">mysql</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/mq/">MQ</a>
@@ -5068,9 +6066,6 @@
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">基础知识</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/">数据处理</a>
       
     </div>
   </section>
