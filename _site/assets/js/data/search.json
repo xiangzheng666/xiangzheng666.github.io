@@ -96,10 +96,50 @@
     "content": "安卓项目搭建 1.andoridstudio安装，接外网  2.新建项目    **1. ****manifests**    作用：存放应用的AndroidManifest.xml文件。            该文件是Android应用的配置文件，包含应用的基本信息，如包名、权限、Activity、Service等组件的声明。       Android系统会根据这个文件来识别和加载应用。..."
   },
   {
+    "title": "Mysql45讲 重新认识锁",
+    "url": "/posts/mysql45%E8%AE%B2-%E9%87%8D%E6%96%B0%E8%AE%A4%E8%AF%86%E9%94%81/",
+    "categories": "redis",
+    "tags": "redis",
+    "date": "2023-10-28 00:00:00 +0800",
+    "content": ""
+  },
+  {
+    "title": "Mysql45讲 重新认识索引",
+    "url": "/posts/mysql45%E8%AE%B2-%E9%87%8D%E6%96%B0%E8%AE%A4%E8%AF%86%E7%B4%A2%E5%BC%95/",
+    "categories": "redis",
+    "tags": "redis",
+    "date": "2023-10-18 00:00:00 +0800",
+    "content": ""
+  },
+  {
+    "title": "Mysql45讲 重新认识sql",
+    "url": "/posts/mysql45%E8%AE%B2-%E9%87%8D%E6%96%B0%E8%AE%A4%E8%AF%86sql/",
+    "categories": "redis",
+    "tags": "redis",
+    "date": "2023-10-08 00:00:00 +0800",
+    "content": ""
+  },
+  {
+    "title": "Redis设计与实战 数据库行为",
+    "url": "/posts/redis%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E6%88%98-%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%8C%E4%B8%BA/",
+    "categories": "redis",
+    "tags": "redis",
+    "date": "2023-09-08 00:00:00 +0800",
+    "content": ""
+  },
+  {
     "title": "Redis设计与实战 数据结构",
     "url": "/posts/redis%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E6%88%98-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/",
-    "categories": "",
-    "tags": "",
+    "categories": "redis",
+    "tags": "redis",
+    "date": "2023-08-28 00:00:00 +0800",
+    "content": "Redis简单动态字符串SDS  Redis 没有直接使用 C 语言传统的字符串表示（以空字符结尾的字符数组，以下简称 C 字符串）， 而是自己构建了一种名为简单动态字符串（simple dynamic string，SDS）的抽象类型， 并将 SDS 用作 Redis 的默认字符串表示。  struct sdshdr {    // 记录 buf 数组中已使用字节的数量     // 等于..."
+  },
+  {
+    "title": "Redis设计与实战 Redis实战功能",
+    "url": "/posts/redis%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E6%88%98-redis%E5%AE%9E%E6%88%98%E5%8A%9F%E8%83%BD/",
+    "categories": "redis",
+    "tags": "redis",
     "date": "2023-08-28 00:00:00 +0800",
     "content": ""
   },
