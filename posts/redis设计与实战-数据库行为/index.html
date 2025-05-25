@@ -32,18 +32,18 @@
 <meta name="generator" content="Jekyll v4.4.1" />
 <meta property="og:title" content="Redis设计与实战 数据库行为" />
 <meta property="og:locale" content="zh_CN" />
-<meta name="description" content="行为1：事务" />
-<meta property="og:description" content="行为1：事务" />
+<meta name="description" content="The more you learn, the stronger you become." />
+<meta property="og:description" content="The more you learn, the stronger you become." />
 <link rel="canonical" href="https://xiangzheng666.github.io/posts/redis%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E6%88%98-%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%8C%E4%B8%BA/" />
 <meta property="og:url" content="https://xiangzheng666.github.io/posts/redis%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E6%88%98-%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%8C%E4%B8%BA/" />
 <meta property="og:site_name" content="XiangZheng" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2023-08-28T00:00:00+08:00" />
+<meta property="article:published_time" content="2023-09-08T00:00:00+08:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Redis设计与实战 数据库行为" />
 <meta name="twitter:site" content="@xiangzheng666" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-08-28T00:00:00+08:00","datePublished":"2023-08-28T00:00:00+08:00","description":"行为1：事务","headline":"Redis设计与实战 数据库行为","mainEntityOfPage":{"@type":"WebPage","@id":"https://xiangzheng666.github.io/posts/redis%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E6%88%98-%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%8C%E4%B8%BA/"},"url":"https://xiangzheng666.github.io/posts/redis%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E6%88%98-%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%8C%E4%B8%BA/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-09-08T00:00:00+08:00","datePublished":"2023-09-08T00:00:00+08:00","description":"The more you learn, the stronger you become.","headline":"Redis设计与实战 数据库行为","mainEntityOfPage":{"@type":"WebPage","@id":"https://xiangzheng666.github.io/posts/redis%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E6%88%98-%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%8C%E4%B8%BA/"},"url":"https://xiangzheng666.github.io/posts/redis%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E6%88%98-%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%8C%E4%B8%BA/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -213,16 +213,9 @@
 
   
 
-  
-    
-
-    
-
-  
 
 
-
-  <script defer src="https://cdn.jsdelivr.net/combine/npm/simple-jekyll-search@1.10.0/dest/simple-jekyll-search.min.js,npm/loading-attribute-polyfill@2.1.1/dist/loading-attribute-polyfill.umd.min.js,npm/glightbox@3.3.0/dist/js/glightbox.min.js,npm/clipboard@2.0.11/dist/clipboard.min.js,npm/dayjs@1.11.13/dayjs.min.js,npm/dayjs@1.11.13/locale/zh.js,npm/dayjs@1.11.13/plugin/relativeTime.js,npm/dayjs@1.11.13/plugin/localizedFormat.js,npm/tocbot@4.32.2/dist/tocbot.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/combine/npm/simple-jekyll-search@1.10.0/dest/simple-jekyll-search.min.js,npm/loading-attribute-polyfill@2.1.1/dist/loading-attribute-polyfill.umd.min.js,npm/glightbox@3.3.0/dist/js/glightbox.min.js,npm/clipboard@2.0.11/dist/clipboard.min.js,npm/dayjs@1.11.13/dayjs.min.js,npm/dayjs@1.11.13/locale/zh.js,npm/dayjs@1.11.13/plugin/relativeTime.js,npm/dayjs@1.11.13/plugin/localizedFormat.js"></script>
 
 
 
@@ -508,142 +501,6 @@
 
 
 
-  
-  
-
-  
-    
-      
-      
-    
-
-    
-    
-
-    
-
-    
-    
-
-    
-    
-    
-
-    
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-      
-
-      
-    
-
-    <!-- take out classes -->
-    
-
-    
-    
-
-    
-
-    
-      
-    
-
-    <!-- lazy-load images -->
-    
-
-    
-      <!-- make sure the `<img>` is wrapped by `<a>` -->
-      
-
-      
-        <!-- create the image wrapper -->
-        
-
-        
-        
-      
-    
-
-    <!-- combine -->
-    
-  
-    
-
-    
-    
-
-    
-
-    
-    
-
-    
-    
-    
-
-    
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-      
-
-      
-    
-
-    <!-- take out classes -->
-    
-
-    
-    
-
-    
-
-    
-      
-    
-
-    <!-- lazy-load images -->
-    
-
-    
-      <!-- make sure the `<img>` is wrapped by `<a>` -->
-      
-
-      
-        <!-- create the image wrapper -->
-        
-
-        
-        
-      
-    
-
-    <!-- combine -->
-    
-  
-
-  
-
 
 <!-- Add header for code snippets -->
 
@@ -658,38 +515,6 @@
   
   
 
-  
-    
-    
-
-    
-      
-        
-        
-      
-
-      
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-
-      
-      
-      
-
-      
-    
-
-    
   
 
   
@@ -721,7 +546,7 @@
 
 
 
-<article class="px-1" data-toc="true">
+<article class="px-1" data-toc="false">
   <header>
     <h1 data-toc-skip>Redis设计与实战 数据库行为</h1>
     
@@ -740,13 +565,13 @@
 
 <time
   
-  data-ts="1693152000"
+  data-ts="1694102400"
   data-df="YYYY/MM/DD"
   
     data-bs-toggle="tooltip" data-bs-placement="bottom"
   
 >
-  2023/08/28
+  2023/09/08
 </time>
 
       </span>
@@ -795,9 +620,9 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="855 字"
+  title="0 字"
 >
-  <em>4 分钟</em>阅读</span>
+  <em>1 分钟</em>阅读</span>
 
         </div>
       </div>
@@ -805,167 +630,33 @@
   </header>
 
   
-    <div id="toc-bar" class="d-flex align-items-center justify-content-between invisible">
-      <span class="label text-truncate">Redis设计与实战 数据库行为</span>
-      <button type="button" class="toc-trigger btn me-1">
-        <i class="fa-solid fa-list-ul fa-fw"></i>
-      </button>
-    </div>
-
-    <button id="toc-solo-trigger" type="button" class="toc-trigger btn btn-outline-secondary btn-sm">
-      <span class="label ps-2 pe-1">文章内容</span>
-      <i class="fa-solid fa-angle-right fa-fw"></i>
-    </button>
-
-    <dialog id="toc-popup" class="p-0">
-      <div class="header d-flex flex-row align-items-center justify-content-between">
-        <div class="label text-truncate py-2 ms-4">Redis设计与实战 数据库行为</div>
-        <button id="toc-popup-close" type="button" class="btn mx-1 my-1 opacity-75">
-          <i class="fas fa-close"></i>
-        </button>
-      </div>
-      <div id="toc-popup-content" class="px-4 py-3 pb-4"></div>
-    </dialog>
-  
 
   <div class="content">
-    <h1 id="行为1事务">行为1：事务</h1>
-
-<p>Redis通过MULTI、EXEC、WATCH等命令来实现事务（transaction）功能。事务将 一种将多个命令请求打包，然后一次性、按顺序地执行多个命令的机制，并且在事务执行期间，<em>服务器不会中断事务</em>而改去执行其他客户端的命令请求。</p>
-
-<h2 id="事务的实现"><span class="me-2">事务的实现</span><a href="#事务的实现" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
-
-<p>（1）事务开始</p>
-
-<p>通过MULTI命令可以将执行该命令的客户端 从非事务状态切换至事务状态 ，这一切换是通过在客户端状态的flags属性中打开REDIS_MULTI标识来完成的。</p>
-
-<p>当一个客户端已经处于非事务状态时，这个客户端发送的 命令会被服务器执行 。然而当切换到事务状态后，服务器会根据这个客户端发来的不同命令执行不同的操作：</p>
-
-<ul>
-  <li>如果客户端发送EXEC，DISCARD，WATCH，MULTI这四个命令，则立即执行。</li>
-  <li>如果发送的是其他命令，则放到事务队列里面，向客户端返回QUEUED回复。</li>
-</ul>
-
-<p><a href="https://bucket-1259555870.cos.ap-chengdu.myqcloud.com/20200107143029.png" class="popup img-link  shimmer"><img src="https://bucket-1259555870.cos.ap-chengdu.myqcloud.com/20200107143029.png" alt="" loading="lazy"></a></p>
-
-<p>（2）命令入队</p>
-
-<p>事务的关键实现在于 命令入队 ，每个Redis客户端都有自己的 事务状态 ，这个事务状态保存在客户端状态的mstate属性里面：</p>
-
-<div class="language-c highlighter-rouge"><div class="code-header">
-        <span data-label-text="C"><i class="fas fa-code fa-fw small"></i></span>
-      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-</pre></td><td class="rouge-code"><pre><span class="k">typedef</span> <span class="k">struct</span> <span class="n">redisClient</span>
-<span class="p">{</span>
-    <span class="c1">//...</span>
-    <span class="n">multiState</span> <span class="n">mstate</span><span class="p">;</span>
-    <span class="c1">//...</span>
-<span class="p">}</span>
-</pre></td></tr></tbody></table></code></div></div>
-
-<p>而事务状态结构体又包含了一个 事务队列 ，以及一个 已入队命令的计数器 。</p>
-
-<div class="language-c highlighter-rouge"><div class="code-header">
-        <span data-label-text="C"><i class="fas fa-code fa-fw small"></i></span>
-      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-</pre></td><td class="rouge-code"><pre><span class="k">typedef</span> <span class="k">struct</span> <span class="n">multiState</span> 
-<span class="p">{</span> 
-    <span class="c1">// 事务队列，FIFO顺序 </span>
-    <span class="n">multiCmd</span> <span class="o">*</span><span class="n">commands</span><span class="p">;</span> 
-    <span class="c1">// 已入队命令计数 </span>
-    <span class="kt">int</span> <span class="n">count</span><span class="p">;</span>
-<span class="p">}</span> <span class="n">multiState</span><span class="p">;</span>
-</pre></td></tr></tbody></table></code></div></div>
-
-<p>事务队列是一个结构体，实现了队列数据结构，执行FIFO先进先出的策略。真实结构是一个数组。</p>
-
-<div class="language-c highlighter-rouge"><div class="code-header">
-        <span data-label-text="C"><i class="fas fa-code fa-fw small"></i></span>
-      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-</pre></td><td class="rouge-code"><pre><span class="k">typedef</span> <span class="k">struct</span> <span class="n">multiCmd</span> 
-<span class="p">{</span> 
-    <span class="c1">// 参数 </span>
-    <span class="n">robj</span> <span class="o">**</span><span class="n">argv</span><span class="p">;</span> 
-    <span class="c1">// 参数数量</span>
-    <span class="kt">int</span> <span class="n">argc</span><span class="p">;</span> 
-    <span class="c1">// 命令指针 </span>
-    <span class="k">struct</span> <span class="n">redisCommand</span> <span class="o">*</span><span class="n">cmd</span><span class="p">;</span>
-<span class="p">}</span> <span class="n">multiCmd</span><span class="p">;</span>
-</pre></td></tr></tbody></table></code></div></div>
-
-<p>事务结构具体的包含逻辑是：客户端-&gt;事务状态multiState-&gt;事务队列multiCmd-&gt;具体命令cmd</p>
-
-<p><a href="https://bucket-1259555870.cos.ap-chengdu.myqcloud.com/20200107145421.png" class="popup img-link  shimmer"><img src="https://bucket-1259555870.cos.ap-chengdu.myqcloud.com/20200107145421.png" alt="" loading="lazy"></a></p>
-
-<p>（3）执行事务</p>
-
-<p>当一个处于事务状态的客户端向服务器发送EXEC命令时，这个EXEC命令将立即被服务器执行。服务器会遍历这个客户端的事务队列，执行队列中保存的所有命令，最后将执行命令所得的结果全部返回给客户端。</p>
-
-<ol>
-  <li>创建空白回复队列</li>
-  <li>抽取一条命令，读取参数、参数个数以及要执行的函数</li>
-  <li>执行命令，取得返回值</li>
-  <li>将返回值追加到1中的队列末尾，重复步骤2</li>
-</ol>
-
-<p>完成所有命令后，将 清除REDIS_MULTI标志 ，让客户端变为非事务状态，同时清零入队命令计数器，并释放事务队列。</p>
-
-<h2 id="watch命令"><span class="me-2"><strong>WATCH命令</strong></span><a href="#watch命令" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
-
-<p><strong>它可以</strong> <strong>在EXEC命令执行之前</strong> <strong>，</strong> <strong>监视任意数量的数据库键</strong> <strong>，并在EXEC命令执行时，</strong> <strong>检查被监视的键是否至少有一个已经被修改过了</strong> <strong>，</strong> <strong>如果是的话，服务器将拒绝执行事务</strong> <strong>，并向客户端返回代表事务执行失败的空回复。</strong></p>
-
-<div class="language-shell highlighter-rouge"><div class="code-header">
-        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
-      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-</pre></td><td class="rouge-code"><pre>redis-&gt; WATCH <span class="s2">"name"</span>
-OK
-
-redis-&gt; MULTI
-OK
-
-redis-&gt; SET <span class="s2">"name"</span> <span class="s2">"peter"</span>
-QUEUED
-
-redis-&gt; EXEC
-<span class="o">(</span>nil<span class="o">)</span>
-</pre></td></tr></tbody></table></code></div></div>
+    
 
   </div>
 
   <div class="post-tail-wrapper text-muted">
     <!-- categories -->
     
+      <div class="post-meta mb-3">
+        <i class="far fa-folder-open fa-fw me-1"></i>
+        
+          <a href="/categories/redis/">redis</a>
+      </div>
+    
 
     <!-- tags -->
+    
+      <div class="post-tags">
+        <i class="fa fa-tags fa-fw me-1"></i>
+        
+          <a
+            href="/tags/redis/"
+            class="post-tag no-text-decoration"
+          >redis</a>
+        
+      </div>
     
 
     <div
@@ -1190,6 +881,165 @@ redis-&gt; EXEC
     
     
     
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
       
         
         
@@ -1803,301 +1653,6 @@ redis-&gt; EXEC
     
     
     
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
   
     
     
@@ -2291,113 +1846,6 @@ redis-&gt; EXEC
     
     
     
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
   
     
     
@@ -2449,375 +1897,6 @@ redis-&gt; EXEC
     
     
     
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
     
   
     
@@ -3072,6 +2151,373 @@ redis-&gt; EXEC
     
     
     
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
       
     
   
@@ -3257,58 +2703,6 @@ redis-&gt; EXEC
     
     
     
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
     
   
     
@@ -3371,6 +2765,9 @@ redis-&gt; EXEC
     <div class="d-flex flex-wrap mt-3 mb-1 me-3">
       
         
+        <a class="post-tag btn btn-outline-primary" href="/tags/redis/">redis</a>
+      
+        
         <a class="post-tag btn btn-outline-primary" href="/tags/hadoop/">hadoop</a>
       
         
@@ -3397,9 +2794,6 @@ redis-&gt; EXEC
         
         <a class="post-tag btn btn-outline-primary" href="/tags/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/">数据处理</a>
       
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/%E6%A8%A1%E5%9E%8B%E6%93%8D%E4%BD%9C/">模型操作</a>
-      
     </div>
   </section>
 
@@ -3414,12 +2808,6 @@ redis-&gt; EXEC
 
 
 
-
-  <div class="toc-border-cover z-3"></div>
-  <section id="toc-wrapper" class="invisible position-sticky ps-0 pe-4 pb-4">
-    <h2 class="panel-heading ps-3 pb-2 mb-0">文章内容</h2>
-    <nav id="toc"></nav>
-  </section>
 
 
             
@@ -3455,6 +2843,57 @@ redis-&gt; EXEC
 
 
 
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
 
 
 
@@ -3464,6 +2903,99 @@ redis-&gt; EXEC
 
 
 
+
+
+  <aside id="related-posts" aria-labelledby="related-label">
+    <h3 class="mb-4" id="related-label">相关文章</h3>
+    <nav class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 mb-4">
+      
+        <article class="col">
+          <a href="/posts/mysql45%E8%AE%B2-%E9%87%8D%E6%96%B0%E8%AE%A4%E8%AF%86%E9%94%81/" class="post-preview card h-100">
+            <div class="card-body">
+              <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1698422400"
+  data-df="YYYY/MM/DD"
+  
+>
+  2023/10/28
+</time>
+
+              <h4 class="pt-0 my-2">Mysql45讲 重新认识锁</h4>
+              <div class="text-muted">
+                <p></p>
+              </div>
+            </div>
+          </a>
+        </article>
+      
+        <article class="col">
+          <a href="/posts/mysql45%E8%AE%B2-%E9%87%8D%E6%96%B0%E8%AE%A4%E8%AF%86%E7%B4%A2%E5%BC%95/" class="post-preview card h-100">
+            <div class="card-body">
+              <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1697558400"
+  data-df="YYYY/MM/DD"
+  
+>
+  2023/10/18
+</time>
+
+              <h4 class="pt-0 my-2">Mysql45讲 重新认识索引</h4>
+              <div class="text-muted">
+                <p></p>
+              </div>
+            </div>
+          </a>
+        </article>
+      
+        <article class="col">
+          <a href="/posts/mysql45%E8%AE%B2-%E9%87%8D%E6%96%B0%E8%AE%A4%E8%AF%86sql/" class="post-preview card h-100">
+            <div class="card-body">
+              <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1696694400"
+  data-df="YYYY/MM/DD"
+  
+>
+  2023/10/08
+</time>
+
+              <h4 class="pt-0 my-2">Mysql45讲 重新认识sql</h4>
+              <div class="text-muted">
+                <p></p>
+              </div>
+            </div>
+          </a>
+        </article>
+      
+    </nav>
+  </aside>
+  <!-- #related-posts -->
 
 
             
@@ -3476,21 +3008,21 @@ redis-&gt; EXEC
 
   
     <a
-      href="/posts/windows_ros_-xacrof%E6%96%87%E4%BB%B6/"
+      href="/posts/redis%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E6%88%98-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"
       class="btn btn-outline-primary"
       aria-label="上一篇"
     >
-      <p>Windows_ros_ Xacrof文件</p>
+      <p>Redis设计与实战 数据结构</p>
     </a>
   
 
   
     <a
-      href="/posts/redis%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E6%88%98-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"
+      href="/posts/mysql45%E8%AE%B2-%E9%87%8D%E6%96%B0%E8%AE%A4%E8%AF%86sql/"
       class="btn btn-outline-primary"
       aria-label="下一篇"
     >
-      <p>Redis设计与实战 数据结构</p>
+      <p>Mysql45讲 重新认识sql</p>
     </a>
   
 </nav>
@@ -3627,6 +3159,165 @@ redis-&gt; EXEC
     
     
     
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
       
         
         
@@ -4240,301 +3931,6 @@ redis-&gt; EXEC
     
     
     
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
   
     
     
@@ -4728,113 +4124,6 @@ redis-&gt; EXEC
     
     
     
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
   
     
     
@@ -4886,375 +4175,6 @@ redis-&gt; EXEC
     
     
     
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
     
   
     
@@ -5509,6 +4429,373 @@ redis-&gt; EXEC
     
     
     
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
       
     
   
@@ -5694,58 +4981,6 @@ redis-&gt; EXEC
     
     
     
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
     
   
     
@@ -5808,6 +5043,9 @@ redis-&gt; EXEC
     <div class="d-flex flex-wrap mt-3 mb-1 me-3">
       
         
+        <a class="post-tag btn btn-outline-primary" href="/tags/redis/">redis</a>
+      
+        
         <a class="post-tag btn btn-outline-primary" href="/tags/hadoop/">hadoop</a>
       
         
@@ -5833,9 +5071,6 @@ redis-&gt; EXEC
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/">数据处理</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/%E6%A8%A1%E5%9E%8B%E6%93%8D%E4%BD%9C/">模型操作</a>
       
     </div>
   </section>
