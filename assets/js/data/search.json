@@ -104,28 +104,44 @@
     "content": "安卓项目搭建 1.andoridstudio安装，接外网  2.新建项目    **1. ****manifests**    作用：存放应用的AndroidManifest.xml文件。            该文件是Android应用的配置文件，包含应用的基本信息，如包名、权限、Activity、Service等组件的声明。       Android系统会根据这个文件来识别和加载应用。..."
   },
   {
-    "title": "Mysql45讲 重新认识锁",
-    "url": "/posts/mysql45%E8%AE%B2-%E9%87%8D%E6%96%B0%E8%AE%A4%E8%AF%86%E9%94%81/",
+    "title": "Mysql45讲 锁",
+    "url": "/posts/mysql45%E8%AE%B2-%E9%94%81/",
     "categories": "mysql",
     "tags": "mysql",
     "date": "2023-10-28 00:00:00 +0800",
-    "content": ""
+    "content": "全局锁  flush tables with read lock   执行后，整个数据库就处于只读状态了  表级锁          表锁                      //表级别的共享锁，也就是读锁； //允许当前会话读取被锁定的表，但阻止其他会话对这些表进行写操作。  lock tables t_student read;  //表级别的独占锁，也就是写锁； //允许当前会话..."
   },
   {
-    "title": "Mysql45讲 重新认识索引",
-    "url": "/posts/mysql45%E8%AE%B2-%E9%87%8D%E6%96%B0%E8%AE%A4%E8%AF%86%E7%B4%A2%E5%BC%95/",
+    "title": "Mysql45讲 索引",
+    "url": "/posts/mysql45%E8%AE%B2-%E7%B4%A2%E5%BC%95/",
     "categories": "mysql",
     "tags": "mysql",
     "date": "2023-10-18 00:00:00 +0800",
-    "content": ""
+    "content": "使用     在k索引树上找到记录，取得 ID ；   再到ID索引树查到ID对应的数据；   重复1，2，直到不满足条件，循环结束。   在这个过程中， 回到主键索引树搜索的过程，称为回表 。     覆盖索引：索引k已经“覆盖了”我们的查询需求，我们称为覆盖索引，无需回表   最左前缀原则：最左前缀可以是联合索引的最左N个字段，也可以是字符串索引的最左M个字符。   索引下推：索引内部就..."
   },
   {
-    "title": "Mysql45讲 重新认识sql",
-    "url": "/posts/mysql45%E8%AE%B2-%E9%87%8D%E6%96%B0%E8%AE%A4%E8%AF%86sql/",
+    "title": "Mysql45讲 隔离级别",
+    "url": "/posts/mysql45%E8%AE%B2-%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB/",
     "categories": "mysql",
     "tags": "mysql",
-    "date": "2023-10-08 00:00:00 +0800",
-    "content": ""
+    "date": "2023-09-28 00:00:00 +0800",
+    "content": "隔离级别     未提交（read uncommitted），指一个事务还没提交时，它做的变更就能被其他事务看到；   读提交（read committed），指一个事务提交之后，它做的变更才能被其他事务看到；   可重复读（repeatable read），指一个事务执行过程中看到的数据，一直跟这个事务启动时看到的数据是一致的，MySQL InnoDB 引擎的默认隔离级别；   串行化（s..."
+  },
+  {
+    "title": "Mysql45讲 日志",
+    "url": "/posts/mysql45%E8%AE%B2-%E6%97%A5%E5%BF%97/",
+    "categories": "mysql",
+    "tags": "mysql",
+    "date": "2023-09-18 00:00:00 +0800",
+    "content": "Undo Log     实现不同隔离级别   保证事务原子性   Redo Log  在MySQL里有个问题，如果每一次的更新操作都需要写进磁盘，然后磁盘也要找到对应的那条记录，然后再更新，整个过程IO成本、查找成本都很高。  WAL技术：WAL的全称是Write-Ahead Logging，它的关键点就是先写日志，再写磁盘  InnoDB的redo log是固定大小的，从头开始写，写到末..."
+  },
+  {
+    "title": "Mysql45讲 Sql",
+    "url": "/posts/mysql45%E8%AE%B2-sql/",
+    "categories": "mysql",
+    "tags": "mysql",
+    "date": "2023-09-08 00:00:00 +0800",
+    "content": "连接器  建立连接的过程通常是比较复杂的，在使用中要尽量减少建立连接的动作，也就是尽量使用长连接。  但是全部使用长连接后，你可能会发现，有些时候MySQL占用内存涨得特别快，这是因为MySQL在执行过程中临时使用的内存是管理在连接对象里面的。这些资源会在连接断开的时候才释放。所以如果长连接累积下来，可能导致内存占用太大，被系统强行杀掉（OOM），从现象看就是MySQL异常重启了。  怎么解..."
   },
   {
     "title": "Redis设计与实战 多数据库行为",
@@ -245,7 +261,7 @@
     "categories": "windows_ros",
     "tags": "计算图",
     "date": "2023-02-10 00:00:00 +0800",
-    "content": "1.  计算图（Computation Graph）](http://wiki.ros.org/cn/ROS/Concepts#ROS.2Bi6F7l1b.2BXEJrIQ-)是一个由ROS进程组成的点对点网络，它们能够共同处理数据。ROS的基本计算图概念有节点（Nodes）、主节点（Master）、参数服务器（Parameter Server）、消息（Messages）、服务（Servic..."
+    "content": "1.  计算图（Computation Graph）是一个由ROS进程组成的点对点网络，它们能够共同处理数据。ROS的基本计算图概念有节点（Nodes）、主节点（Master）、参数服务器（Parameter Server）、消息（Messages）、服务（Services）、话题（Topics）和袋（Bags），它们都以不同的方式向图（Graph）提供数据。     节点（Nodes）：节..."
   },
   {
     "title": "Windows_ros 环境搭建",

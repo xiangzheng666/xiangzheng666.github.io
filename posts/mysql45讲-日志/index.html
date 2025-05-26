@@ -30,24 +30,24 @@
 
   <!-- Begin Jekyll SEO tag v2.8.0 -->
 <meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="Mysql45讲 重新认识索引" />
+<meta property="og:title" content="Mysql45讲 日志" />
 <meta property="og:locale" content="zh_CN" />
-<meta name="description" content="The more you learn, the stronger you become." />
-<meta property="og:description" content="The more you learn, the stronger you become." />
-<link rel="canonical" href="https://xiangzheng666.github.io/posts/mysql45%E8%AE%B2-%E9%87%8D%E6%96%B0%E8%AE%A4%E8%AF%86%E7%B4%A2%E5%BC%95/" />
-<meta property="og:url" content="https://xiangzheng666.github.io/posts/mysql45%E8%AE%B2-%E9%87%8D%E6%96%B0%E8%AE%A4%E8%AF%86%E7%B4%A2%E5%BC%95/" />
+<meta name="description" content="Undo Log" />
+<meta property="og:description" content="Undo Log" />
+<link rel="canonical" href="https://xiangzheng666.github.io/posts/mysql45%E8%AE%B2-%E6%97%A5%E5%BF%97/" />
+<meta property="og:url" content="https://xiangzheng666.github.io/posts/mysql45%E8%AE%B2-%E6%97%A5%E5%BF%97/" />
 <meta property="og:site_name" content="XiangZheng" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2023-10-18T00:00:00+08:00" />
+<meta property="article:published_time" content="2023-09-18T00:00:00+08:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Mysql45讲 重新认识索引" />
+<meta property="twitter:title" content="Mysql45讲 日志" />
 <meta name="twitter:site" content="@xiangzheng666" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-10-18T00:00:00+08:00","datePublished":"2023-10-18T00:00:00+08:00","description":"The more you learn, the stronger you become.","headline":"Mysql45讲 重新认识索引","mainEntityOfPage":{"@type":"WebPage","@id":"https://xiangzheng666.github.io/posts/mysql45%E8%AE%B2-%E9%87%8D%E6%96%B0%E8%AE%A4%E8%AF%86%E7%B4%A2%E5%BC%95/"},"url":"https://xiangzheng666.github.io/posts/mysql45%E8%AE%B2-%E9%87%8D%E6%96%B0%E8%AE%A4%E8%AF%86%E7%B4%A2%E5%BC%95/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-09-18T00:00:00+08:00","datePublished":"2023-09-18T00:00:00+08:00","description":"Undo Log","headline":"Mysql45讲 日志","mainEntityOfPage":{"@type":"WebPage","@id":"https://xiangzheng666.github.io/posts/mysql45%E8%AE%B2-%E6%97%A5%E5%BF%97/"},"url":"https://xiangzheng666.github.io/posts/mysql45%E8%AE%B2-%E6%97%A5%E5%BF%97/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
-  <title>Mysql45讲 重新认识索引 | XiangZheng
+  <title>Mysql45讲 日志 | XiangZheng
   </title>
 
   <!--
@@ -433,7 +433,7 @@
         
           
             
-              <span>Mysql45讲 重新认识索引</span>
+              <span>Mysql45讲 日志</span>
             
 
           
@@ -501,6 +501,79 @@
 
 
 
+  
+  
+
+  
+    
+      
+      
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+      
+
+      
+    
+
+    <!-- take out classes -->
+    
+
+    
+    
+
+    
+
+    
+      
+    
+
+    <!-- lazy-load images -->
+    
+
+    
+      <!-- make sure the `<img>` is wrapped by `<a>` -->
+      
+
+      
+        <!-- create the image wrapper -->
+        
+
+        
+        
+      
+    
+
+    <!-- combine -->
+    
+  
+
+  
+
 
 <!-- Add header for code snippets -->
 
@@ -548,7 +621,7 @@
 
 <article class="px-1" data-toc="false">
   <header>
-    <h1 data-toc-skip>Mysql45讲 重新认识索引</h1>
+    <h1 data-toc-skip>Mysql45讲 日志</h1>
     
 
     <div class="post-meta text-muted">
@@ -565,13 +638,13 @@
 
 <time
   
-  data-ts="1697558400"
+  data-ts="1694966400"
   data-df="YYYY/MM/DD"
   
     data-bs-toggle="tooltip" data-bs-placement="bottom"
   
 >
-  2023/10/18
+  2023/09/18
 </time>
 
       </span>
@@ -620,9 +693,9 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="0 字"
+  title="2414 字"
 >
-  <em>1 分钟</em>阅读</span>
+  <em>13 分钟</em>阅读</span>
 
         </div>
       </div>
@@ -632,7 +705,117 @@
   
 
   <div class="content">
-    
+    <h1 id="undo-log">Undo Log</h1>
+
+<ul>
+  <li>实现不同隔离级别</li>
+  <li>保证事务原子性</li>
+</ul>
+
+<h1 id="redo-log">Redo Log</h1>
+
+<p>在MySQL里有个问题，如果每一次的更新操作都需要写进磁盘，然后磁盘也要找到对应的那条记录，然后再更新，整个过程IO成本、查找成本都很高。</p>
+
+<p>WAL技术：WAL的全称是Write-Ahead Logging，它的关键点就是先写日志，再写磁盘</p>
+
+<p>InnoDB的redo log是固定大小的，从头开始写，写到末尾就又回到开头循环写。</p>
+
+<p>刷盘</p>
+
+<ul>
+  <li>MySQL 正常关闭时；</li>
+  <li>当 redo log buffer 中记录的写入量大于 redo log buffer 内存空间的一半时，会触发落盘；</li>
+  <li>InnoDB 的后台线程每隔 1 秒，将 redo log buffer 持久化到磁盘。</li>
+  <li>每次事务提交时都将缓存在 redo log buffer 里的 redo log 直接持久化到磁盘
+    <ul>
+      <li>innodb_flush_log_at_trx_commit</li>
+      <li>当设置该参数为 0 时，表示每次事务提交时 ，还是将 redo log 留在 redo log buffer 中 ，该模式下在事务提交时不会主动触发写入磁盘的操作。</li>
+      <li>当设置该参数为 1 时，表示每次事务提交时，都将缓存在 redo log buffer 里的 redo log 直接持久化到磁盘，这样可以保证 MySQL 异常重启之后数据不会丢失。</li>
+      <li>当设置该参数为 2 时，表示每次事务提交时，都只是缓存在 redo log buffer 里的 redo log 写到 redo log 文件，注意写入到「 redo log 文件」并不意味着写入到了磁盘，因为操作系统的文件系统中有个 Page Cache（如果你想了解 Page Cache，可以看这篇 (opens new window)），Page Cache 是专门用来缓存文件数据的，所以写入「 redo log文件」意味着写入到了操作系统的文件缓存。</li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="bin-log">Bin Log</h1>
+
+<p>Server层也有自己的日志，称为binlog</p>
+
+<p>这两种日志有以下不同。</p>
+
+<ul>
+  <li>redo log是InnoDB引擎特有的；binlog是MySQL的Server层实现的，所有引擎都可以使用。</li>
+  <li>redo log是物理日志，记录的是“在某个数据页上做了什么修改”；binlog是逻辑日志，记录的是这个语句的原始逻辑，比如“给ID=2这一行的c字段加1 ”。</li>
+  <li>redo log是循环写的，空间固定会用完；binlog是可以追加写入的。“追加写”是指binlog文件写到一定大小后会切换到下一个，并不会覆盖以前的日志。</li>
+</ul>
+
+<p>刷盘</p>
+
+<ul>
+  <li>sync_binlog = 0 的时候，表示每次提交事务都只 write，不 fsync，后续交由操作系统决定何时将数据持久化到磁盘；</li>
+  <li>sync_binlog = 1 的时候，表示每次提交事务都会 write，然后马上执行 fsync；</li>
+  <li>sync_binlog =N(N&gt;1) 的时候，表示每次提交事务都 write，但累积 N 个事务后才 fsync。</li>
+</ul>
+
+<p>主从复制</p>
+
+<ul>
+  <li>写入 Binlog：主库写 binlog 日志，提交事务，并更新本地存储数据。</li>
+  <li>同步 Binlog：把 binlog 复制到所有从库上，每个从库把 binlog 写到暂存日志中。</li>
+  <li>回放 Binlog：回放 binlog，并更新存储引擎中的数据。
+刷盘
+    <ul>
+      <li>同步复制：MySQL 主库提交事务的线程要等待所有从库的复制成功响应，才返回客户端结果。这种方式在实际项目中，基本上没法用，原因有两个：一是性能很差，因为要复制到所有节点才返回响应；二是可用性也很差，主库和所有从库任何一个数据库出问题，都会影响业务。</li>
+      <li>异步复制（默认模型）：MySQL 主库提交事务的线程并不会等待 binlog 同步到各从库，就返回客户端结果。这种模式一旦主库宕机，数据就会发生丢失。</li>
+      <li>半同步复制：MySQL 5.7 版本之后增加的一种复制方式，介于两者之间，事务线程不用等待所有的从库复制成功响应，只要一部分复制成功响应回来就行，比如一主二从的集群，只要数据成功复制到任意一个从库上，主库的事务线程就可以返回给客户端。这种半同步复制的方式，兼顾了异步复制和同步复制的优点，即使出现主库宕机，至少还有一个从库有最新的数据，不存在数据丢失的风险。</li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="两阶段提交">两阶段提交</h1>
+
+<p>事务提交后，redo log 和 binlog 都要持久化到磁盘，但是这两个是独立的逻辑，可能出现半成功的状态，这样就造成两份日志之间的逻辑不一致。</p>
+
+<ul>
+  <li>如果在将 redo log 刷入到磁盘之后， MySQL 突然宕机了，而 binlog 还没有来得及写入。MySQL 重启后，通过 redo log 能将 Buffer Pool 中 id = 1 这行数据的 name 字段恢复到新值 xiaolin，但是 binlog 里面没有记录这条更新语句，在主从架构中，binlog 会被复制到从库，由于 binlog 丢失了这条更新语句，从库的这一行 name 字段是旧值 jay，与主库的值不一致性；</li>
+  <li>如果在将 binlog 刷入到磁盘之后， MySQL 突然宕机了，而 redo log 还没有来得及写入。由于 redo log 还没写，崩溃恢复以后这个事务无效，所以 id = 1 这行数据的 name 字段还是旧值 jay，而 binlog 里面记录了这条更新语句，在主从架构中，binlog 会被复制到从库，从库执行了这条更新语句，那么这一行 name 字段是新值 xiaolin，与主库的值不一致性；</li>
+</ul>
+
+<p><strong>「准备（Prepare）阶段」和「提交（Commit）阶段」</strong></p>
+
+<ul>
+  <li>prepare 阶段：将 XID（内部 XA 事务的 ID） 写入到 redo log，同时将 redo log 对应的事务状态设置为 prepare，然后将 redo log 持久化到磁盘（innodb_flush_log_at_trx_commit = 1 的作用）；</li>
+  <li>commit 阶段：把 XID 写入到 binlog，然后将 binlog 持久化到磁盘（sync_binlog = 1 的作用），接着调用引擎的提交事务接口，将 redo log 状态设置为 commit，此时该状态并不需要持久化到磁盘，只需要 write 到文件系统的 page cache 中就够了，因为只要 binlog 写磁盘成功，就算 redo log 的状态还是 prepare 也没有关系，一样会被认为事务已经执行成功；</li>
+</ul>
+
+<p>异常</p>
+
+<p><a href="https://cdn.xiaolincoding.com/gh/xiaolincoder/mysql/how_update/%E4%B8%A4%E9%98%B6%E6%AE%B5%E6%8F%90%E4%BA%A4%E5%B4%A9%E6%BA%83%E7%82%B9.drawio.png?image_process=watermark,text_5YWs5LyX5Y-377ya5bCP5p6XY29kaW5n,type_ZnpsdHpoaw,x_10,y_10,g_se,size_20,color_0000CD,t_70,fill_0" class="popup img-link  shimmer"><img src="https://cdn.xiaolincoding.com/gh/xiaolincoder/mysql/how_update/%E4%B8%A4%E9%98%B6%E6%AE%B5%E6%8F%90%E4%BA%A4%E5%B4%A9%E6%BA%83%E7%82%B9.drawio.png?image_process=watermark,text_5YWs5LyX5Y-377ya5bCP5p6XY29kaW5n,type_ZnpsdHpoaw,x_10,y_10,g_se,size_20,color_0000CD,t_70,fill_0" alt="" loading="lazy"></a></p>
+
+<ul>
+  <li>如果 binlog 中没有当前内部 XA 事务的 XID，说明 redolog 完成刷盘，但是 binlog 还没有刷盘，则回滚事务。对应时刻 A 崩溃恢复的情况。</li>
+  <li>如果 binlog 中有当前内部 XA 事务的 XID，说明 redolog 和 binlog 都已经完成了刷盘，则提交事务。对应时刻 B 崩溃恢复的情况。</li>
+</ul>
+
+<h1 id="组提交">组提交</h1>
+
+<p>MySQL 引入了 binlog 组提交（group commit）机制，当有多个事务提交的时候，会将多个 binlog 刷盘操作合并成一个，从而减少磁盘 I/O 的次数</p>
+
+<p>引入了组提交机制后，prepare 阶段不变，只针对 commit 阶段，将 commit 阶段拆分为三个过程：</p>
+
+<ul>
+  <li>flush 阶段：多个事务按进入的顺序将 binlog 从 cache 写入文件（不刷盘）；</li>
+  <li>sync 阶段：对 binlog 文件做 fsync 操作（多个事务的 binlog 合并一次刷盘）；</li>
+  <li>commit 阶段：各个事务按顺序做 InnoDB commit 操作； 上面的每个阶段都有一个队列，每个阶段有锁进行保护，因此保证了事务写入的顺序，第一个进入队列的事务会成为 leader，leader领导所在队列的所有事务，全权负责整队的操作，完成后通知队内其他事务操作结束。</li>
+</ul>
+
+<p>设置</p>
+
+<ul>
+  <li>设置组提交的两个参数： binlog_group_commit_sync_delay 和binlog_group_commit_sync_no_delay_count 参数，延迟 binlog 刷盘的时机，从⽽减少 binlog 的
+刷盘次数。这个⽅法是基于“额外的故意等待”来实现的，因此可能会增加语句的响应时间，但即使 MySQL 进程中途挂了，也没有丢失数据的⻛险，因为 binlog 早被写⼊到 page cache 了，只要系统没有宕机，缓存在 page cache ⾥的 binlog 就会被持久化到磁盘。</li>
+  <li>将 sync_binlog 设置为⼤于 1 的值（⽐较常⻅是 100~1000），表⽰每次提交事务都 write，但累积N 个事务后才 fsync，相当于延迟了 binlog 刷盘的时机。但是这样做的⻛险是，主机掉电时会丢N 个事务的 binlog ⽇志。</li>
+  <li>将 innodb_flush_log_at_trx_commit 设置为 2。表⽰每次事务提交时，都只是缓存在 redo logbuffer ⾥的 redo log 写到 redo log ⽂件，注意写⼊到「 redo log ⽂件」并不意味着写⼊到了磁盘，因为操作系统的⽂件系统中有个 Page Cache，专⻔⽤来缓存⽂件数据的，所以写⼊「 redolog⽂件」意味着写⼊到了操作系统的⽂件缓存，然后交由操作系统控制持久化到磁盘的时机。但是这样做的⻛险是，主机掉电的时候会丢数据。</li>
+</ul>
 
   </div>
 
@@ -690,21 +873,21 @@
 
       
 
-      <a href="https://twitter.com/intent/tweet?text=Mysql45%E8%AE%B2%20%E9%87%8D%E6%96%B0%E8%AE%A4%E8%AF%86%E7%B4%A2%E5%BC%95%20-%20XiangZheng&url=https%3A%2F%2Fxiangzheng666.github.io%2Fposts%2Fmysql45%25E8%25AE%25B2-%25E9%2587%258D%25E6%2596%25B0%25E8%25AE%25A4%25E8%25AF%2586%25E7%25B4%25A2%25E5%25BC%2595%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Twitter" aria-label="Twitter">
+      <a href="https://twitter.com/intent/tweet?text=Mysql45%E8%AE%B2%20%E6%97%A5%E5%BF%97%20-%20XiangZheng&url=https%3A%2F%2Fxiangzheng666.github.io%2Fposts%2Fmysql45%25E8%25AE%25B2-%25E6%2597%25A5%25E5%25BF%2597%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Twitter" aria-label="Twitter">
         <i class="fa-fw fa-brands fa-square-x-twitter"></i>
       </a>
     
 
       
 
-      <a href="https://www.facebook.com/sharer/sharer.php?title=Mysql45%E8%AE%B2%20%E9%87%8D%E6%96%B0%E8%AE%A4%E8%AF%86%E7%B4%A2%E5%BC%95%20-%20XiangZheng&u=https%3A%2F%2Fxiangzheng666.github.io%2Fposts%2Fmysql45%25E8%25AE%25B2-%25E9%2587%258D%25E6%2596%25B0%25E8%25AE%25A4%25E8%25AF%2586%25E7%25B4%25A2%25E5%25BC%2595%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Facebook" aria-label="Facebook">
+      <a href="https://www.facebook.com/sharer/sharer.php?title=Mysql45%E8%AE%B2%20%E6%97%A5%E5%BF%97%20-%20XiangZheng&u=https%3A%2F%2Fxiangzheng666.github.io%2Fposts%2Fmysql45%25E8%25AE%25B2-%25E6%2597%25A5%25E5%25BF%2597%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Facebook" aria-label="Facebook">
         <i class="fa-fw fab fa-facebook-square"></i>
       </a>
     
 
       
 
-      <a href="https://t.me/share/url?url=https%3A%2F%2Fxiangzheng666.github.io%2Fposts%2Fmysql45%25E8%25AE%25B2-%25E9%2587%258D%25E6%2596%25B0%25E8%25AE%25A4%25E8%25AF%2586%25E7%25B4%25A2%25E5%25BC%2595%2F&text=Mysql45%E8%AE%B2%20%E9%87%8D%E6%96%B0%E8%AE%A4%E8%AF%86%E7%B4%A2%E5%BC%95%20-%20XiangZheng" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Telegram" aria-label="Telegram">
+      <a href="https://t.me/share/url?url=https%3A%2F%2Fxiangzheng666.github.io%2Fposts%2Fmysql45%25E8%25AE%25B2-%25E6%2597%25A5%25E5%25BF%2597%2F&text=Mysql45%E8%AE%B2%20%E6%97%A5%E5%BF%97%20-%20XiangZheng" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Telegram" aria-label="Telegram">
         <i class="fa-fw fab fa-telegram"></i>
       </a>
     
@@ -881,6 +1064,145 @@
     
     
     
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
       
         
         
@@ -1176,149 +1498,6 @@
     
     
       
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
     
   
     
@@ -2506,6 +2685,9 @@
     <div class="d-flex flex-wrap mt-3 mb-1 me-3">
       
         
+        <a class="post-tag btn btn-outline-primary" href="/tags/mysql/">mysql</a>
+      
+        
         <a class="post-tag btn btn-outline-primary" href="/tags/hadoop/">hadoop</a>
       
         
@@ -2516,9 +2698,6 @@
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/hive/">Hive</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/mysql/">mysql</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/mq/">MQ</a>
@@ -2612,6 +2791,30 @@
 
   
 
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
 
 
 
@@ -2627,7 +2830,7 @@
     <nav class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 mb-4">
       
         <article class="col">
-          <a href="/posts/mysql45%E8%AE%B2-%E9%87%8D%E6%96%B0%E8%AE%A4%E8%AF%86%E9%94%81/" class="post-preview card h-100">
+          <a href="/posts/mysql45%E8%AE%B2-%E9%94%81/" class="post-preview card h-100">
             <div class="card-body">
               <!--
   Date format snippet
@@ -2646,16 +2849,16 @@
   2023/10/28
 </time>
 
-              <h4 class="pt-0 my-2">Mysql45讲 重新认识锁</h4>
+              <h4 class="pt-0 my-2">Mysql45讲 锁</h4>
               <div class="text-muted">
-                <p></p>
+                <p>全局锁  1 flush tables with read lock   执行后，整个数据库就处于只读状态了  表级锁          表锁                      1 2 3 4 //表级别的共享锁，也就是读锁； //允许当前会话读取被锁定的表，但阻止其他会话对这些表进行写操作。  lock tables t_student read;  //表级别的独占锁，也就是写锁...</p>
               </div>
             </div>
           </a>
         </article>
       
         <article class="col">
-          <a href="/posts/mysql45%E8%AE%B2-%E9%87%8D%E6%96%B0%E8%AE%A4%E8%AF%86sql/" class="post-preview card h-100">
+          <a href="/posts/mysql45%E8%AE%B2-%E7%B4%A2%E5%BC%95/" class="post-preview card h-100">
             <div class="card-body">
               <!--
   Date format snippet
@@ -2667,16 +2870,44 @@
 
 <time
   
-  data-ts="1696694400"
+  data-ts="1697558400"
   data-df="YYYY/MM/DD"
   
 >
-  2023/10/08
+  2023/10/18
 </time>
 
-              <h4 class="pt-0 my-2">Mysql45讲 重新认识sql</h4>
+              <h4 class="pt-0 my-2">Mysql45讲 索引</h4>
               <div class="text-muted">
-                <p></p>
+                <p>使用     在k索引树上找到记录，取得 ID ；   再到ID索引树查到ID对应的数据；   重复1，2，直到不满足条件，循环结束。   在这个过程中， 回到主键索引树搜索的过程，称为回表 。     覆盖索引：索引k已经“覆盖了”我们的查询需求，我们称为覆盖索引，无需回表   最左前缀原则：最左前缀可以是联合索引的最左N个字段，也可以是字符串索引的最左M个字符。   索引下推：索引内部就...</p>
+              </div>
+            </div>
+          </a>
+        </article>
+      
+        <article class="col">
+          <a href="/posts/mysql45%E8%AE%B2-%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB/" class="post-preview card h-100">
+            <div class="card-body">
+              <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1695830400"
+  data-df="YYYY/MM/DD"
+  
+>
+  2023/09/28
+</time>
+
+              <h4 class="pt-0 my-2">Mysql45讲 隔离级别</h4>
+              <div class="text-muted">
+                <p>隔离级别     未提交（read uncommitted），指一个事务还没提交时，它做的变更就能被其他事务看到；   读提交（read committed），指一个事务提交之后，它做的变更才能被其他事务看到；   可重复读（repeatable read），指一个事务执行过程中看到的数据，一直跟这个事务启动时看到的数据是一致的，MySQL InnoDB 引擎的默认隔离级别；   串行化（s...</p>
               </div>
             </div>
           </a>
@@ -2697,21 +2928,21 @@
 
   
     <a
-      href="/posts/mysql45%E8%AE%B2-%E9%87%8D%E6%96%B0%E8%AE%A4%E8%AF%86sql/"
+      href="/posts/mysql45%E8%AE%B2-sql/"
       class="btn btn-outline-primary"
       aria-label="上一篇"
     >
-      <p>Mysql45讲 重新认识sql</p>
+      <p>Mysql45讲 Sql</p>
     </a>
   
 
   
     <a
-      href="/posts/mysql45%E8%AE%B2-%E9%87%8D%E6%96%B0%E8%AE%A4%E8%AF%86%E9%94%81/"
+      href="/posts/mysql45%E8%AE%B2-%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB/"
       class="btn btn-outline-primary"
       aria-label="下一篇"
     >
-      <p>Mysql45讲 重新认识锁</p>
+      <p>Mysql45讲 隔离级别</p>
     </a>
   
 </nav>
@@ -2848,6 +3079,145 @@
     
     
     
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
       
         
         
@@ -3143,149 +3513,6 @@
     
     
       
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
     
   
     
@@ -4473,6 +4700,9 @@
     <div class="d-flex flex-wrap mt-3 mb-1 me-3">
       
         
+        <a class="post-tag btn btn-outline-primary" href="/tags/mysql/">mysql</a>
+      
+        
         <a class="post-tag btn btn-outline-primary" href="/tags/hadoop/">hadoop</a>
       
         
@@ -4483,9 +4713,6 @@
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/hive/">Hive</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/mysql/">mysql</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/mq/">MQ</a>

@@ -30,24 +30,24 @@
 
   <!-- Begin Jekyll SEO tag v2.8.0 -->
 <meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="Mysql45讲 重新认识锁" />
+<meta property="og:title" content="Mysql45讲 锁" />
 <meta property="og:locale" content="zh_CN" />
-<meta name="description" content="The more you learn, the stronger you become." />
-<meta property="og:description" content="The more you learn, the stronger you become." />
-<link rel="canonical" href="https://xiangzheng666.github.io/posts/mysql45%E8%AE%B2-%E9%87%8D%E6%96%B0%E8%AE%A4%E8%AF%86%E9%94%81/" />
-<meta property="og:url" content="https://xiangzheng666.github.io/posts/mysql45%E8%AE%B2-%E9%87%8D%E6%96%B0%E8%AE%A4%E8%AF%86%E9%94%81/" />
+<meta name="description" content="全局锁" />
+<meta property="og:description" content="全局锁" />
+<link rel="canonical" href="https://xiangzheng666.github.io/posts/mysql45%E8%AE%B2-%E9%94%81/" />
+<meta property="og:url" content="https://xiangzheng666.github.io/posts/mysql45%E8%AE%B2-%E9%94%81/" />
 <meta property="og:site_name" content="XiangZheng" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2023-10-28T00:00:00+08:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Mysql45讲 重新认识锁" />
+<meta property="twitter:title" content="Mysql45讲 锁" />
 <meta name="twitter:site" content="@xiangzheng666" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-10-28T00:00:00+08:00","datePublished":"2023-10-28T00:00:00+08:00","description":"The more you learn, the stronger you become.","headline":"Mysql45讲 重新认识锁","mainEntityOfPage":{"@type":"WebPage","@id":"https://xiangzheng666.github.io/posts/mysql45%E8%AE%B2-%E9%87%8D%E6%96%B0%E8%AE%A4%E8%AF%86%E9%94%81/"},"url":"https://xiangzheng666.github.io/posts/mysql45%E8%AE%B2-%E9%87%8D%E6%96%B0%E8%AE%A4%E8%AF%86%E9%94%81/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-10-28T00:00:00+08:00","datePublished":"2023-10-28T00:00:00+08:00","description":"全局锁","headline":"Mysql45讲 锁","mainEntityOfPage":{"@type":"WebPage","@id":"https://xiangzheng666.github.io/posts/mysql45%E8%AE%B2-%E9%94%81/"},"url":"https://xiangzheng666.github.io/posts/mysql45%E8%AE%B2-%E9%94%81/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
-  <title>Mysql45讲 重新认识锁 | XiangZheng
+  <title>Mysql45讲 锁 | XiangZheng
   </title>
 
   <!--
@@ -213,9 +213,16 @@
 
   
 
+  
+    
+
+    
+
+  
 
 
-  <script defer src="https://cdn.jsdelivr.net/combine/npm/simple-jekyll-search@1.10.0/dest/simple-jekyll-search.min.js,npm/loading-attribute-polyfill@2.1.1/dist/loading-attribute-polyfill.umd.min.js,npm/glightbox@3.3.0/dist/js/glightbox.min.js,npm/clipboard@2.0.11/dist/clipboard.min.js,npm/dayjs@1.11.13/dayjs.min.js,npm/dayjs@1.11.13/locale/zh.js,npm/dayjs@1.11.13/plugin/relativeTime.js,npm/dayjs@1.11.13/plugin/localizedFormat.js"></script>
+
+  <script defer src="https://cdn.jsdelivr.net/combine/npm/simple-jekyll-search@1.10.0/dest/simple-jekyll-search.min.js,npm/loading-attribute-polyfill@2.1.1/dist/loading-attribute-polyfill.umd.min.js,npm/glightbox@3.3.0/dist/js/glightbox.min.js,npm/clipboard@2.0.11/dist/clipboard.min.js,npm/dayjs@1.11.13/dayjs.min.js,npm/dayjs@1.11.13/locale/zh.js,npm/dayjs@1.11.13/plugin/relativeTime.js,npm/dayjs@1.11.13/plugin/localizedFormat.js,npm/tocbot@4.32.2/dist/tocbot.min.js"></script>
 
 
 
@@ -433,7 +440,7 @@
         
           
             
-              <span>Mysql45讲 重新认识锁</span>
+              <span>Mysql45讲 锁</span>
             
 
           
@@ -516,6 +523,38 @@
   
 
   
+    
+    
+
+    
+      
+        
+        
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+
+    
+  
 
   
   
@@ -546,9 +585,9 @@
 
 
 
-<article class="px-1" data-toc="false">
+<article class="px-1" data-toc="true">
   <header>
-    <h1 data-toc-skip>Mysql45讲 重新认识锁</h1>
+    <h1 data-toc-skip>Mysql45讲 锁</h1>
     
 
     <div class="post-meta text-muted">
@@ -620,9 +659,9 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="0 字"
+  title="956 字"
 >
-  <em>1 分钟</em>阅读</span>
+  <em>5 分钟</em>阅读</span>
 
         </div>
       </div>
@@ -630,9 +669,118 @@
   </header>
 
   
+    <div id="toc-bar" class="d-flex align-items-center justify-content-between invisible">
+      <span class="label text-truncate">Mysql45讲 锁</span>
+      <button type="button" class="toc-trigger btn me-1">
+        <i class="fa-solid fa-list-ul fa-fw"></i>
+      </button>
+    </div>
+
+    <button id="toc-solo-trigger" type="button" class="toc-trigger btn btn-outline-secondary btn-sm">
+      <span class="label ps-2 pe-1">文章内容</span>
+      <i class="fa-solid fa-angle-right fa-fw"></i>
+    </button>
+
+    <dialog id="toc-popup" class="p-0">
+      <div class="header d-flex flex-row align-items-center justify-content-between">
+        <div class="label text-truncate py-2 ms-4">Mysql45讲 锁</div>
+        <button id="toc-popup-close" type="button" class="btn mx-1 my-1 opacity-75">
+          <i class="fas fa-close"></i>
+        </button>
+      </div>
+      <div id="toc-popup-content" class="px-4 py-3 pb-4"></div>
+    </dialog>
+  
 
   <div class="content">
-    
+    <h2 id="全局锁"><span class="me-2">全局锁</span><a href="#全局锁" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+
+<div class="language-sql highlighter-rouge"><div class="code-header">
+        <span data-label-text="Sql"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="n">flush</span> <span class="n">tables</span> <span class="k">with</span> <span class="k">read</span> <span class="k">lock</span>
+</pre></td></tr></tbody></table></code></div></div>
+
+<p>执行后，<strong>整个数据库就处于只读状态了</strong></p>
+
+<h2 id="表级锁"><span class="me-2">表级锁</span><a href="#表级锁" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+
+<ul>
+  <li>
+    <p>表锁</p>
+
+    <ul>
+      <li>
+        <div class="language-powershell highlighter-rouge"><div class="code-header">
+        <span data-label-text="Powershell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre><span class="n">//</span><span class="err">表级别的共享锁，也就是读锁；</span><span class="w"> </span><span class="nx">//</span><span class="err">允许当前会话读取被锁定的表，但阻止其他会话对这些表进行写操作。</span><span class="w"> 
+</span><span class="n">lock</span><span class="w"> </span><span class="nx">tables</span><span class="w"> </span><span class="nx">t_student</span><span class="w"> </span><span class="nx">read</span><span class="p">;</span><span class="w"> 
+</span><span class="n">//</span><span class="err">表级别的独占锁，也就是写锁；</span><span class="w"> </span><span class="nx">//</span><span class="err">允许当前会话对表进行读写操作，但阻止其他会话对这些表进行任何操作（读或写）。</span><span class="w"> 
+</span><span class="n">lock</span><span class="w"> </span><span class="nx">tables</span><span class="w"> </span><span class="nx">t_stuent</span><span class="w"> </span><span class="nx">write</span><span class="p">;</span><span class="w">
+</span></pre></td></tr></tbody></table></code></div>        </div>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>元数据锁(MDL)</p>
+
+    <ul>
+      <li>我们不需要显示的使用 MDL，因为当我们对数据库表进行操作时，会自动给这个表加上 MDL：
+        <ul>
+          <li>对一张表进行 CRUD 操作时，加的是 MDL 读锁；</li>
+          <li>对一张表做结构变更操作的时候，加的是 MDL 写锁；</li>
+        </ul>
+      </li>
+      <li>MDL 是为了保证当用户对表执行 CRUD 操作时，防止其他线程对这个表结构做了变更。</li>
+    </ul>
+  </li>
+  <li>
+    <p>意向锁</p>
+
+    <ul>
+      <li>在使用 InnoDB 引擎的表里对某些记录加上「共享锁」之前，需要先在表级别加上一个「意向共享锁」；</li>
+      <li>在使用 InnoDB 引擎的表里对某些纪录加上「独占锁」之前，需要先在表级别加上一个「意向独占锁」；</li>
+      <li>也就是，当执行插入、更新、删除操作，需要先对表加上「意向独占锁」，然后对该记录加独占锁</li>
+      <li>意向共享锁和意向独占锁是表级锁，不会和行级的共享锁和独占锁发生冲突，而且意向锁之间也不会发生冲突，只会和共享表锁（lock tables … read）和独占表锁（lock tables … write）发生冲突。</li>
+      <li>意向锁的目的是为了快速判断表里是否有记录被加锁</li>
+    </ul>
+  </li>
+  <li>
+    <p>AUTO-INC锁</p>
+  </li>
+</ul>
+
+<h1 id="行级锁">行级锁</h1>
+
+<p>Record Lock 称为记录锁，锁住的是一条记录。而且记录锁是有 S 锁和 X 锁之分的：</p>
+
+<ul>
+  <li>当一个事务对一条记录加了 S 型记录锁后，其他事务也可以继续对该记录加 S 型记录锁（S 型与 S 锁兼容），但是不可以对该记录加 X 型记录锁（S 型与 X 锁不兼容）;</li>
+  <li>当一个事务对一条记录加了 X 型记录锁后，其他事务既不可以对该记录加 S 型记录锁（S 型与 X 锁不兼容），也不可以对该记录加 X 型记录锁（X 型与 X 锁不兼容）。</li>
+</ul>
+
+<p>Gap Lock 称为间隙锁，只存在于可重复读隔离级别，目的是为了解决可重复读隔离级别下幻读的现象。</p>
+
+<ul>
+  <li>假设，表中有一个范围 id 为（3，5）间隙锁，那么其他事务就无法插入 id = 4 这条记录了，这样就有效的防止幻读现象的发生。</li>
+  <li>Gap Lock之间会产生死锁</li>
+</ul>
+
+<p>Next-Key Lock</p>
+
+<ul>
+  <li>Next-Key Lock 称为临键锁，是 Record Lock + Gap Lock 的组合，锁定一个范围，并且锁定记录本身。- 假设，表中有一个范围 id 为（3，5] 的 next-key lock，那么其他事务即不能插入 id = 4 记录，也不能修改 id = 5 这条记录。</li>
+</ul>
+
+<p>插入意向锁</p>
+
+<ul>
+  <li>一个事务在插入一条记录的时候，需要判断插入位置是否已被其他事务加了间隙锁（next-key lock 也包含间隙锁）。尽管「插入意向锁」也属于间隙锁，但两个事务却不能在同一时间内，一个拥有间隙锁，另一个拥有该间隙区间内的插入意向锁</li>
+</ul>
 
   </div>
 
@@ -690,21 +838,21 @@
 
       
 
-      <a href="https://twitter.com/intent/tweet?text=Mysql45%E8%AE%B2%20%E9%87%8D%E6%96%B0%E8%AE%A4%E8%AF%86%E9%94%81%20-%20XiangZheng&url=https%3A%2F%2Fxiangzheng666.github.io%2Fposts%2Fmysql45%25E8%25AE%25B2-%25E9%2587%258D%25E6%2596%25B0%25E8%25AE%25A4%25E8%25AF%2586%25E9%2594%2581%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Twitter" aria-label="Twitter">
+      <a href="https://twitter.com/intent/tweet?text=Mysql45%E8%AE%B2%20%E9%94%81%20-%20XiangZheng&url=https%3A%2F%2Fxiangzheng666.github.io%2Fposts%2Fmysql45%25E8%25AE%25B2-%25E9%2594%2581%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Twitter" aria-label="Twitter">
         <i class="fa-fw fa-brands fa-square-x-twitter"></i>
       </a>
     
 
       
 
-      <a href="https://www.facebook.com/sharer/sharer.php?title=Mysql45%E8%AE%B2%20%E9%87%8D%E6%96%B0%E8%AE%A4%E8%AF%86%E9%94%81%20-%20XiangZheng&u=https%3A%2F%2Fxiangzheng666.github.io%2Fposts%2Fmysql45%25E8%25AE%25B2-%25E9%2587%258D%25E6%2596%25B0%25E8%25AE%25A4%25E8%25AF%2586%25E9%2594%2581%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Facebook" aria-label="Facebook">
+      <a href="https://www.facebook.com/sharer/sharer.php?title=Mysql45%E8%AE%B2%20%E9%94%81%20-%20XiangZheng&u=https%3A%2F%2Fxiangzheng666.github.io%2Fposts%2Fmysql45%25E8%25AE%25B2-%25E9%2594%2581%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Facebook" aria-label="Facebook">
         <i class="fa-fw fab fa-facebook-square"></i>
       </a>
     
 
       
 
-      <a href="https://t.me/share/url?url=https%3A%2F%2Fxiangzheng666.github.io%2Fposts%2Fmysql45%25E8%25AE%25B2-%25E9%2587%258D%25E6%2596%25B0%25E8%25AE%25A4%25E8%25AF%2586%25E9%2594%2581%2F&text=Mysql45%E8%AE%B2%20%E9%87%8D%E6%96%B0%E8%AE%A4%E8%AF%86%E9%94%81%20-%20XiangZheng" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Telegram" aria-label="Telegram">
+      <a href="https://t.me/share/url?url=https%3A%2F%2Fxiangzheng666.github.io%2Fposts%2Fmysql45%25E8%25AE%25B2-%25E9%2594%2581%2F&text=Mysql45%E8%AE%B2%20%E9%94%81%20-%20XiangZheng" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Telegram" aria-label="Telegram">
         <i class="fa-fw fab fa-telegram"></i>
       </a>
     
@@ -881,6 +1029,145 @@
     
     
     
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
       
         
         
@@ -1176,149 +1463,6 @@
     
     
       
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
     
   
     
@@ -2506,6 +2650,9 @@
     <div class="d-flex flex-wrap mt-3 mb-1 me-3">
       
         
+        <a class="post-tag btn btn-outline-primary" href="/tags/mysql/">mysql</a>
+      
+        
         <a class="post-tag btn btn-outline-primary" href="/tags/hadoop/">hadoop</a>
       
         
@@ -2516,9 +2663,6 @@
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/hive/">Hive</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/mysql/">mysql</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/mq/">MQ</a>
@@ -2549,6 +2693,12 @@
 
 
 
+
+  <div class="toc-border-cover z-3"></div>
+  <section id="toc-wrapper" class="invisible position-sticky ps-0 pe-4 pb-4">
+    <h2 class="panel-heading ps-3 pb-2 mb-0">文章内容</h2>
+    <nav id="toc"></nav>
+  </section>
 
 
             
@@ -2611,6 +2761,30 @@
   
 
   
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
     
 
 
@@ -2627,7 +2801,7 @@
     <nav class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 mb-4">
       
         <article class="col">
-          <a href="/posts/mysql45%E8%AE%B2-%E9%87%8D%E6%96%B0%E8%AE%A4%E8%AF%86%E7%B4%A2%E5%BC%95/" class="post-preview card h-100">
+          <a href="/posts/mysql45%E8%AE%B2-%E7%B4%A2%E5%BC%95/" class="post-preview card h-100">
             <div class="card-body">
               <!--
   Date format snippet
@@ -2646,16 +2820,16 @@
   2023/10/18
 </time>
 
-              <h4 class="pt-0 my-2">Mysql45讲 重新认识索引</h4>
+              <h4 class="pt-0 my-2">Mysql45讲 索引</h4>
               <div class="text-muted">
-                <p></p>
+                <p>使用     在k索引树上找到记录，取得 ID ；   再到ID索引树查到ID对应的数据；   重复1，2，直到不满足条件，循环结束。   在这个过程中， 回到主键索引树搜索的过程，称为回表 。     覆盖索引：索引k已经“覆盖了”我们的查询需求，我们称为覆盖索引，无需回表   最左前缀原则：最左前缀可以是联合索引的最左N个字段，也可以是字符串索引的最左M个字符。   索引下推：索引内部就...</p>
               </div>
             </div>
           </a>
         </article>
       
         <article class="col">
-          <a href="/posts/mysql45%E8%AE%B2-%E9%87%8D%E6%96%B0%E8%AE%A4%E8%AF%86sql/" class="post-preview card h-100">
+          <a href="/posts/mysql45%E8%AE%B2-%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB/" class="post-preview card h-100">
             <div class="card-body">
               <!--
   Date format snippet
@@ -2667,16 +2841,44 @@
 
 <time
   
-  data-ts="1696694400"
+  data-ts="1695830400"
   data-df="YYYY/MM/DD"
   
 >
-  2023/10/08
+  2023/09/28
 </time>
 
-              <h4 class="pt-0 my-2">Mysql45讲 重新认识sql</h4>
+              <h4 class="pt-0 my-2">Mysql45讲 隔离级别</h4>
               <div class="text-muted">
-                <p></p>
+                <p>隔离级别     未提交（read uncommitted），指一个事务还没提交时，它做的变更就能被其他事务看到；   读提交（read committed），指一个事务提交之后，它做的变更才能被其他事务看到；   可重复读（repeatable read），指一个事务执行过程中看到的数据，一直跟这个事务启动时看到的数据是一致的，MySQL InnoDB 引擎的默认隔离级别；   串行化（s...</p>
+              </div>
+            </div>
+          </a>
+        </article>
+      
+        <article class="col">
+          <a href="/posts/mysql45%E8%AE%B2-%E6%97%A5%E5%BF%97/" class="post-preview card h-100">
+            <div class="card-body">
+              <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1694966400"
+  data-df="YYYY/MM/DD"
+  
+>
+  2023/09/18
+</time>
+
+              <h4 class="pt-0 my-2">Mysql45讲 日志</h4>
+              <div class="text-muted">
+                <p>Undo Log     实现不同隔离级别   保证事务原子性   Redo Log  在MySQL里有个问题，如果每一次的更新操作都需要写进磁盘，然后磁盘也要找到对应的那条记录，然后再更新，整个过程IO成本、查找成本都很高。  WAL技术：WAL的全称是Write-Ahead Logging，它的关键点就是先写日志，再写磁盘  InnoDB的redo log是固定大小的，从头开始写，写到末...</p>
               </div>
             </div>
           </a>
@@ -2697,11 +2899,11 @@
 
   
     <a
-      href="/posts/mysql45%E8%AE%B2-%E9%87%8D%E6%96%B0%E8%AE%A4%E8%AF%86%E7%B4%A2%E5%BC%95/"
+      href="/posts/mysql45%E8%AE%B2-%E7%B4%A2%E5%BC%95/"
       class="btn btn-outline-primary"
       aria-label="上一篇"
     >
-      <p>Mysql45讲 重新认识索引</p>
+      <p>Mysql45讲 索引</p>
     </a>
   
 
@@ -2848,6 +3050,145 @@
     
     
     
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
       
         
         
@@ -3143,149 +3484,6 @@
     
     
       
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
     
   
     
@@ -4473,6 +4671,9 @@
     <div class="d-flex flex-wrap mt-3 mb-1 me-3">
       
         
+        <a class="post-tag btn btn-outline-primary" href="/tags/mysql/">mysql</a>
+      
+        
         <a class="post-tag btn btn-outline-primary" href="/tags/hadoop/">hadoop</a>
       
         
@@ -4483,9 +4684,6 @@
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/hive/">Hive</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/mysql/">mysql</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/mq/">MQ</a>

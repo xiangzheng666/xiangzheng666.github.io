@@ -687,17 +687,17 @@
     </article>
   
     <article class="card-wrapper card">
-      <a href="/posts/mysql45%E8%AE%B2-%E9%87%8D%E6%96%B0%E8%AE%A4%E8%AF%86%E9%94%81/" class="post-preview row g-0 flex-md-row-reverse">
+      <a href="/posts/mysql45%E8%AE%B2-%E9%94%81/" class="post-preview row g-0 flex-md-row-reverse">
         
 
         
 
         <div class="col-md-12">
           <div class="card-body d-flex flex-column">
-            <h1 class="card-title my-2 mt-md-0">Mysql45讲 重新认识锁</h1>
+            <h1 class="card-title my-2 mt-md-0">Mysql45讲 锁</h1>
 
             <div class="card-text content mt-0 mb-3">
-              <p></p>
+              <p>全局锁  flush tables with read lock   执行后，整个数据库就处于只读状态了  表级锁          表锁                      //表级别的共享锁，也就是读锁； //允许当前会话读取被锁定的表，但阻止其他会话对这些表进行写操作。  lock tables t_student read;  //表级别的独占锁，也就是写锁； //允许当前会话...</p>
             </div>
 
             <div class="post-meta flex-grow-1 d-flex align-items-end">
@@ -742,17 +742,17 @@
     </article>
   
     <article class="card-wrapper card">
-      <a href="/posts/mysql45%E8%AE%B2-%E9%87%8D%E6%96%B0%E8%AE%A4%E8%AF%86%E7%B4%A2%E5%BC%95/" class="post-preview row g-0 flex-md-row-reverse">
+      <a href="/posts/mysql45%E8%AE%B2-%E7%B4%A2%E5%BC%95/" class="post-preview row g-0 flex-md-row-reverse">
         
 
         
 
         <div class="col-md-12">
           <div class="card-body d-flex flex-column">
-            <h1 class="card-title my-2 mt-md-0">Mysql45讲 重新认识索引</h1>
+            <h1 class="card-title my-2 mt-md-0">Mysql45讲 索引</h1>
 
             <div class="card-text content mt-0 mb-3">
-              <p></p>
+              <p>使用     在k索引树上找到记录，取得 ID ；   再到ID索引树查到ID对应的数据；   重复1，2，直到不满足条件，循环结束。   在这个过程中， 回到主键索引树搜索的过程，称为回表 。     覆盖索引：索引k已经“覆盖了”我们的查询需求，我们称为覆盖索引，无需回表   最左前缀原则：最左前缀可以是联合索引的最左N个字段，也可以是字符串索引的最左M个字符。   索引下推：索引内部就...</p>
             </div>
 
             <div class="post-meta flex-grow-1 d-flex align-items-end">
@@ -797,17 +797,17 @@
     </article>
   
     <article class="card-wrapper card">
-      <a href="/posts/mysql45%E8%AE%B2-%E9%87%8D%E6%96%B0%E8%AE%A4%E8%AF%86sql/" class="post-preview row g-0 flex-md-row-reverse">
+      <a href="/posts/mysql45%E8%AE%B2-%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB/" class="post-preview row g-0 flex-md-row-reverse">
         
 
         
 
         <div class="col-md-12">
           <div class="card-body d-flex flex-column">
-            <h1 class="card-title my-2 mt-md-0">Mysql45讲 重新认识sql</h1>
+            <h1 class="card-title my-2 mt-md-0">Mysql45讲 隔离级别</h1>
 
             <div class="card-text content mt-0 mb-3">
-              <p></p>
+              <p>隔离级别     未提交（read uncommitted），指一个事务还没提交时，它做的变更就能被其他事务看到；   读提交（read committed），指一个事务提交之后，它做的变更才能被其他事务看到；   可重复读（repeatable read），指一个事务执行过程中看到的数据，一直跟这个事务启动时看到的数据是一致的，MySQL InnoDB 引擎的默认隔离级别；   串行化（s...</p>
             </div>
 
             <div class="post-meta flex-grow-1 d-flex align-items-end">
@@ -824,11 +824,121 @@
 
 <time
   
-  data-ts="1696694400"
+  data-ts="1695830400"
   data-df="YYYY/MM/DD"
   
 >
-  2023/10/08
+  2023/09/28
+</time>
+
+
+                <!-- categories -->
+                
+                  <i class="far fa-folder-open fa-fw me-1"></i>
+                  <span class="categories">
+                    
+                      mysql
+                  </span>
+                
+              </div>
+
+              
+            </div>
+            <!-- .post-meta -->
+          </div>
+          <!-- .card-body -->
+        </div>
+      </a>
+    </article>
+  
+    <article class="card-wrapper card">
+      <a href="/posts/mysql45%E8%AE%B2-%E6%97%A5%E5%BF%97/" class="post-preview row g-0 flex-md-row-reverse">
+        
+
+        
+
+        <div class="col-md-12">
+          <div class="card-body d-flex flex-column">
+            <h1 class="card-title my-2 mt-md-0">Mysql45讲 日志</h1>
+
+            <div class="card-text content mt-0 mb-3">
+              <p>Undo Log     实现不同隔离级别   保证事务原子性   Redo Log  在MySQL里有个问题，如果每一次的更新操作都需要写进磁盘，然后磁盘也要找到对应的那条记录，然后再更新，整个过程IO成本、查找成本都很高。  WAL技术：WAL的全称是Write-Ahead Logging，它的关键点就是先写日志，再写磁盘  InnoDB的redo log是固定大小的，从头开始写，写到末...</p>
+            </div>
+
+            <div class="post-meta flex-grow-1 d-flex align-items-end">
+              <div class="me-auto">
+                <!-- posted date -->
+                <i class="far fa-calendar fa-fw me-1"></i>
+                <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1694966400"
+  data-df="YYYY/MM/DD"
+  
+>
+  2023/09/18
+</time>
+
+
+                <!-- categories -->
+                
+                  <i class="far fa-folder-open fa-fw me-1"></i>
+                  <span class="categories">
+                    
+                      mysql
+                  </span>
+                
+              </div>
+
+              
+            </div>
+            <!-- .post-meta -->
+          </div>
+          <!-- .card-body -->
+        </div>
+      </a>
+    </article>
+  
+    <article class="card-wrapper card">
+      <a href="/posts/mysql45%E8%AE%B2-sql/" class="post-preview row g-0 flex-md-row-reverse">
+        
+
+        
+
+        <div class="col-md-12">
+          <div class="card-body d-flex flex-column">
+            <h1 class="card-title my-2 mt-md-0">Mysql45讲 Sql</h1>
+
+            <div class="card-text content mt-0 mb-3">
+              <p>连接器  建立连接的过程通常是比较复杂的，在使用中要尽量减少建立连接的动作，也就是尽量使用长连接。  但是全部使用长连接后，你可能会发现，有些时候MySQL占用内存涨得特别快，这是因为MySQL在执行过程中临时使用的内存是管理在连接对象里面的。这些资源会在连接断开的时候才释放。所以如果长连接累积下来，可能导致内存占用太大，被系统强行杀掉（OOM），从现象看就是MySQL异常重启了。  怎么解...</p>
+            </div>
+
+            <div class="post-meta flex-grow-1 d-flex align-items-end">
+              <div class="me-auto">
+                <!-- posted date -->
+                <i class="far fa-calendar fa-fw me-1"></i>
+                <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1694102400"
+  data-df="YYYY/MM/DD"
+  
+>
+  2023/09/08
 </time>
 
 
@@ -939,116 +1049,6 @@
   
 >
   2023/08/28
-</time>
-
-
-                <!-- categories -->
-                
-                  <i class="far fa-folder-open fa-fw me-1"></i>
-                  <span class="categories">
-                    
-                      redis
-                  </span>
-                
-              </div>
-
-              
-            </div>
-            <!-- .post-meta -->
-          </div>
-          <!-- .card-body -->
-        </div>
-      </a>
-    </article>
-  
-    <article class="card-wrapper card">
-      <a href="/posts/redis%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E6%88%98-redis%E5%AE%9E%E6%88%98%E5%8A%9F%E8%83%BD/" class="post-preview row g-0 flex-md-row-reverse">
-        
-
-        
-
-        <div class="col-md-12">
-          <div class="card-body d-flex flex-column">
-            <h1 class="card-title my-2 mt-md-0">Redis设计与实战 Redis实战功能</h1>
-
-            <div class="card-text content mt-0 mb-3">
-              <p>慢查询日志  Redis 的慢查询日志功能用于记录执行时间超过给定时长的命令请求， 用户可以通过这个功能产生的日志来监视和优化查询速度。  服务器配置有两个和慢查询日志相关的选项：     slowlog-log-slower-than 选项指定执行时间超过多少微秒（1 秒等于 1,000,000 微秒）的命令请求会被记录到日志上。 举个例子， 如果这个选项的值为 100 ， 那么执行时间超...</p>
-            </div>
-
-            <div class="post-meta flex-grow-1 d-flex align-items-end">
-              <div class="me-auto">
-                <!-- posted date -->
-                <i class="far fa-calendar fa-fw me-1"></i>
-                <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1693152000"
-  data-df="YYYY/MM/DD"
-  
->
-  2023/08/28
-</time>
-
-
-                <!-- categories -->
-                
-                  <i class="far fa-folder-open fa-fw me-1"></i>
-                  <span class="categories">
-                    
-                      redis
-                  </span>
-                
-              </div>
-
-              
-            </div>
-            <!-- .post-meta -->
-          </div>
-          <!-- .card-body -->
-        </div>
-      </a>
-    </article>
-  
-    <article class="card-wrapper card">
-      <a href="/posts/redis%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E6%88%98-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="post-preview row g-0 flex-md-row-reverse">
-        
-
-        
-
-        <div class="col-md-12">
-          <div class="card-body d-flex flex-column">
-            <h1 class="card-title my-2 mt-md-0">Redis设计与实战 数据结构</h1>
-
-            <div class="card-text content mt-0 mb-3">
-              <p>简单动态字符串SDS  Redis 没有直接使用 C 语言传统的字符串表示（以空字符结尾的字符数组，以下简称 C 字符串）， 而是自己构建了一种名为简单动态字符串（simple dynamic string，SDS）的抽象类型， 并将 SDS 用作 Redis 的默认字符串表示。  struct sdshdr {    // 记录 buf 数组中已使用字节的数量     // 等于 SDS ...</p>
-            </div>
-
-            <div class="post-meta flex-grow-1 d-flex align-items-end">
-              <div class="me-auto">
-                <!-- posted date -->
-                <i class="far fa-calendar fa-fw me-1"></i>
-                <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1692460800"
-  data-df="YYYY/MM/DD"
-  
->
-  2023/08/20
 </time>
 
 
@@ -1265,12 +1265,25 @@
       
 
       
+        <!-- hide number -->
+        
+      
+    
+      
+      
+      
+      
+      
+
+      
+
+      
         <!-- show number -->
         <li class="page-item ">
           <a
             class="page-link"
-            href="/page12"
-          >12</a>
+            href="/page13"
+          >13</a>
         </li>
       
     
@@ -1278,7 +1291,7 @@
     <!-- mobile pagination -->
     <li class="page-index align-middle">
       <span>2</span>
-      <span class="text-muted">/ 12</span>
+      <span class="text-muted">/ 13</span>
     </li>
 
     <!-- right arrow -->
@@ -1447,6 +1460,145 @@
     
     
     
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
       
         
         
@@ -1742,149 +1894,6 @@
     
     
       
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
     
   
     
@@ -3072,6 +3081,9 @@
     <div class="d-flex flex-wrap mt-3 mb-1 me-3">
       
         
+        <a class="post-tag btn btn-outline-primary" href="/tags/mysql/">mysql</a>
+      
+        
         <a class="post-tag btn btn-outline-primary" href="/tags/hadoop/">hadoop</a>
       
         
@@ -3082,9 +3094,6 @@
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/hive/">Hive</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/mysql/">mysql</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/mq/">MQ</a>
@@ -3246,6 +3255,145 @@
     
     
     
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
       
         
         
@@ -3541,149 +3689,6 @@
     
     
       
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
     
   
     
@@ -4871,6 +4876,9 @@
     <div class="d-flex flex-wrap mt-3 mb-1 me-3">
       
         
+        <a class="post-tag btn btn-outline-primary" href="/tags/mysql/">mysql</a>
+      
+        
         <a class="post-tag btn btn-outline-primary" href="/tags/hadoop/">hadoop</a>
       
         
@@ -4881,9 +4889,6 @@
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/hive/">Hive</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/mysql/">mysql</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/mq/">MQ</a>
