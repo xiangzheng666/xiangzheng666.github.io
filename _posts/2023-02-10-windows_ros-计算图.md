@@ -3,8 +3,8 @@ categories: [windows_ros]
 tags: [计算图]
 ---
 # 1.
-
-计算图（Computation Graph）](http://wiki.ros.org/cn/ROS/Concepts#ROS.2Bi6F7l1b.2BXEJrIQ-)是一个由ROS进程组成的点对点网络，它们能够共同处理数据。ROS的基本计算图概念有节点（Nodes）、主节点（Master）、参数服务器（Parameter Server）、消息（Messages）、服务（Services）、话题（Topics）和袋（Bags），它们都以不同的方式向图（Graph）提供数据。
+![计算图（Computation](http://www.autolabor.com.cn/book/ROSTutorials/assets/%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F.jpg)
+计算图（Computation Graph）是一个由ROS进程组成的点对点网络，它们能够共同处理数据。ROS的基本计算图概念有节点（Nodes）、主节点（Master）、参数服务器（Parameter Server）、消息（Messages）、服务（Services）、话题（Topics）和袋（Bags），它们都以不同的方式向图（Graph）提供数据。
 
 - [节点（Nodes）](http://wiki.ros.org/Nodes)：节点是一个可执行文件，它可以通过ROS来与其他节点进行通信。
 - [消息（Messages）](http://wiki.ros.org/Messages)：订阅或发布话题时所使用的ROS数据类型。
