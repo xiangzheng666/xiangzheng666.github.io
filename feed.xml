@@ -4,7 +4,7 @@
   <id>https://xiangzheng666.github.io/</id>
   <title>XiangZheng</title>
   <subtitle>The more you learn, the stronger you become.</subtitle>
-  <updated>2025-08-15T22:41:39+08:00</updated>
+  <updated>2025-10-12T21:21:47+08:00</updated>
   <author>
     <name>xiangzheng666</name>
     <uri>https://xiangzheng666.github.io/</uri>
@@ -20,25 +20,73 @@
 
   
   <entry>
-    <title>Java并发 锁</title>
-    <link href="https://xiangzheng666.github.io/posts/java%E5%B9%B6%E5%8F%91-%E9%94%81/" rel="alternate" type="text/html" title="Java并发 锁" />
-    <published>2024-07-12T00:00:00+08:00</published>
+    <title>Python管理器uv</title>
+    <link href="https://xiangzheng666.github.io/posts/python%E7%AE%A1%E7%90%86%E5%99%A8uv/" rel="alternate" type="text/html" title="Python管理器uv" />
+    <published>2025-10-12T00:00:00+08:00</published>
   
-    <updated>2024-07-12T00:00:00+08:00</updated>
+    <updated>2025-10-12T00:00:00+08:00</updated>
   
-    <id>https://xiangzheng666.github.io/posts/java%E5%B9%B6%E5%8F%91-%E9%94%81/</id>
-    <content type="text/html" src="https://xiangzheng666.github.io/posts/java%E5%B9%B6%E5%8F%91-%E9%94%81/" />
+    <id>https://xiangzheng666.github.io/posts/python%E7%AE%A1%E7%90%86%E5%99%A8uv/</id>
+    <content type="text/html" src="https://xiangzheng666.github.io/posts/python%E7%AE%A1%E7%90%86%E5%99%A8uv/" />
     <author>
       <name>xiangzheng666</name>
     </author>
 
   
     
-    <category term="java并发" />
+    <category term="Python" />
     
   
 
-  <summary></summary>
+  <summary>一、uv 简介  特点：    🚀 极快：基于 Rust 实现，比 pip/Poetry 快数十倍。   🧩 一体化：支持虚拟环境、依赖安装、项目构建、发布。   🛠️ 兼容性好：兼容 pyproject.toml、requirements.txt、Pipfile 等格式。   🔒 可复现：支持锁定依赖（uv.lock），确保环境一致。     二、安装 uv  方式 1：官方推荐安装 curl -LsSf https://astral.sh/uv/install.sh | sh   方式 2：使用 pipx 安装 pipx install uv   验证安装 uv --version     三、常用命令概览                 命令       说明                       uv init       初始化 Python 项目          ...</summary>
+
+  </entry>
+
+  
+  <entry>
+    <title>Git常用场景</title>
+    <link href="https://xiangzheng666.github.io/posts/git%E5%B8%B8%E7%94%A8%E5%9C%BA%E6%99%AF/" rel="alternate" type="text/html" title="Git常用场景" />
+    <published>2025-07-12T00:00:00+08:00</published>
+  
+    <updated>2025-07-12T00:00:00+08:00</updated>
+  
+    <id>https://xiangzheng666.github.io/posts/git%E5%B8%B8%E7%94%A8%E5%9C%BA%E6%99%AF/</id>
+    <content type="text/html" src="https://xiangzheng666.github.io/posts/git%E5%B8%B8%E7%94%A8%E5%9C%BA%E6%99%AF/" />
+    <author>
+      <name>xiangzheng666</name>
+    </author>
+
+  
+    
+    <category term="Git" />
+    
+  
+
+  <summary>一、常见协作模型  1. Git Flow 工作流 Git Flow 是最经典的分支管理模型：     master/main：存放稳定、可发布的版本。   develop：主要开发分支，集成新功能。   feature/*：开发新功能的临时分支。   release/*：预发布版本。   hotfix/*：线上紧急修复。   # 创建功能分支 git checkout -b feature/login develop  # 功能完成后合并 git checkout develop git merge feature/login  # 删除已合并分支 git branch -d feature/login   2. GitHub Flow 简化版本的工作流：    直接从 main 创建分支。   开发完成后通过 Pull Request 进行代码审查。   审查通过后合并回 mai...</summary>
+
+  </entry>
+
+  
+  <entry>
+    <title>Git基础命令</title>
+    <link href="https://xiangzheng666.github.io/posts/git%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/" rel="alternate" type="text/html" title="Git基础命令" />
+    <published>2025-06-12T00:00:00+08:00</published>
+  
+    <updated>2025-06-12T00:00:00+08:00</updated>
+  
+    <id>https://xiangzheng666.github.io/posts/git%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/</id>
+    <content type="text/html" src="https://xiangzheng666.github.io/posts/git%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/" />
+    <author>
+      <name>xiangzheng666</name>
+    </author>
+
+  
+    
+    <category term="Git" />
+    
+  
+
+  <summary>一、Git 基本概念  Git 是一个 分布式版本控制系统，可以记录文件的历史修改，支持多人协作开发。                 名称       含义       作用                       工作区（Working Directory）       当前看到的项目目录       编写代码、修改文件的地方                 暂存区（Staging Area / Index）       一个临时存放修改的区域       用来组织下一次要提交的内容                 本地仓库（Local Repository）       存放所有提交历史的数据库       保存完整版本历史，可以离线操作                 远程仓库（Remote Repository）       托管在服务器上的仓库       多人协作、...</summary>
 
   </entry>
 
@@ -87,54 +135,6 @@
   
 
   <summary>HLS HLS技术的特点是将流媒体切分为若干【TS片段】（比如几秒一段），然后通过一个【M3U8列表文件】将这些TS片段批量下载供客户端播放器实现实时流式播放.  M3U文件 #EXTM3U:每个M3U文件第一行必须是这个tag标识。(简单了解) #EXT-X-VERSION:版本，此属性可用可不用。(简单了解) #EXT-X-TARGETDURATION:目标持续时间，是用来定义每个TS的【最大】duration（持续时间）。(简单了解) #EXT-X-ALLOW-CACHE是否允许允许高速缓存。(简单了解) #EXT-X-MEDIA-SEQUENCE定义当前M3U8文件中第一个文件的序列号，每个ts文件在M3U8文件中都有固定唯一的序列号。(简单了解) #EXT-X-DISCONTINUITY:播放器重新初始化(简单了解) #EXT-X-KEY定义加密方式，用来加密的密钥文件ke...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>逆向 抓包</title>
-    <link href="https://xiangzheng666.github.io/posts/%E9%80%86%E5%90%91-%E6%8A%93%E5%8C%85/" rel="alternate" type="text/html" title="逆向 抓包" />
-    <published>2024-05-08T00:00:00+08:00</published>
-  
-    <updated>2024-05-08T00:00:00+08:00</updated>
-  
-    <id>https://xiangzheng666.github.io/posts/%E9%80%86%E5%90%91-%E6%8A%93%E5%8C%85/</id>
-    <content type="text/html" src="https://xiangzheng666.github.io/posts/%E9%80%86%E5%90%91-%E6%8A%93%E5%8C%85/" />
-    <author>
-      <name>xiangzheng666</name>
-    </author>
-
-  
-    
-    <category term="逆向" />
-    
-  
-
-  <summary>Flutter对抗    Dart语言标准库的网络请求不走Wi-Fi代{过}{滤}理：Flutter使用的是Dart语言，其标准库中的网络请求不会通过代{过}{滤}理发送，这与许多其他应用不同。常规的抓包工具通常依赖于代{过}{滤}理来捕获网络流量，因此无法捕获Flutter应用的网络请求。   Dart SDK中的证书信任：Dart SDK在Android平台上强制只信任系统目录下的证书。这意味着Flutter应用不会信任用户安装的证书，除非这些证书位于Android系统的&amp;amp;lt;font style=&amp;quot;color:rgb(68, 68, 68);&amp;quot;&amp;amp;gt;/system/etc/security/cacerts&amp;amp;lt;/font&amp;amp;gt;目录中。这是通过Dart源码中的&amp;amp;lt;font style=&amp;quot;color:rgb(68, 68, 68);&amp;quot;&amp;amp;gt;runtime/bin/se...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>逆向 签名校验</title>
-    <link href="https://xiangzheng666.github.io/posts/%E9%80%86%E5%90%91-%E7%AD%BE%E5%90%8D%E6%A0%A1%E9%AA%8C/" rel="alternate" type="text/html" title="逆向 签名校验" />
-    <published>2024-04-28T00:00:00+08:00</published>
-  
-    <updated>2024-04-28T00:00:00+08:00</updated>
-  
-    <id>https://xiangzheng666.github.io/posts/%E9%80%86%E5%90%91-%E7%AD%BE%E5%90%8D%E6%A0%A1%E9%AA%8C/</id>
-    <content type="text/html" src="https://xiangzheng666.github.io/posts/%E9%80%86%E5%90%91-%E7%AD%BE%E5%90%8D%E6%A0%A1%E9%AA%8C/" />
-    <author>
-      <name>xiangzheng666</name>
-    </author>
-
-  
-    
-    <category term="逆向" />
-    
-  
-
-  <summary>签名 没有被签名的 Apk，则会被拒绝安装  Android 目前支持以下四种应用签名方案：    v1 方案：基于 JAR 签名。    v2 方案：APK 签名方案 v2（在 Android 7.0 中引入）    v3 方案：APK 签名方案 v3（在 Android 9 中引入）    v4 方案：APK 签名方案 v4（在 Android 11 中引入）  V1 签名的机制三个文件，MANIFEST.MF，ANDROID.SF，ANDROID.RSA.    （1）MANIFEST.MF：这是摘要文件。程序遍历Apk包中的所有文件(entry)，对非文件夹非签名文件的文件，逐个用SHA1(安全哈希算法)生成摘要信息，再用Base64进行编码。如果你改变了apk包中的文件，那么在apk安装校验时，改变后的文件摘要信息与MANIFEST.MF的检验信息不同，于是程序就不能成功安...</summary>
 
   </entry>
 
