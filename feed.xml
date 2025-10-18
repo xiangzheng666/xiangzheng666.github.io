@@ -4,7 +4,7 @@
   <id>https://xiangzheng666.github.io/</id>
   <title>XiangZheng</title>
   <subtitle>The more you learn, the stronger you become.</subtitle>
-  <updated>2025-10-12T21:21:47+08:00</updated>
+  <updated>2025-10-18T22:10:22+08:00</updated>
   <author>
     <name>xiangzheng666</name>
     <uri>https://xiangzheng666.github.io/</uri>
@@ -34,11 +34,11 @@
 
   
     
-    <category term="Python" />
+    <category term="AI" />
     
   
 
-  <summary>一、uv 简介  特点：    🚀 极快：基于 Rust 实现，比 pip/Poetry 快数十倍。   🧩 一体化：支持虚拟环境、依赖安装、项目构建、发布。   🛠️ 兼容性好：兼容 pyproject.toml、requirements.txt、Pipfile 等格式。   🔒 可复现：支持锁定依赖（uv.lock），确保环境一致。     二、安装 uv  方式 1：官方推荐安装 curl -LsSf https://astral.sh/uv/install.sh | sh   方式 2：使用 pipx 安装 pipx install uv   验证安装 uv --version     三、常用命令概览                 命令       说明                       uv init       初始化 Python 项目          ...</summary>
+  <summary>uv中文文档  一、uv 简介  特点：    🚀 极快：基于 Rust 实现，比 pip/Poetry 快数十倍。   🧩 一体化：支持虚拟环境、依赖安装、项目构建、发布。   🛠️ 兼容性好：兼容 pyproject.toml、requirements.txt、Pipfile 等格式。   🔒 可复现：支持锁定依赖（uv.lock），确保环境一致。     二、安装 uv  方式 1：官方推荐安装 curl -LsSf https://astral.sh/uv/install.sh | sh   方式 2：使用 pipx 安装 pipx install uv   验证安装 uv --version     三、常用命令概览                 命令       说明                       uv init       初始化 Python 项目  ...</summary>
 
   </entry>
 
